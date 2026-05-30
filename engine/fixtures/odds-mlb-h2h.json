@@ -1,0 +1,54 @@
+[
+  {
+    "id": "game1", "sport_key": "baseball_mlb", "commence_time": "2026-05-30T22:10:00Z",
+    "home_team": "Chicago White Sox", "away_team": "Detroit Tigers",
+    "bookmakers": [
+      { "key": "draftkings", "title": "DraftKings", "markets": [
+        { "key": "h2h", "outcomes": [
+          { "name": "Detroit Tigers", "price": 2.10 },
+          { "name": "Chicago White Sox", "price": 1.80 } ] } ] },
+      { "key": "fanduel", "title": "FanDuel", "markets": [
+        { "key": "h2h", "outcomes": [
+          { "name": "Detroit Tigers", "price": 1.95 },
+          { "name": "Chicago White Sox", "price": 1.95 } ] } ] },
+      { "key": "betmgm", "title": "BetMGM", "markets": [
+        { "key": "h2h", "outcomes": [
+          { "name": "Detroit Tigers", "price": 1.93 },
+          { "name": "Chicago White Sox", "price": 1.97 } ] } ] },
+      { "key": "bet365", "title": "Bet365", "markets": [
+        { "key": "h2h", "outcomes": [
+          { "name": "Detroit Tigers", "price": 1.96 },
+          { "name": "Chicago White Sox", "price": 1.94 } ] } ] },
+      { "key": "caesars", "title": "Caesars", "markets": [
+        { "key": "h2h", "outcomes": [
+          { "name": "Detroit Tigers", "price": 1.94 },
+          { "name": "Chicago White Sox", "price": 1.96 } ] } ] }
+    ]
+  },
+  {
+    "id": "game2", "sport_key": "baseball_mlb", "commence_time": "2026-05-30T23:05:00Z",
+    "home_team": "Boston Red Sox", "away_team": "New York Yankees",
+    "bookmakers": [
+      { "key": "fanduel", "title": "FanDuel", "markets": [
+        { "key": "h2h", "outcomes": [
+          { "name": "New York Yankees", "price": 1.90 },
+          { "name": "Boston Red Sox", "price": 2.00 } ] } ] },
+      { "key": "caesars", "title": "Caesars", "markets": [
+        { "key": "h2h", "outcomes": [
+          { "name": "New York Yankees", "price": 1.92 },
+          { "name": "Boston Red Sox", "price": 1.98 } ] } ] },
+      { "key": "bet365", "title": "Bet365", "markets": [
+        { "key": "h2h", "outcomes": [
+          { "name": "New York Yankees", "price": 1.91 },
+          { "name": "Boston Red Sox", "price": 1.99 } ] } ] },
+      { "key": "draftkings", "title": "DraftKings", "markets": [
+        { "key": "h2h", "outcomes": [
+          { "name": "New York Yankees", "price": 1.93 },
+          { "name": "Boston Red Sox", "price": 1.97 } ] } ] },
+      { "key": "betmgm", "title": "BetMGM", "markets": [
+        { "key": "h2h", "outcomes": [
+          { "name": "New York Yankees", "price": 2.02 },
+          { "name": "Boston Red Sox", "price": 1.90 } ] } ] }
+    ]
+  }
+]
