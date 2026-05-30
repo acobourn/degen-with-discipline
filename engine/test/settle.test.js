@@ -11,10 +11,12 @@ test("gradeTotal grades over/under against the final combined score", () => {
   assert.equal(gradeTotal({ outcomeName: "Over 8.5", point: 8.5 }, { final: false }), null);
 });
 
-test("teamMatches handles spelling/format differences", () => {
+test("teamMatches: subset OK, shared-suffix collision rejected (the critical fix)", () => {
   assert.equal(teamMatches("Detroit Tigers", "Detroit Tigers"), true);
-  assert.equal(teamMatches("NY Yankees", "New York Yankees"), true); // shared mascot 'yankees'
+  assert.equal(teamMatches("Athletics", "Oakland Athletics"), true);          // legit subset
   assert.equal(teamMatches("Detroit Tigers", "Chicago White Sox"), false);
+  assert.equal(teamMatches("Manchester United", "Newcastle United"), false);  // NOT a shared-suffix match
+  assert.equal(teamMatches("Chicago White Sox", "Chicago Cubs"), false);      // same city, different team
 });
 
 test("gradeMoneyline returns W/L/null", () => {

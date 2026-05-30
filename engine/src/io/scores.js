@@ -28,12 +28,16 @@ export function normalizeScoreboard(data) {
     const home = (comp.competitors || []).find((c) => c.homeAway === "home");
     const away = (comp.competitors || []).find((c) => c.homeAway === "away");
     if (!home || !away) continue;
+    const homeScore = Number(home.score);
+    const awayScore = Number(away.score);
+    const completed = !!(comp.status && comp.status.type && comp.status.type.completed);
     out.push({
       homeTeam: home.team && home.team.displayName,
       awayTeam: away.team && away.team.displayName,
-      homeScore: Number(home.score),
-      awayScore: Number(away.score),
-      final: !!(comp.status && comp.status.type && comp.status.type.completed)
+      homeScore,
+      awayScore,
+      // only "final" if BOTH scores are real numbers — a blank score must NOT become a 0-0
+      final: completed && Number.isFinite(homeScore) && Number.isFinite(awayScore)
     });
   }
   return out;

@@ -27,10 +27,14 @@ export function buildMlbSignal({ home, away, homeRec, awayRec, homeEra, awayEra 
       note: `${home} ${homeEra.toFixed(2)} · ${away} ${awayEra.toFixed(2)} ERA` });
     dataPoints += 12;
   }
-  let leanTeam = null, modelLean = 0;
+  let leanTeam = null, modelLean = 0, strong = false;
   const gap = homeScore - awayScore;
-  if (Math.abs(gap) >= 0.12) { leanTeam = gap > 0 ? home : away; modelLean = 1; }
-  return { modelLean, leanTeam, dataPoints, factors };
+  if (Math.abs(gap) >= 0.12) {
+    leanTeam = gap > 0 ? home : away;
+    modelLean = 1;
+    strong = Math.abs(gap) >= 0.30; // only a STRONG mismatch suppresses the opposite side
+  }
+  return { modelLean, leanTeam, strong, dataPoints, factors };
 }
 
 // --- live data (cached per run; free API, no key) ---
@@ -102,7 +106,15 @@ export async function enrich({ home, away }) {
       [homeEra, awayEra] = await Promise.all([eraFor(ourHomeId, season), eraFor(ourAwayId, season)]);
     }
     const sig = buildMlbSignal({ home, away, homeRec, awayRec, homeEra, awayEra });
-    return { ...sig, leanFor: (side) => sig.leanTeam ? (teamMatches(side, sig.leanTeam) ? 1 : 0) : 0 };
+    return {
+      ...sig,
+      leanFor: (side) => {
+        if (!sig.leanTeam) return 0;
+        if (teamMatches(side, sig.leanTeam)) return 1;          // model agrees -> confidence boost
+        if (/^(draw|over|under)/i.test(side)) return 0;          // totals/draw: moneyline lean N/A
+        return sig.strong ? -1 : 0;                              // opposite team: suppress only if strong
+      }
+    };
   } catch (e) {
     console.error("[enrichMlb] " + e.message);
     return { modelLean: 0, dataPoints: 0, factors: [], leanFor: () => 0 };

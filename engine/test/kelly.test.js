@@ -1,7 +1,13 @@
 // engine/test/kelly.test.js
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { kellyStake } from "../src/math/kelly.js";
+import { kellyStake, uncertaintyMult } from "../src/math/kelly.js";
+
+test("uncertaintyMult shrinks for few books / high dispersion / no sharp anchor", () => {
+  assert.ok(Math.abs(uncertaintyMult({ bookCount: 8, dispersion: 0, sharp: true }) - 1) < 1e-9);
+  const thin = uncertaintyMult({ bookCount: 4, dispersion: 0.06, sharp: false });
+  assert.ok(thin < 0.7 && thin >= 0.35);
+});
 
 test("kellyStake sizes from edge, fraction, and bankroll", () => {
   // p=0.55, dec=2.0 -> full Kelly f = (0.55*2-1)/(2-1) = 0.10

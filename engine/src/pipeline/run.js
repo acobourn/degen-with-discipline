@@ -9,7 +9,7 @@ import { enrich as enrichSoccer } from "../io/enrichSoccer.js";
 import { passesGuards, filterCoherent } from "../math/guardrails.js";
 import { evaluateGameMarket } from "./evaluate.js";
 import { evPct } from "../math/ev.js";
-import { kellyStake } from "../math/kelly.js";
+import { kellyStake, uncertaintyMult } from "../math/kelly.js";
 import { decimalToAmerican } from "../math/oddsMath.js";
 import { pickLock } from "../math/select.js";
 import { confirmPick } from "./confirm.js";
@@ -99,7 +99,8 @@ export async function run() {
           if (!conf.fire) continue;
 
           const stake = kellyStake({ fairProb: o.fairProb, offeredDecimal: o.bestDecimal, bankroll,
-            fraction: CONFIG.kelly.fraction, maxPct: CONFIG.kelly.maxPct, uncertainty: 1 });
+            fraction: CONFIG.kelly.fraction, maxPct: CONFIG.kelly.maxPct,
+            uncertainty: uncertaintyMult({ bookCount: o.bookCount, dispersion: o.dispersion, sharp: o.sharp }) });
           const pickName = isTotals ? o.outcomeName
             : (/^draw$/i.test(o.outcomeName) ? "Draw" : `${o.outcomeName} ML`);
           const topFactor = signal.factors[0]?.label || "Market value";

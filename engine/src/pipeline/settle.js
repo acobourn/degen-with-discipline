@@ -11,14 +11,17 @@ export function normTeam(s) {
     .replace(/\s+/g, " ")
     .trim();
 }
-function lastWord(s) { const p = s.split(" "); return p[p.length - 1]; }
-
 export function teamMatches(a, b) {
-  const x = normTeam(a), y = normTeam(b);
-  if (!x || !y) return false;
-  if (x === y) return true;
-  if (x.includes(y) || y.includes(x)) return true;
-  return lastWord(x) === lastWord(y) && lastWord(x).length >= 4;
+  const xs = normTeam(a).split(" ").filter(Boolean);
+  const ys = normTeam(b).split(" ").filter(Boolean);
+  if (!xs.length || !ys.length) return false;
+  const X = new Set(xs), Y = new Set(ys);
+  if (xs.length === ys.length && xs.every((t) => Y.has(t))) return true; // identical token set
+  // Subset match: every token of the shorter name is in the longer (e.g. "Athletics" ⊂
+  // "Oakland Athletics"). Crucially this does NOT match "Manchester United" to "Newcastle
+  // United" (shared suffix only) — the bug that was flipping losses into wins.
+  const [shortTokens, longSet] = xs.length <= ys.length ? [xs, Y] : [ys, X];
+  return shortTokens.every((t) => longSet.has(t));
 }
 
 // True if a final-score record is the same game as the pick (either home/away order).
@@ -43,6 +46,7 @@ export function gradeMoneyline(pick, score) {
 // Decide W / L / P for a totals (over/under) pick given a FINAL score. null if not final.
 export function gradeTotal(pick, score) {
   if (!score || !score.final) return null;
+  if (pick.point == null) return null; // can't grade a total with no line
   const total = score.homeScore + score.awayScore;
   if (total === pick.point) return "P";
   const isOver = /over/i.test(pick.outcomeName || pick.side || "");
@@ -81,7 +85,11 @@ export function settleFinished({ history, bankroll, finals, nowIso }) {
     const result = gradePick(o, matchFinal(o, finals));
     if (result == null) {
       const started = o.commenceTime ? Date.parse(o.commenceTime) : 0;
-      if (started && Date.parse(nowIso) - started > STALE_MS) continue; // un-settleable feed gap
+      if (started && Date.parse(nowIso) - started > STALE_MS) {
+        // un-settleable (feed gap) — VOID it (auditable, excluded from W/L), don't silently delete
+        settled.unshift({ ...o, result: "V", profit: 0, clvEdge: clvFor(o), settledAt: nowIso });
+        continue;
+      }
       stillOpen.push(o); continue;
     }
     const profit = profitFor(result, o.stake || 0, o.decimalOdds);
