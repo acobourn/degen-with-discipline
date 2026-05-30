@@ -59,6 +59,10 @@ async function loadDwdData() {
     DWD_LAST_UPDATED: d.lastUpdated || "—",
     DWD_EDGES_SCANNED: d.edgesScanned || 0
   });
+  // real grade reliability from settled bets (empty until enough settle -> UI shows "building")
+  if (d.gradeRecords) DWD_GRADE_INFO.records = d.gradeRecords;
+  window.DWD_CLV = d.clvSummary || null;
+  window.DWD_ATTRIBUTION = d.attribution || [];
   return d;
 }
 

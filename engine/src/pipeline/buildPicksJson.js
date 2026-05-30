@@ -34,7 +34,8 @@ function toPick(c) {
   };
 }
 
-export function buildPicksJson({ lock, picks, record, lastUpdated, edgesScanned, special = null, deskNotes }) {
+export function buildPicksJson({ lock, picks, record, lastUpdated, edgesScanned, special = null,
+  deskNotes, gradeRecords = {}, summary = null, attribution = [] }) {
   return {
     lastUpdated,
     edgesScanned,
@@ -42,6 +43,9 @@ export function buildPicksJson({ lock, picks, record, lastUpdated, edgesScanned,
     picks: picks.map(toPick),
     special,
     record,
+    gradeRecords,   // real per-grade reliability from settled bets ({} until samples exist)
+    clvSummary: summary,   // { record, profit, avgClvPct, settledCount, ... }
+    attribution,    // per-league record + avg CLV — where the edge actually lives
     deskNotes: deskNotes || [
       "Bet the math, not the mascot.",
       "Discipline is just degeneracy with a spreadsheet.",
