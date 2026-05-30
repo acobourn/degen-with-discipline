@@ -1,7 +1,15 @@
 // engine/test/settle.test.js
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { teamMatches, gradeMoneyline, profitFor, clvFor, settleFinished, logRecommended } from "../src/pipeline/settle.js";
+import { teamMatches, gradeMoneyline, gradeTotal, profitFor, clvFor, settleFinished, logRecommended } from "../src/pipeline/settle.js";
+
+test("gradeTotal grades over/under against the final combined score", () => {
+  const score = { final: true, homeScore: 5, awayScore: 4 }; // total 9
+  assert.equal(gradeTotal({ outcomeName: "Over 8.5", point: 8.5 }, score), "W");
+  assert.equal(gradeTotal({ outcomeName: "Under 8.5", point: 8.5 }, score), "L");
+  assert.equal(gradeTotal({ outcomeName: "Over 9", point: 9 }, score), "P"); // push
+  assert.equal(gradeTotal({ outcomeName: "Over 8.5", point: 8.5 }, { final: false }), null);
+});
 
 test("teamMatches handles spelling/format differences", () => {
   assert.equal(teamMatches("Detroit Tigers", "Detroit Tigers"), true);

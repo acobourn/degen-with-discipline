@@ -36,6 +36,20 @@ export function gradeMoneyline(pick, score) {
   return teamMatches(pick.outcomeName, winner) ? "W" : "L";
 }
 
+// Decide W / L / P for a totals (over/under) pick given a FINAL score. null if not final.
+export function gradeTotal(pick, score) {
+  if (!score || !score.final) return null;
+  const total = score.homeScore + score.awayScore;
+  if (total === pick.point) return "P";
+  const isOver = /over/i.test(pick.outcomeName || pick.side || "");
+  return (total > pick.point) === isOver ? "W" : "L";
+}
+
+// Dispatch grading by market type.
+export function gradePick(pick, score) {
+  return pick.market === "totals" ? gradeTotal(pick, score) : gradeMoneyline(pick, score);
+}
+
 export function profitFor(result, stake, decimalOdds) {
   if (result === "W") return Math.round(stake * (decimalOdds - 1) * 100) / 100;
   if (result === "L") return -stake;
@@ -59,7 +73,7 @@ export function settleFinished({ history, bankroll, finals, nowIso }) {
   const newlySettled = [];
   let bank = bankroll.bankroll;
   for (const o of history.open || []) {
-    const result = gradeMoneyline(o, matchFinal(o, finals));
+    const result = gradePick(o, matchFinal(o, finals));
     if (result == null) { stillOpen.push(o); continue; }
     const profit = profitFor(result, o.stake || 0, o.decimalOdds);
     const rec = { ...o, result, profit, clvEdge: clvFor(o), settledAt: nowIso };
@@ -88,7 +102,7 @@ export function logRecommended(history, recommended, nowIso) {
         id: r.id, gameId: r.gameId, oddsSportKey: r.oddsSportKey,
         sport: r.sport, league: r.league, market: r.market || "h2h",
         matchup: r.matchup, homeTeam: r.homeTeam, awayTeam: r.awayTeam,
-        pick: r.pick, outcomeName: r.outcomeName,
+        pick: r.pick, outcomeName: r.outcomeName, point: r.point,
         americanOdds: r.americanOdds, decimalOdds: r.decimalOdds,
         evPct: r.evPct, fairProb: r.fairProb, closingFairProb: r.fairProb,
         grade: r.grade, isLock: !!r.isLock, stake: r.stake,

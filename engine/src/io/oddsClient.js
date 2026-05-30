@@ -20,7 +20,8 @@ export function normalizeOddsResponse(raw, marketKey) {
         const o = mkt.outcomes.find((x) => x.name === name);
         return o ? o.price : null;
       });
-      if (odds.every((x) => x != null)) books.push({ key: bm.key, title: bm.title, odds });
+      const point = mkt.outcomes[0] ? mkt.outcomes[0].point : undefined; // totals line
+      if (odds.every((x) => x != null)) books.push({ key: bm.key, title: bm.title, odds, point });
     }
     if (outcomes && books.length) {
       games.push({ id: ev.id, commence: ev.commence_time, home: ev.home_team,

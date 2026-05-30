@@ -4,7 +4,8 @@ import { fetchOdds } from "../io/oddsClient.js";
 import { fetchFinals } from "../io/scores.js";
 import { enrich as enrichMlb } from "../io/enrichMlb.js";
 import { enrich as enrichSoccer } from "../io/enrichSoccer.js";
-import { robustConsensus, passesGuards, filterCoherent } from "../math/guardrails.js";
+import { passesGuards, filterCoherent } from "../math/guardrails.js";
+import { evaluateGameMarket } from "./evaluate.js";
 import { evPct } from "../math/ev.js";
 import { kellyStake } from "../math/kelly.js";
 import { decimalToAmerican } from "../math/oddsMath.js";
@@ -57,60 +58,56 @@ export async function run() {
   let edgesScanned = 0;
   const sportsToScan = CONFIG.demoMode ? CONFIG.sports.slice(0, 1) : CONFIG.sports;
   for (const sp of sportsToScan) {
-    let games;
-    try { games = await fetchOdds(sp.key, "h2h"); }
-    catch (e) { console.error(`[run] ${sp.key}: ${e.message}`); continue; }
+    for (const market of CONFIG.markets) {
+      let games;
+      try { games = await fetchOdds(sp.key, market); }
+      catch (e) { console.error(`[run] ${sp.key}/${market}: ${e.message}`); continue; }
 
-    for (const g of games) {
-      if (g.books.length < CONFIG.minBooks) continue; // book-count gate
-      // game-started guard: never recommend a game that has already begun (live only)
-      if (!CONFIG.demoMode && g.commence && new Date(g.commence).getTime() <= nowMs) continue;
-      const enrich = enricherFor(sp.sport);
-      const signal = await enrich({ home: g.home, away: g.away });
+      for (const g of games) {
+        if (g.books.length < CONFIG.minBooks) continue; // book-count gate
+        // game-started guard: never recommend a game that has already begun (live only)
+        if (!CONFIG.demoMode && g.commence && new Date(g.commence).getTime() <= nowMs) continue;
+        const signal = await enricherFor(sp.sport)({ home: g.home, away: g.away, market });
+        const isTotals = market === "totals";
 
-      for (let oi = 0; oi < g.outcomes.length; oi++) {
-        const present = g.books.filter((b) => CONFIG.targetBooks.includes(b.key));
-        if (!present.length) continue;
-        const best = present.reduce((a, b) => (b.odds[oi] > a.odds[oi] ? b : a));
-        const cons = robustConsensus(g.books, { excludeKey: best.key });
-        if (!cons) continue;
-        const fairProb = cons.fair[oi];
-        const dec = best.odds[oi];
-        const ev = evPct(fairProb, dec);
-        edgesScanned++;
-        const americanOdds = decimalToAmerican(dec);
-        const cand = { evPct: ev, bookCount: cons.bookCount, dispersion: cons.dispersion, americanOdds };
-        if (!passesGuards(cand, CONFIG)) continue;
+        for (const o of evaluateGameMarket(g, { targetBooks: CONFIG.targetBooks })) {
+          const ev = evPct(o.fairProb, o.bestDecimal);
+          edgesScanned++;
+          const americanOdds = decimalToAmerican(o.bestDecimal);
+          if (!passesGuards({ evPct: ev, bookCount: o.bookCount, dispersion: o.dispersion, americanOdds }, CONFIG)) continue;
 
-        const conf = confirmPick({ evPct: ev, modelLean: signal.modelLean,
-          bookCount: g.books.length, dataPoints: signal.dataPoints });
-        if (!conf.fire) continue;
+          // directional model lean (only applied when it matches this outcome's side)
+          const lean = signal.leanFor ? signal.leanFor(o.side) : (signal.modelLean || 0);
+          const conf = confirmPick({ evPct: ev, modelLean: lean,
+            bookCount: o.bookCount, dataPoints: signal.dataPoints });
+          if (!conf.fire) continue;
 
-        const stake = kellyStake({ fairProb, offeredDecimal: dec, bankroll,
-          fraction: CONFIG.kelly.fraction, maxPct: CONFIG.kelly.maxPct, uncertainty: 1 });
-        const pickName = `${g.outcomes[oi]} ML`;
-        const topFactor = signal.factors[0]?.label || "Market value";
-        candidates.push({
-          id: `${sp.key}-${g.id}-${oi}`,
-          gameId: `${sp.key}-${g.id}`,
-          oddsSportKey: sp.key,
-          sport: sp.sport, sportLabel: sp.label, league: sp.league,
-          context: `${g.away} @ ${g.home}`,
-          matchup: `${g.away} vs ${g.home}`,
-          homeTeam: g.home, awayTeam: g.away,
-          pick: pickName, outcomeName: g.outcomes[oi], betType: "Moneyline", market: "h2h",
-          americanOdds, openAmerican: americanOdds, decimalOdds: dec,
-          commenceTime: g.commence,
-          evPct: ev, fairProb, impliedProb: 1 / dec, bestBook: best.title,
-          confidence: conf.confidence, grade: conf.grade,
-          kellyStake: stake,
-          // real "data points crunched": book quotes in the consensus + any enrichment data
-          dataPoints: (signal.dataPoints || 0) + g.books.length * g.outcomes.length,
-          factors: signal.factors,
-          takeShort: takeShort({ pick: pickName, evPct: ev, topFactor }),
-          takeLong: takeLong({ pick: pickName, evPct: ev, fairProb, impliedProb: 1 / dec,
-            bestBook: best.title, topFactor })
-        });
+          const stake = kellyStake({ fairProb: o.fairProb, offeredDecimal: o.bestDecimal, bankroll,
+            fraction: CONFIG.kelly.fraction, maxPct: CONFIG.kelly.maxPct, uncertainty: 1 });
+          const pickName = isTotals ? o.outcomeName : `${o.outcomeName} ML`;
+          const topFactor = signal.factors[0]?.label || "Market value";
+          candidates.push({
+            id: `${sp.key}-${g.id}-${market}-${o.side}`,
+            gameId: `${sp.key}-${g.id}-${market}`,
+            oddsSportKey: sp.key,
+            sport: sp.sport, sportLabel: sp.label, league: sp.league,
+            context: `${g.away} @ ${g.home}`,
+            matchup: `${g.away} vs ${g.home}`,
+            homeTeam: g.home, awayTeam: g.away,
+            pick: pickName, outcomeName: o.outcomeName, side: o.side, point: o.point,
+            betType: isTotals ? "Total" : "Moneyline", market,
+            americanOdds, openAmerican: americanOdds, decimalOdds: o.bestDecimal,
+            commenceTime: g.commence,
+            evPct: ev, fairProb: o.fairProb, impliedProb: 1 / o.bestDecimal, bestBook: o.bestTitle,
+            confidence: conf.confidence, grade: conf.grade,
+            kellyStake: stake,
+            dataPoints: (signal.dataPoints || 0) + g.books.length * g.outcomes.length,
+            factors: signal.factors,
+            takeShort: takeShort({ pick: pickName, evPct: ev, topFactor }),
+            takeLong: takeLong({ pick: pickName, evPct: ev, fairProb: o.fairProb,
+              impliedProb: 1 / o.bestDecimal, bestBook: o.bestTitle, topFactor })
+          });
+        }
       }
     }
   }
