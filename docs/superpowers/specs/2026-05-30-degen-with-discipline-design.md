@@ -129,18 +129,28 @@ The single most important metric. **CLV = did we get a better number than the li
 - Track the gap per bet and in aggregate.
 - Positive CLV over 30–50 bets ⇒ we are mathematically +EV even before W/L confirms it.
 - Negative CLV ⇒ fix the engine. CLV is the **leading indicator**; W/L is noisy.
+- **Tracked from day one.** The user opts to *watch* the CLV trend with no real money and
+  flip to live stakes at their own discretion ("bet when it matters") — no formal paper gate,
+  but the safety data is always there to look at.
 
-## 9. Calibration loop
+## 9. Calibration loop & edge attribution
 
-Once a track record exists, verify that picks we rate ~54% actually win ~54%. This makes the
-UI's grade-reliability table **real and self-correcting** (labeled "building track record"
-until enough samples), and is how we honestly prove the edge to the group.
+- **Calibration**: once a track record exists, verify that picks we rate ~54% actually win
+  ~54%. This makes the UI's grade-reliability table **real and self-correcting** (labeled
+  "building track record" until enough samples), and honestly proves the edge to the group.
+- **Edge attribution**: segment CLV and results **by sport, market, and book** — so we learn
+  *where* our edge actually lives (e.g. "strong on college-baseball totals, flat on MLB
+  moneylines") instead of one blended number. v1 ships the segmentation (it's just grouping
+  data we already track).
+- **Auto circuit-breaker** (fast-follow): when a segment's rolling CLV goes negative, the
+  engine **auto-pauses recommendations** for it. The tool stops suggesting what it's bad at.
 
 ## 10. Staking — fractional Kelly with caps
 
 - **¼-Kelly**, sized off the **live** bankroll, **capped at ~3%** of bankroll (≈ $3 early).
 - Auto-grows stakes as bankroll grows; auto-shrinks after losses.
 - Cap total **daily exposure**; correlation-adjust if multiple bets touch the same game.
+- **Shrink Kelly when the data is thin** — small sample / high uncertainty ⇒ smaller stake.
 
 ## 11. Discipline guardrails (the other half of the name)
 
@@ -151,6 +161,10 @@ until enough samples), and is how we honestly prove the edge to the group.
 - **Parlay honesty**: the "Degen Special" is flagged as **entertainment money** (parlays stack
   the vig, almost always −EV); real stakes steered to singles.
 - **Responsible-gambling**: loss limits, plain disclaimers, no chasing.
+- **Stale-line / game-started guard**: never surface a pick whose game has started or whose
+  data is stale — no betting on dead info.
+- **Bad-data outlier rejection**: discard obviously-broken odds (suspended lines, a lone book
+  showing −10000) before they poison the consensus.
 
 ## 12. Lock of the Day
 
@@ -214,9 +228,22 @@ The pure-math modules (`devig`, `ev`, `form`, `select`) get **real unit tests fi
 - Free **The Odds API** key.
 - Free **API-Football** key (soccer injuries/lineups).
 - A **GitHub account** (hosts the site + runs the free cron).
+- **Accounts at several books, not just one** — the line-shopping edge only pays if the user
+  (and friends) can actually take the best available price. Worth setting up early.
 
-## 18. Phase 2 (explicitly deferred)
+## 18. Roadmap after v1
 
+### Phase 1.5 — high-priority fast-follows
+- **Boost / promo evaluator** — paste in a DK/Bet365 boost ("30% profit boost on any MLB
+  game") and the tool reuses the fair-value math to surface the **best +EV way to use it**.
+  For a small bankroll, boosts are often a *bigger, more reliable* edge than core +EV
+  grinding — high priority.
+- **Group notifications** — a free Discord/group-chat webhook (or email) that posts the Lock
+  of the Day and any **fresh, time-sensitive** edge the instant the engine finds it, so the
+  group acts before the line corrects.
+- **Auto circuit-breaker** — auto-pause segments whose rolling CLV turns negative (see §9).
+
+### Phase 2 — deferred
 Claude language layer (news-parsing into signals, witty takes, "why this pick?" chat) ·
 steam/line-move confirmation from our own snapshots · public-betting "fade the square" data
 (needs paid feed) · reconsider niche markets once CLV proves the core.
