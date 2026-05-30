@@ -84,6 +84,9 @@ function Evaluator({ bankroll }) {
         </div>
       ))}
       <button className="addleg mono" onClick={() => setLegs([...legs, { market: "", boosted: "" }])}>+ add leg (for a boosted parlay)</button>
+      {legs.length > 1 && (
+        <div className="foot mono" style={{ marginTop: "10px", color: "var(--gold)" }}>⚠ Multi-leg boosts on the <b>same game</b> are correlated — this math assumes independent legs and can <b>overstate</b> the EV. Trust it for independent single-game legs; be cautious with same-game parlays.</div>
+      )}
       {r && (
         <div className="result">
           <div className={"verdict " + vclass}>{vtext}</div>
