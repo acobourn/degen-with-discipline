@@ -3,11 +3,11 @@ import { CONFIG } from "../config.js";
 import { fetchOdds } from "../io/oddsClient.js";
 import { enrich as enrichMlb } from "../io/enrichMlb.js";
 import { enrich as enrichSoccer } from "../io/enrichSoccer.js";
-import { consensusFairProb } from "../math/devig.js";
+import { robustConsensus, passesGuards, filterCoherent } from "../math/guardrails.js";
 import { evPct } from "../math/ev.js";
 import { kellyStake } from "../math/kelly.js";
 import { decimalToAmerican } from "../math/oddsMath.js";
-import { qualifies, pickLock } from "../math/select.js";
+import { pickLock } from "../math/select.js";
 import { confirmPick } from "./confirm.js";
 import { takeShort, takeLong } from "./copy.js";
 import { buildPicksJson } from "./buildPicksJson.js";
@@ -40,15 +40,15 @@ export async function run() {
         const present = g.books.filter((b) => CONFIG.targetBooks.includes(b.key));
         if (!present.length) continue;
         const best = present.reduce((a, b) => (b.odds[oi] > a.odds[oi] ? b : a));
-        const fair = consensusFairProb(g.books, { excludeKey: best.key });
-        if (!fair) continue;
-        const fairProb = fair[oi];
+        const cons = robustConsensus(g.books, { excludeKey: best.key });
+        if (!cons) continue;
+        const fairProb = cons.fair[oi];
         const dec = best.odds[oi];
         const ev = evPct(fairProb, dec);
         edgesScanned++;
         const americanOdds = decimalToAmerican(dec);
-        const cand = { evPct: ev, bookCount: g.books.length, americanOdds };
-        if (!qualifies(cand, CONFIG)) continue;
+        const cand = { evPct: ev, bookCount: cons.bookCount, dispersion: cons.dispersion, americanOdds };
+        if (!passesGuards(cand, CONFIG)) continue;
 
         const conf = confirmPick({ evPct: ev, modelLean: signal.modelLean,
           bookCount: g.books.length, dataPoints: signal.dataPoints });
@@ -60,6 +60,7 @@ export async function run() {
         const topFactor = signal.factors[0]?.label || "Market value";
         candidates.push({
           id: `${s.key}-${g.id}-${oi}`,
+          gameId: `${s.key}-${g.id}`,
           sport: s.sport, sportLabel: s.label, league: s.league,
           context: `${g.away} @ ${g.home}`,
           matchup: `${g.away} vs ${g.home}`,
@@ -79,9 +80,12 @@ export async function run() {
     }
   }
 
+  // Coherence guard: drop games where both sides look +EV (noise, not edge).
+  const coherent = filterCoherent(candidates);
+
   // Dedupe: never surface the same bet twice — keep the best-EV copy.
   const seen = new Map();
-  for (const c of candidates) {
+  for (const c of coherent) {
     const k = `${c.matchup}|${c.pick}`;
     if (!seen.has(k) || c.evPct > seen.get(k).evPct) seen.set(k, c);
   }
