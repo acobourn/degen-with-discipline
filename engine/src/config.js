@@ -15,15 +15,18 @@ export const CONFIG = {
   saneOdds: { min: -250, max: 250 }, // no absurd -800 "value" favorites on the board
   minBooks: 4,                  // book-count gate: need >=4 books for consensus
   lockBand: { minAmerican: -125, maxAmerican: 125 }, // Lock odds band
-  targetBooks: ["draftkings", "betmgm", "fanduel", "bet365"], // books we'd bet (best-price among those present)
+  targetBooks: ["draftkings", "betmgm", "fanduel", "bet365"], // soft books we'd actually bet (best price among present)
+  sharpBooks: ["pinnacle", "betfair_ex_eu", "matchbook"],     // SHARP anchors (eu region) — our "true line"
   kelly: { fraction: 0.25, maxPct: 0.03 }, // 1/4 Kelly capped at 3% bankroll
   // Scan plan: anchors scan every run (richest edge); the international pool rotates so we
   // cover it across runs while staying inside the free-tier credit budget. Only ACTIVE
   // leagues are scanned (checked free via /sports), so off-season keys cost nothing.
   scanPlan: {
-    creditTarget: 5, // ~credits/run -> ~450/mo at 3 scans/day, inside the free 500
+    // Credit cost per entry = markets × regions. MLB anchor uses us,eu (Pinnacle anchor = 2
+    // regions); thin international falls back to soft consensus on us only (1 region).
+    creditTarget: 5, // MLB(2 mkts × 2 regions = 4) + 1 rotation league (1) -> ~450/mo at 3 scans/day
     anchors: [
-      { key: "baseball_mlb", sport: "MLB", label: "Baseball", league: "MLB", markets: ["h2h", "totals"] }
+      { key: "baseball_mlb", sport: "MLB", label: "Baseball", league: "MLB", markets: ["h2h", "totals"], regions: "us,eu" }
     ],
     rotation: [
       { key: "baseball_ncaa", sport: "MLB", label: "College Baseball", league: "NCAA Baseball", markets: ["h2h"] },

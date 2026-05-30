@@ -76,7 +76,7 @@ export async function run() {
     if (paused.has(sp.league)) continue; // circuit-breaker
     for (const market of sp.markets) {
       let games;
-      try { games = await fetchOdds(sp.key, market); }
+      try { games = await fetchOdds(sp.key, market, { region: sp.regions || "us" }); }
       catch (e) { console.error(`[run] ${sp.key}/${market}: ${e.message}`); continue; }
 
       for (const g of games) {
@@ -86,7 +86,7 @@ export async function run() {
         const signal = await enricherFor(sp.sport)({ home: g.home, away: g.away, market });
         const isTotals = market === "totals";
 
-        for (const o of evaluateGameMarket(g, { targetBooks: CONFIG.targetBooks })) {
+        for (const o of evaluateGameMarket(g, { targetBooks: CONFIG.targetBooks, sharpBooks: CONFIG.sharpBooks })) {
           const ev = evPct(o.fairProb, o.bestDecimal);
           edgesScanned++;
           const americanOdds = decimalToAmerican(o.bestDecimal);
@@ -117,6 +117,7 @@ export async function run() {
             americanOdds, openAmerican: americanOdds, decimalOdds: o.bestDecimal,
             commenceTime: g.commence,
             evPct: ev, fairProb: o.fairProb, impliedProb: 1 / o.bestDecimal, bestBook: o.bestTitle,
+            sharp: o.sharp, // true = anchored on Pinnacle/exchange (high confidence)
             confidence: conf.confidence, grade: conf.grade,
             kellyStake: stake,
             dataPoints: (signal.dataPoints || 0) + g.books.length * g.outcomes.length,
