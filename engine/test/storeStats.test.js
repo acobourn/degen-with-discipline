@@ -1,7 +1,20 @@
 // engine/test/storeStats.test.js
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { summary, calibration, attribution } from "../src/pipeline/store.js";
+import { summary, calibration, attribution, pausedSegments } from "../src/pipeline/store.js";
+
+test("pausedSegments pauses a league with enough negative-CLV picks", () => {
+  const bad = Array.from({ length: 20 }, () => ({ league: "NCAA", result: "L", clvEdge: -0.02 }));
+  const good = Array.from({ length: 20 }, () => ({ league: "MLB", result: "W", clvEdge: 0.02 }));
+  const paused = pausedSegments([...bad, ...good]);
+  assert.ok(paused.has("NCAA"));
+  assert.ok(!paused.has("MLB"));
+});
+
+test("pausedSegments needs a real sample before pausing", () => {
+  const few = Array.from({ length: 5 }, () => ({ league: "NCAA", result: "L", clvEdge: -0.05 }));
+  assert.ok(!pausedSegments(few).has("NCAA")); // too few to act on
+});
 
 const settled = [
   { isLock: true, result: "W", grade: "B+", league: "MLB", clvEdge: 0.03, profit: 2.2 },

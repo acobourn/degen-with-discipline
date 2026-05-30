@@ -67,6 +67,23 @@ export function calibration(settled) {
   return records;
 }
 
+// Auto circuit-breaker: leagues whose rolling CLV has gone negative over a real sample.
+// The engine stops recommending these until they recover. Pure.
+export function pausedSegments(settled, { minSample = 15, clvFloorPct = -0.5 } = {}) {
+  const by = {};
+  for (const s of settled) {
+    const k = s.league || s.sport;
+    if (!k) continue;
+    (by[k] ||= { clvSum: 0, clvN: 0 });
+    if (typeof s.clvEdge === "number") { by[k].clvSum += s.clvEdge; by[k].clvN++; }
+  }
+  const paused = new Set();
+  for (const [k, v] of Object.entries(by)) {
+    if (v.clvN >= minSample && (v.clvSum / v.clvN) * 100 < clvFloorPct) paused.add(k);
+  }
+  return paused;
+}
+
 // Edge attribution: per league/market record + avg CLV, so we learn where the edge lives. Pure.
 export function attribution(settled) {
   const by = {};

@@ -13,7 +13,7 @@ import { pickLock } from "../math/select.js";
 import { confirmPick } from "./confirm.js";
 import { takeShort, takeLong } from "./copy.js";
 import { buildPicksJson } from "./buildPicksJson.js";
-import { loadStore, saveHistory, saveBankroll, summary, calibration, attribution } from "./store.js";
+import { loadStore, saveHistory, saveBankroll, summary, calibration, attribution, pausedSegments } from "./store.js";
 import { settleFinished, logRecommended } from "./settle.js";
 import { composeAlert, notify, anyChannelConfigured } from "../io/notify.js";
 
@@ -54,10 +54,15 @@ export async function run() {
     console.error(`[run] settled ${s.newlySettled.length}: ${s.newlySettled.map((x) => x.pick + "=" + x.result).join(", ")}`);
   }
 
+  // circuit-breaker: leagues whose CLV went negative are paused until they recover
+  const paused = pausedSegments(history.settled);
+  if (paused.size) console.error(`[run] paused (negative CLV): ${[...paused].join(", ")}`);
+
   const candidates = [];
   let edgesScanned = 0;
   const sportsToScan = CONFIG.demoMode ? CONFIG.sports.slice(0, 1) : CONFIG.sports;
   for (const sp of sportsToScan) {
+    if (paused.has(sp.league)) continue; // circuit-breaker
     for (const market of CONFIG.markets) {
       let games;
       try { games = await fetchOdds(sp.key, market); }
