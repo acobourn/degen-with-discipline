@@ -1,77 +1,187 @@
 {
-  "lastUpdated": "4:04 PM ET",
-  "edgesScanned": 4,
+  "lastUpdated": "5:26 PM ET",
+  "edgesScanned": 94,
   "lock": {
-    "id": "baseball_mlb-game1-0",
-    "sport": "MLB",
-    "sportLabel": "Baseball",
-    "league": "MLB",
-    "context": "Detroit Tigers @ Chicago White Sox",
-    "matchup": "Detroit Tigers vs Chicago White Sox",
-    "pick": "Detroit Tigers ML",
+    "id": "baseball_ncaa-cf201c9b8ebcef32ba6053826c499b20-1",
+    "sport": "NCAAB",
+    "sportLabel": "College Baseball",
+    "league": "NCAA",
+    "context": "Virginia Cavaliers @ Southern Miss Golden Eagles",
+    "matchup": "Virginia Cavaliers vs Southern Miss Golden Eagles",
+    "pick": "Virginia Cavaliers ML",
     "betType": "Moneyline",
-    "odds": "+110",
-    "openOdds": "+110",
-    "payoutNote": "$100 → $210",
+    "odds": "-105",
+    "openOdds": "-105",
+    "payoutNote": "$100 → $195",
     "confidence": 76,
     "grade": "B+",
-    "takeShort": "The market blinked on Detroit Tigers ML. We didn't.",
-    "takeLong": "Our de-vigged consensus puts the true number at 50%, but DraftKings is pricing it like 48% — a +5.3% edge. Pitcher form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+    "takeShort": "The market blinked on Virginia Cavaliers ML. We didn't.",
+    "takeLong": "Our de-vigged consensus puts the true number at 59%, but DraftKings is pricing it like 51% — a +14.9% edge. Pitcher form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
     "dataPoints": 10,
     "factors": [
       {
         "label": "Pitcher form",
         "weight": 50,
-        "note": "demo mode — no live data"
-      },
-      {
-        "label": "Weather / air",
-        "weight": 50,
-        "note": "demo mode"
+        "note": "opponent-adjusted L10"
       }
     ],
-    "evPct": 0.05279481570457212,
-    "fairProb": 0.5013308646212248,
-    "impliedProb": 0.47619047619047616,
+    "evPct": 0.1489428288620187,
+    "fairProb": 0.5892014506984712,
+    "impliedProb": 0.5128205128205129,
     "bestBook": "DraftKings",
-    "kellyStake": 1.2,
+    "kellyStake": 3,
     "isLock": true
   },
   "picks": [
     {
-      "id": "baseball_mlb-game2-0",
-      "sport": "MLB",
-      "sportLabel": "Baseball",
-      "league": "MLB",
-      "context": "New York Yankees @ Boston Red Sox",
-      "matchup": "New York Yankees vs Boston Red Sox",
-      "pick": "New York Yankees ML",
+      "id": "baseball_ncaa-cf201c9b8ebcef32ba6053826c499b20-0",
+      "sport": "NCAAB",
+      "sportLabel": "College Baseball",
+      "league": "NCAA",
+      "context": "Virginia Cavaliers @ Southern Miss Golden Eagles",
+      "matchup": "Virginia Cavaliers vs Southern Miss Golden Eagles",
+      "pick": "Southern Miss Golden Eagles ML",
       "betType": "Moneyline",
-      "odds": "+102",
-      "openOdds": "+102",
-      "payoutNote": "$100 → $202",
-      "confidence": 65,
-      "grade": "B-",
+      "odds": "+190",
+      "openOdds": "+190",
+      "payoutNote": "$100 → $290",
+      "confidence": 76,
+      "grade": "B+",
       "takeShort": "Pitcher form says go; the price says value. Rare combo.",
-      "takeLong": "Our de-vigged consensus puts the true number at 51%, but BetMGM is pricing it like 50% — a +2.9% edge. Pitcher form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+      "takeLong": "Our de-vigged consensus puts the true number at 47%, but BetMGM is pricing it like 34% — a +35.5% edge. Pitcher form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
       "dataPoints": 10,
       "factors": [
         {
           "label": "Pitcher form",
           "weight": 50,
-          "note": "demo mode — no live data"
-        },
-        {
-          "label": "Weather / air",
-          "weight": 50,
-          "note": "demo mode"
+          "note": "opponent-adjusted L10"
         }
       ],
-      "evPct": 0.028827344808032285,
-      "fairProb": 0.5093204677267487,
-      "impliedProb": 0.49504950495049505,
+      "evPct": 0.35506321278919284,
+      "fairProb": 0.4672631768238596,
+      "impliedProb": 0.3448275862068966,
       "bestBook": "BetMGM",
-      "kellyStake": 0.71
+      "kellyStake": 3
+    },
+    {
+      "id": "baseball_mlb-2858c7dd0f121c4fc015a186967f1917-0",
+      "sport": "MLB",
+      "sportLabel": "Baseball",
+      "league": "MLB",
+      "context": "Los Angeles Angels @ Tampa Bay Rays",
+      "matchup": "Los Angeles Angels vs Tampa Bay Rays",
+      "pick": "Los Angeles Angels ML",
+      "betType": "Moneyline",
+      "odds": "-833",
+      "openOdds": "-833",
+      "payoutNote": "$100 → $112",
+      "confidence": 76,
+      "grade": "B+",
+      "takeShort": "Pitcher form says go; the price says value. Rare combo.",
+      "takeLong": "Our de-vigged consensus puts the true number at 94%, but FanDuel is pricing it like 89% — a +4.7% edge. Pitcher form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+      "dataPoints": 12,
+      "factors": [
+        {
+          "label": "Pitcher form",
+          "weight": 50,
+          "note": "opponent-adjusted L10"
+        }
+      ],
+      "evPct": 0.04742866604937879,
+      "fairProb": 0.9352041661155166,
+      "impliedProb": 0.8928571428571428,
+      "bestBook": "FanDuel",
+      "kellyStake": 3
+    },
+    {
+      "id": "baseball_ncaa-a3d31bd38ed8616ef61efe6d903ce841-1",
+      "sport": "NCAAB",
+      "sportLabel": "College Baseball",
+      "league": "NCAA",
+      "context": "Oklahoma St Cowboys @ Alabama St Hornets",
+      "matchup": "Oklahoma St Cowboys vs Alabama St Hornets",
+      "pick": "Oklahoma St Cowboys ML",
+      "betType": "Moneyline",
+      "odds": "-208",
+      "openOdds": "-208",
+      "payoutNote": "$100 → $148",
+      "confidence": 74,
+      "grade": "B",
+      "takeShort": "Small edge, real edge. Oklahoma St Cowboys ML is priced wrong and we noticed.",
+      "takeLong": "Our de-vigged consensus puts the true number at 71%, but DraftKings is pricing it like 68% — a +4.5% edge. Pitcher form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+      "dataPoints": 10,
+      "factors": [
+        {
+          "label": "Pitcher form",
+          "weight": 50,
+          "note": "opponent-adjusted L10"
+        }
+      ],
+      "evPct": 0.04528821127989047,
+      "fairProb": 0.7062758184323584,
+      "impliedProb": 0.6756756756756757,
+      "bestBook": "DraftKings",
+      "kellyStake": 2.36
+    },
+    {
+      "id": "baseball_mlb-adde69ed429a06ae4ecc9bd2fed0984b-0",
+      "sport": "MLB",
+      "sportLabel": "Baseball",
+      "league": "MLB",
+      "context": "San Diego Padres @ Washington Nationals",
+      "matchup": "San Diego Padres vs Washington Nationals",
+      "pick": "San Diego Padres ML",
+      "betType": "Moneyline",
+      "odds": "-370",
+      "openOdds": "-370",
+      "payoutNote": "$100 → $127",
+      "confidence": 69,
+      "grade": "B-",
+      "takeShort": "The market blinked on San Diego Padres ML. We didn't.",
+      "takeLong": "Our de-vigged consensus puts the true number at 81%, but DraftKings is pricing it like 79% — a +3.4% edge. Pitcher form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+      "dataPoints": 12,
+      "factors": [
+        {
+          "label": "Pitcher form",
+          "weight": 50,
+          "note": "opponent-adjusted L10"
+        }
+      ],
+      "evPct": 0.03350890343256441,
+      "fairProb": 0.8137865381358774,
+      "impliedProb": 0.7874015748031495,
+      "bestBook": "DraftKings",
+      "kellyStake": 3
+    },
+    {
+      "id": "baseball_mlb-3cd955325a156c1972d7e1925a6ed38a-0",
+      "sport": "MLB",
+      "sportLabel": "Baseball",
+      "league": "MLB",
+      "context": "Minnesota Twins @ Pittsburgh Pirates",
+      "matchup": "Minnesota Twins vs Pittsburgh Pirates",
+      "pick": "Minnesota Twins ML",
+      "betType": "Moneyline",
+      "odds": "+195",
+      "openOdds": "+195",
+      "payoutNote": "$100 → $295",
+      "confidence": 64,
+      "grade": "B-",
+      "takeShort": "The market blinked on Minnesota Twins ML. We didn't.",
+      "takeLong": "Our de-vigged consensus puts the true number at 35%, but BetMGM is pricing it like 34% — a +2.3% edge. Pitcher form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+      "dataPoints": 12,
+      "factors": [
+        {
+          "label": "Pitcher form",
+          "weight": 50,
+          "note": "opponent-adjusted L10"
+        }
+      ],
+      "evPct": 0.023242609472285958,
+      "fairProb": 0.34686190151602914,
+      "impliedProb": 0.3389830508474576,
+      "bestBook": "BetMGM",
+      "kellyStake": 0.3
     }
   ],
   "special": null,
