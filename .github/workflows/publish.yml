@@ -1,0 +1,62 @@
+name: Publish Degen with Discipline
+
+# Runs the engine in GitHub's cloud (free) and deploys the site to Pages.
+# Without secrets.ODDS_API_KEY it runs in DEMO mode and still publishes a working site.
+on:
+  push:
+    branches: [master]
+  schedule:
+    - cron: "0 14 * * *"   # ~10:00 AM ET — morning slate
+    - cron: "0 22 * * *"   # ~06:00 PM ET — evening slate
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # allow the scheduled run to commit refreshed picks/data
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Engine tests (math must be correct before we publish)
+        run: cd engine && node --test
+
+      - name: Run engine -> web/picks.json
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: cd engine && node src/pipeline/run.js
+
+      - name: Persist refreshed picks + data (scheduled runs only)
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "dwd-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add web/picks.json data/ || true
+          if git diff --cached --quiet; then
+            echo "no changes to commit"
+          else
+            git commit -m "chore: refresh picks [skip ci]"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+      - id: deploy
+        uses: actions/deploy-pages@v4
