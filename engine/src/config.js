@@ -3,6 +3,12 @@ export const CONFIG = {
   oddsApiKey: process.env.ODDS_API_KEY || null,
   apiFootballKey: process.env.API_FOOTBALL_KEY || null,
   demoMode: !process.env.ODDS_API_KEY, // no key => run from fixtures
+  // alerts (optional): set whichever channel you want
+  discordWebhook: process.env.DISCORD_WEBHOOK || null,
+  resendApiKey: process.env.RESEND_API_KEY || null,
+  alertEmail: process.env.ALERT_EMAIL || null,
+  alertFrom: process.env.ALERT_FROM || "Degen with Discipline <onboarding@resend.dev>",
+  siteUrl: "https://acobourn.github.io/degen-with-discipline/",
   evThreshold: 0.02,            // 2% minimum edge to surface
   maxEvPct: 0.08,               // EV above this = almost certainly bad data, not a real edge
   maxDispersion: 0.08,          // max book disagreement (de-vigged prob range) we'll trust

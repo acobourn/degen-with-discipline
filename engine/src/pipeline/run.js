@@ -14,6 +14,7 @@ import { takeShort, takeLong } from "./copy.js";
 import { buildPicksJson } from "./buildPicksJson.js";
 import { loadStore, saveHistory, saveBankroll, summary, calibration, attribution } from "./store.js";
 import { settleFinished, logRecommended } from "./settle.js";
+import { composeAlert, notify, anyChannelConfigured } from "../io/notify.js";
 
 const OUT = new URL("../../../web/picks.json", import.meta.url);
 
@@ -131,6 +132,23 @@ export async function run() {
   // --- log today's recommended picks so we can track CLV + settle them later ---
   const recommended = [lock, ...board].filter(Boolean).map((c) => ({ ...c, isLock: c === lock, stake: c.kellyStake }));
   history = logRecommended(history, recommended, nowIso);
+
+  // --- alerts: notify configured channels about FRESH edges only (no spam) ---
+  if (!CONFIG.demoMode && anyChannelConfigured()) {
+    const notified = new Set(history.notified || []);
+    const freshLock = lock && !notified.has(lock.id) ? lock : null;
+    const freshBoard = board.filter((c) => !notified.has(c.id));
+    if (freshLock || freshBoard.length) {
+      const msg = composeAlert({ lock: freshLock, picks: freshBoard, siteUrl: CONFIG.siteUrl });
+      if (msg) {
+        const sent = await notify(msg, "Degen with Discipline — fresh edge");
+        console.error(`[notify] sent to ${sent.join(", ") || "nobody"}`);
+        [freshLock, ...freshBoard].filter(Boolean).forEach((c) => notified.add(c.id));
+        history = { ...history, notified: [...notified].slice(-200) };
+      }
+    }
+  }
+
   if (!CONFIG.demoMode) { saveHistory(history); saveBankroll(bankrollObj); }
 
   const sum = summary(history.settled);
