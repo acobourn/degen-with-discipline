@@ -62,6 +62,8 @@ export async function run() {
 
     for (const g of games) {
       if (g.books.length < CONFIG.minBooks) continue; // book-count gate
+      // game-started guard: never recommend a game that has already begun (live only)
+      if (!CONFIG.demoMode && g.commence && new Date(g.commence).getTime() <= nowMs) continue;
       const enrich = enricherFor(sp.sport);
       const signal = await enrich({ home: g.home, away: g.away });
 
@@ -127,7 +129,7 @@ export async function run() {
   const board = unique.filter((c) => c !== lock).slice(0, 6);
 
   // --- log today's recommended picks so we can track CLV + settle them later ---
-  const recommended = [lock, ...board].filter(Boolean).map((c) => ({ ...c, isLock: c === lock }));
+  const recommended = [lock, ...board].filter(Boolean).map((c) => ({ ...c, isLock: c === lock, stake: c.kellyStake }));
   history = logRecommended(history, recommended, nowIso);
   if (!CONFIG.demoMode) { saveHistory(history); saveBankroll(bankrollObj); }
 
