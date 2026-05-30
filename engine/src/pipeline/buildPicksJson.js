@@ -35,10 +35,11 @@ function toPick(c) {
 }
 
 export function buildPicksJson({ lock, picks, record, lastUpdated, edgesScanned, special = null,
-  deskNotes, gradeRecords = {}, summary = null, attribution = [] }) {
+  deskNotes, gradeRecords = {}, summary = null, attribution = [], bankroll = null }) {
   return {
     lastUpdated,
     edgesScanned,
+    bankroll,
     lock: lock ? { ...toPick(lock), isLock: true } : null,
     picks: picks.map(toPick),
     special,

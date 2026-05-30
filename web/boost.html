@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Boost Evaluator — Degen with Discipline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+:root{--green:#22e07a;--green-2:#36b85f;--red:#ff4d4d;--gold:#ffc24b;--glow:rgba(34,224,122,0.22);
+  --bg:#080a09;--bg-1:#0e1211;--bg-2:#141a18;--bg-3:#1a2220;--line:rgba(255,255,255,0.08);
+  --line-2:rgba(255,255,255,0.14);--ink:#eef2ef;--ink-dim:#97a39c;--ink-dimmer:#727d78;--maxw:720px;}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:radial-gradient(1000px 560px at 50% -8%, rgba(34,224,122,0.07), transparent 60%),var(--bg);min-height:100vh;padding:0 18px 80px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}.dim{color:var(--ink-dim)}.green{color:var(--green)}.gold{color:var(--gold)}
+.wrap{max-width:var(--maxw);margin:0 auto}
+.top{display:flex;align-items:center;justify-content:space-between;padding:22px 2px 14px;flex-wrap:wrap;gap:10px}
+.title{font-weight:900;font-size:22px;letter-spacing:-0.5px}.title .green{font-size:13px}
+.back{font-size:11px;letter-spacing:.5px;color:var(--ink-dim);text-decoration:none;border:1px solid var(--line);padding:7px 12px;border-radius:8px;transition:.16s}
+.back:hover{color:var(--green);border-color:color-mix(in oklab,var(--green),transparent 60%)}
+.lede{font-size:13px;line-height:1.6;color:var(--ink-dim);margin:0 2px 20px;max-width:60ch}
+.card{background:linear-gradient(180deg,var(--bg-1),rgba(10,12,11,.5));border:1px solid var(--line);border-radius:16px;padding:18px 18px 20px;margin-bottom:18px}
+.card-h{font-size:10px;letter-spacing:1.8px;color:var(--green);margin-bottom:4px}
+.card-sub{font-size:12px;color:var(--ink-dim);margin-bottom:16px;line-height:1.5}
+.leg{display:grid;grid-template-columns:1fr 1fr 28px;gap:10px;align-items:end;margin-bottom:10px}
+.fld{display:flex;flex-direction:column;gap:5px}
+.fld label{font-size:9.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--ink-dimmer)}
+.fld input{background:var(--bg-3);border:1px solid var(--line-2);color:var(--ink);font-family:"JetBrains Mono";
+  font-size:15px;padding:10px 12px;border-radius:9px;width:100%;outline:none;transition:.15s}
+.fld input:focus{border-color:var(--green);box-shadow:0 0 0 3px color-mix(in oklab,var(--green),transparent 88%)}
+.rm{background:none;border:1px solid var(--line);color:var(--ink-dimmer);border-radius:8px;height:42px;cursor:pointer;font-size:16px;transition:.15s}
+.rm:hover{color:var(--red);border-color:color-mix(in oklab,var(--red),transparent 60%)}
+.addleg{background:none;border:1px dashed var(--line-2);color:var(--ink-dim);font-family:"JetBrains Mono";font-size:12px;
+  padding:9px;border-radius:9px;width:100%;cursor:pointer;margin-top:4px;transition:.15s}
+.addleg:hover{color:var(--green);border-color:color-mix(in oklab,var(--green),transparent 55%)}
+.result{margin-top:18px;border-top:1px solid var(--line);padding-top:18px}
+.verdict{font-size:24px;font-weight:900;letter-spacing:-.5px;margin-bottom:4px}
+.v-strong,.v-pos{color:var(--green)}.v-flip{color:var(--gold)}.v-skip{color:var(--red)}
+.rgrid{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px}
+.rstat{display:flex;flex-direction:column;gap:2px}.rnum{font-size:20px;font-weight:700;letter-spacing:-.5px}
+.rlab{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-dim)}
+.stakebox{margin-top:14px;background:var(--bg-2);border:1px solid color-mix(in oklab,var(--green),transparent 78%);
+  border-radius:11px;padding:12px 14px;font-size:13px}.stakebox b{color:var(--green)}
+.conv{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end}
+.conv .out{font-family:"JetBrains Mono";font-size:18px;font-weight:700;color:var(--gold);padding:10px 0}
+.foot{font-size:10.5px;color:var(--ink-dimmer);line-height:1.7;margin-top:8px;max-width:64ch}
+@media(max-width:520px){.leg{grid-template-columns:1fr 1fr;}.leg .rm{grid-column:2;justify-self:end;width:42px}.conv{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+// --- math (mirrors engine/src/pipeline/boost.js, which is unit-tested) ---
+function a2d(a){const n=parseInt(a,10);if(isNaN(n))return null;return n>0?n/100+1:100/Math.abs(n)+1;}
+function d2a(d){if(d==null||d<=1)return"+100";const a=d>=2?Math.round((d-1)*100):Math.round(-100/(d-1));return(a>0?"+":"")+a;}
+function legFair(m,hold=0.045){const d=a2d(m);if(d==null)return null;return (1/d)/(1+hold);}
+function verdictFor(ev){if(ev>=0.05)return["STRONG — take it","v-strong"];if(ev>=0.01)return["+EV — worth it","v-pos"];if(ev>=-0.01)return["coin flip — optional","v-flip"];return["SKIP — still -EV","v-skip"];}
+function evalBoost(legs){let fp=1,bd=1,ok=false;for(const l of legs){const f=legFair(l.market),b=a2d(l.boosted);if(f==null||b==null)continue;fp*=f;bd*=b;ok=true;}if(!ok)return null;const ev=fp*bd-1;return{fairProb:fp,boostedDecimal:bd,evPct:ev};}
+function kelly(fp,bd,bank,frac=0.25,maxPct=0.03){const b=bd-1;const fk=(fp*bd-1)/b;if(fk<=0)return 0;return Math.round(Math.min(fk*frac,maxPct)*bank*100)/100;}
+function applyProfitBoost(orig,pct){const d=a2d(orig);if(d==null||isNaN(pct))return null;return 1+(d-1)*(1+pct/100);}
+
+function Evaluator({ bankroll }) {
+  const [legs, setLegs] = useState([{ market: "", boosted: "" }]);
+  const set = (i, k, v) => setLegs(legs.map((l, j) => j === i ? { ...l, [k]: v } : l));
+  const r = evalBoost(legs);
+  const [vtext, vclass] = r ? verdictFor(r.evPct) : ["—", ""];
+  const stake = r && r.evPct > 0 ? kelly(r.fairProb, r.boostedDecimal, bankroll || 100) : 0;
+  return (
+    <div className="card">
+      <div className="card-h mono">BOOST EVALUATOR</div>
+      <div className="card-sub">Enter each leg's <b>fair odds</b> (the regular/consensus price elsewhere) and the <b>boosted odds</b> you're offered. We de-vig the fair price and tell you if the boost is real money.</div>
+      {legs.map((l, i) => (
+        <div className="leg" key={i}>
+          <div className="fld"><label>Fair / market odds</label><input className="mono" placeholder="-150" value={l.market} onChange={(e) => set(i, "market", e.target.value)} /></div>
+          <div className="fld"><label>Boosted odds</label><input className="mono" placeholder="+120" value={l.boosted} onChange={(e) => set(i, "boosted", e.target.value)} /></div>
+          {legs.length > 1 ? <button className="rm" onClick={() => setLegs(legs.filter((_, j) => j !== i))}>×</button> : <span />}
+        </div>
+      ))}
+      <button className="addleg mono" onClick={() => setLegs([...legs, { market: "", boosted: "" }])}>+ add leg (for a boosted parlay)</button>
+      {r && (
+        <div className="result">
+          <div className={"verdict " + vclass}>{vtext}</div>
+          <div className="rgrid">
+            <div className="rstat"><span className={"rnum mono " + (r.evPct >= 0 ? "green" : "")} >{(r.evPct * 100).toFixed(1)}%</span><span className="rlab mono">expected value</span></div>
+            <div className="rstat"><span className="rnum mono">{Math.round(r.fairProb * 100)}%</span><span className="rlab mono">fair win chance</span></div>
+            <div className="rstat"><span className="rnum mono">{d2a(r.boostedDecimal)}</span><span className="rlab mono">boosted price</span></div>
+          </div>
+          {stake > 0
+            ? <div className="stakebox mono">Disciplined stake on your ${bankroll || 100} bankroll: <b>${stake}</b> (¼-Kelly, capped 3%).</div>
+            : <div className="stakebox mono" style={{ borderColor: "var(--line)" }}>Not +EV enough to bet. The boost doesn't beat the fair price.</div>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function Converter() {
+  const [orig, setOrig] = useState("");
+  const [pct, setPct] = useState("");
+  const dec = applyProfitBoost(orig, parseFloat(pct));
+  return (
+    <div className="card">
+      <div className="card-h mono gold">PROFIT-BOOST CONVERTER</div>
+      <div className="card-sub">Got a "30% profit boost"? Enter your bet's original odds + the boost % to get the effective boosted odds — then paste it into the evaluator above.</div>
+      <div className="conv">
+        <div className="fld"><label>Original odds</label><input className="mono" placeholder="+150" value={orig} onChange={(e) => setOrig(e.target.value)} /></div>
+        <div className="fld"><label>Boost %</label><input className="mono" placeholder="30" value={pct} onChange={(e) => setPct(e.target.value)} /></div>
+        <div className="out">{dec ? d2a(dec) : "—"}</div>
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const [bankroll, setBankroll] = useState(100);
+  useEffect(() => {
+    fetch("picks.json?ts=" + Date.now()).then((r) => r.json())
+      .then((d) => { if (d && d.bankroll) setBankroll(d.bankroll); }).catch(() => {});
+  }, []);
+  return (
+    <div className="wrap">
+      <div className="top">
+        <div className="title">Boost <span className="dim" style={{ fontWeight: 500, fontStyle: "italic", fontSize: ".7em" }}>·</span> Evaluator <span className="green mono">+EV</span></div>
+        <a className="back mono" href="index.html">← back to the board</a>
+      </div>
+      <p className="lede">For a small bankroll, sportsbook <b>boosts are the biggest real edge you have</b> — books hand them out constantly and many are genuinely +EV. This tells you which ones are free money and which are bait.</p>
+      <Evaluator bankroll={bankroll} />
+      <Converter />
+      <p className="foot mono">Fair odds are de-vigged with a light ~4.5% hold assumption, so the EV shown is intentionally a touch conservative. This guides decisions — you place the bet. Bet responsibly. 21+. If it stops being fun, it's done — 1-800-GAMBLER.</p>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

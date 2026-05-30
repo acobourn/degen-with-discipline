@@ -141,7 +141,7 @@ export async function run() {
     { hour: "numeric", minute: "2-digit", timeZone: "America/New_York" }) + " ET";
 
   const out = buildPicksJson({ lock, picks: board, record, lastUpdated, edgesScanned,
-    gradeRecords, summary: sum, attribution: attr });
+    gradeRecords, summary: sum, attribution: attr, bankroll });
   writeFileSync(OUT, JSON.stringify(out, null, 2));
   console.error(`[run] picks.json — lock=${lock ? lock.pick : "none"}, board=${board.length}, scanned=${edgesScanned}, open=${history.open.length}, settled=${history.settled.length}`);
   return out;

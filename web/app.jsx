@@ -121,6 +121,10 @@ function App() {
 
         <footer className="foot">
           <div className="foot-line mono">DEGEN <span className="brand-amp">with</span> DISCIPLINE</div>
+          <div className="mono" style={{ margin: "12px 0", fontSize: "12px" }}>
+            <a href="boost.html" style={{ color: "var(--green)", textDecoration: "none", marginRight: "18px" }}>⚡ Boost Evaluator →</a>
+            <a href="History.html" style={{ color: "var(--ink-dim)", textDecoration: "none" }}>Full history →</a>
+          </div>
           <p className="foot-disc mono">
             Picks are model output, not financial advice. The model is confident, not psychic.
             Bet what you can afford to lose, you beautiful degenerate. 21+. If it stops being fun, it's done — 1-800-GAMBLER.
