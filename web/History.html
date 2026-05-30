@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Degen with Discipline — Track Record</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --green:#22e07a; --green-2:#36b85f; --red:#ff4d4d; --gold:#ffc24b;
+  --glow:rgba(34,224,122,0.22);
+  --bg:#080a09; --bg-1:#0e1211; --bg-2:#141a18; --bg-3:#1a2220;
+  --line:rgba(255,255,255,0.08); --line-2:rgba(255,255,255,0.14);
+  --ink:#eef2ef; --ink-dim:#97a39c; --ink-dimmer:#727d78;
+  --maxw:980px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:"Archivo",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:radial-gradient(1100px 600px at 50% -8%, rgba(34,224,122,0.06), transparent 60%),var(--bg);min-height:100vh;padding-bottom:60px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.dim{color:var(--ink-dim)}
+.green{color:var(--green)}
+.red{color:var(--red)}
+.app{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+
+/* header */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 4px 18px}
+.back{display:inline-flex;align-items:center;gap:8px;font-family:"JetBrains Mono";font-size:12px;letter-spacing:.5px;
+  color:var(--ink-dim);text-decoration:none;border:1px solid var(--line);padding:9px 14px;border-radius:9px;transition:.16s}
+.back:hover{color:var(--green);border-color:color-mix(in oklab,var(--green),transparent 60%)}
+.brand-name{font-weight:900;font-size:15px;letter-spacing:-0.3px}
+.brand-amp{font-weight:500;font-style:italic;color:var(--ink-dim);font-size:.82em}
+
+/* title */
+.hero{margin:14px 4px 26px}
+.hero h1{font-size:clamp(30px,6vw,46px);font-weight:900;letter-spacing:-1.5px;line-height:.98}
+.hero p{font-size:14px;color:var(--ink-dim);margin-top:10px;max-width:46ch;line-height:1.55;text-wrap:pretty}
+
+/* summary band */
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 4px 14px}
+.scard{background:linear-gradient(180deg,var(--bg-2),var(--bg-1));border:1px solid var(--line);border-radius:14px;padding:16px 16px}
+.scard-num{font-family:"JetBrains Mono";font-size:26px;font-weight:700;letter-spacing:-0.5px;line-height:1}
+.scard-lab{font-family:"JetBrains Mono";font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-dim);margin-top:8px}
+.scard-sub{font-family:"JetBrains Mono";font-size:10px;color:var(--ink-dimmer);margin-top:4px}
+
+/* grade reliability */
+.gradetbl{background:var(--bg-1);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0 4px 26px}
+.gradetbl-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.gradetbl-title{font-family:"JetBrains Mono";font-size:10px;letter-spacing:1.6px;color:var(--green)}
+.gradetbl-note{font-family:"JetBrains Mono";font-size:10px;color:var(--ink-dimmer)}
+.gradetbl-rows{display:flex;flex-direction:column;gap:10px}
+.gtr{display:grid;grid-template-columns:46px 1fr 64px;gap:12px;align-items:center}
+.gtr-bar{height:7px;border-radius:99px;background:var(--bg-3);overflow:hidden;border:1px solid var(--line)}
+.gtr-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--green-2),var(--green))}
+.gtr-pct{font-family:"JetBrains Mono";font-size:13px;font-weight:700;text-align:right}
+.gtr-rec{font-family:"JetBrains Mono";font-size:10px;color:var(--ink-dimmer)}
+
+/* filter */
+.filter{display:flex;gap:8px;flex-wrap:wrap;margin:0 4px 18px}
+.fchip{cursor:pointer;display:inline-flex;align-items:center;gap:7px;background:var(--bg-1);border:1px solid var(--line);
+  color:var(--ink-dim);font-family:"JetBrains Mono";font-size:11px;letter-spacing:.5px;padding:8px 13px;border-radius:9px;transition:.15s}
+.fchip:hover{color:var(--ink)}
+.fchip.on{color:var(--green);border-color:color-mix(in oklab,var(--green),transparent 55%);background:color-mix(in oklab,var(--green),transparent 90%)}
+.fchip-rec{font-size:10px;color:var(--ink-dimmer)}
+.fchip.on .fchip-rec{color:var(--green)}
+
+/* day group + rows */
+.daygroup{margin:0 4px 22px}
+.dayhead{display:flex;align-items:center;gap:12px;margin-bottom:11px}
+.dayhead-date{font-family:"JetBrains Mono";font-size:12px;letter-spacing:1px;color:var(--ink);font-weight:700}
+.dayhead-line{flex:1;height:1px;background:var(--line)}
+.dayhead-rec{font-family:"JetBrains Mono";font-size:10px;color:var(--ink-dim)}
+.rows{display:flex;flex-direction:column;gap:8px}
+.hrow{display:flex;align-items:center;gap:12px;background:var(--bg-1);border:1px solid var(--line);border-radius:11px;padding:12px 14px}
+.hrow.win{border-left:2px solid color-mix(in oklab,var(--green),transparent 40%)}
+.hrow.loss{border-left:2px solid color-mix(in oklab,var(--red),transparent 45%)}
+.hrow-mid{flex:1;min-width:0}
+.hrow-pick{font-size:13.5px;font-weight:700;letter-spacing:-0.2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hrow-matchup{font-family:"JetBrains Mono";font-size:10.5px;color:var(--ink-dim);margin-top:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hrow-right{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.hodds{font-family:"JetBrains Mono";font-size:12px;color:var(--ink);background:var(--bg-3);border:1px solid var(--line-2);padding:5px 9px;border-radius:7px}
+.lockmini{font-family:"JetBrains Mono";font-size:9px;letter-spacing:1px;color:var(--green);
+  background:color-mix(in oklab,var(--green),transparent 88%);border:1px solid color-mix(in oklab,var(--green),transparent 66%);
+  padding:2px 6px;border-radius:5px;font-weight:700}
+
+/* sport badge */
+.sportBadge{display:inline-grid;place-items:center;font-family:"JetBrains Mono";font-weight:700;letter-spacing:.5px;
+  border-radius:8px;border:1px solid var(--line-2);font-size:10px;width:42px;height:34px;flex:0 0 auto}
+.sb-MLB{color:#7fb4ff;background:rgba(60,110,200,0.14);border-color:rgba(90,140,230,0.3)}
+.sb-NBA{color:#ff9a52;background:rgba(230,120,40,0.14);border-color:rgba(230,140,60,0.3)}
+.sb-NHL{color:#9fd6ff;background:rgba(120,190,255,0.12);border-color:rgba(150,200,255,0.28)}
+.sb-SOC{color:#7af0a8;background:rgba(40,200,120,0.12);border-color:rgba(70,210,140,0.3)}
+.sb-TEN{color:#ffe14d;background:rgba(220,200,40,0.12);border-color:rgba(230,210,70,0.3)}
+
+/* grade pill */
+.hgrade{font-family:"Archivo";font-weight:900;font-size:13px;letter-spacing:-0.5px;width:34px;height:30px;
+  display:grid;place-items:center;border-radius:8px;border:1px solid var(--line-2);flex:0 0 auto}
+.hgrade.t-a{color:var(--green);background:color-mix(in oklab,var(--green),transparent 90%);border-color:color-mix(in oklab,var(--green),transparent 62%)}
+.hgrade.t-b{color:var(--gold);background:color-mix(in oklab,var(--gold),transparent 90%);border-color:color-mix(in oklab,var(--gold),transparent 64%)}
+
+/* result chip */
+.rchip{font-family:"JetBrains Mono";font-size:12px;font-weight:700;width:30px;height:30px;display:grid;place-items:center;
+  border-radius:8px;flex:0 0 auto}
+.rchip.W{color:var(--green);background:color-mix(in oklab,var(--green),transparent 86%);border:1px solid color-mix(in oklab,var(--green),transparent 60%)}
+.rchip.L{color:var(--red);background:color-mix(in oklab,var(--red),transparent 88%);border:1px solid color-mix(in oklab,var(--red),transparent 62%)}
+
+.foot{margin:36px 4px 0;padding:22px 0 0;border-top:1px solid var(--line);text-align:center}
+.foot-disc{font-family:"JetBrains Mono";font-size:10px;line-height:1.7;color:var(--ink-dimmer);max-width:58ch;margin:0 auto}
+
+@media(max-width:560px){
+  .summary{grid-template-columns:1fr 1fr}
+  .app{padding:0 14px}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="history-data.jsx"></script>
+<script type="text/babel">
+const { useState } = React;
+
+function SportBadge({ sport }) { return <span className={"sportBadge sb-" + sport}>{sport}</span>; }
+function GradePill({ grade }) { return <span className={"hgrade " + (grade[0]==="A"?"t-a":"t-b")}>{grade}</span>; }
+function ResultChip({ r }) { return <span className={"rchip " + r}>{r}</span>; }
+
+function App() {
+  const [sport, setSport] = useState("ALL");
+  const filtered = sport === "ALL" ? HIST : HIST.filter(p => p.sport === sport);
+  const sum = summarize(filtered);
+  const grades = GRADE_RELIABILITY;
+  const maxPct = Math.max(...grades.map(g => g.pct), 1);
+
+  // group filtered by date (preserve order)
+  const days = [];
+  filtered.forEach(p => {
+    let d = days.find(x => x.date === p.date);
+    if (!d) { d = { date: p.date, picks: [] }; days.push(d); }
+    d.picks.push(p);
+  });
+
+  const sportRec = (s) => {
+    const x = summarize(s === "ALL" ? HIST : HIST.filter(p => p.sport === s));
+    return x.w + "-" + x.l;
+  };
+
+  return (
+    <div className="app">
+      <header className="topbar">
+        <div className="brand-name">DEGEN <span className="brand-amp">with</span> DISCIPLINE</div>
+        <a className="back" href="Degen with Discipline.html">← Today's picks</a>
+      </header>
+
+      <div className="hero">
+        <h1>THE TRACK RECORD</h1>
+        <p>Every pick, every result, no hiding the losses. Last 30 days, graded and settled. This is the receipts behind the swagger.</p>
+      </div>
+
+      <div className="summary">
+        <div className="scard"><div className="scard-num">{sum.w}-{sum.l}</div><div className="scard-lab">Record</div><div className="scard-sub">{sport === "ALL" ? "all sports" : sport}</div></div>
+        <div className="scard"><div className="scard-num green">{sum.winPct}%</div><div className="scard-lab">Win rate</div><div className="scard-sub">{sum.settled} settled</div></div>
+        <div className="scard"><div className={"scard-num " + (sum.roi >= 0 ? "green" : "red")}>{(sum.roi >= 0 ? "+" : "") + sum.roi.toFixed(1)}u</div><div className="scard-lab">Profit</div><div className="scard-sub">1u flat bets</div></div>
+        <div className="scard"><div className="scard-num">{sum.units}</div><div className="scard-lab">Picks</div><div className="scard-sub">tracked</div></div>
+      </div>
+
+      <div className="gradetbl">
+        <div className="gradetbl-head">
+          <span className="gradetbl-title">GRADE RELIABILITY — DOES THE GRADE MEAN ANYTHING?</span>
+          <span className="gradetbl-note">hit rate by grade · last 90 days</span>
+        </div>
+        <div className="gradetbl-rows">
+          {grades.map(g => (
+            <div className="gtr" key={g.grade}>
+              <GradePill grade={g.grade} />
+              <div className="gtr-bar"><div className="gtr-fill" style={{ width: (g.pct / maxPct * 100) + "%" }}></div></div>
+              <div><div className="gtr-pct">{g.pct}%</div><div className="gtr-rec">{g.rec}</div></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="filter">
+        {HIST_SPORTS.map(s => (
+          <button key={s} className={"fchip" + (sport === s ? " on" : "")} onClick={() => setSport(s)}>
+            {s} <span className="fchip-rec">{sportRec(s)}</span>
+          </button>
+        ))}
+      </div>
+
+      {days.map(d => {
+        const dr = summarize(d.picks);
+        return (
+          <div className="daygroup" key={d.date}>
+            <div className="dayhead">
+              <span className="dayhead-date">{d.date}</span>
+              <span className="dayhead-line"></span>
+              <span className="dayhead-rec">{dr.w}-{dr.l} · {(dr.roi >= 0 ? "+" : "") + dr.roi.toFixed(1)}u</span>
+            </div>
+            <div className="rows">
+              {d.picks.map((p, i) => (
+                <div className={"hrow " + (p.result === "W" ? "win" : "loss")} key={i}>
+                  <SportBadge sport={p.sport} />
+                  <div className="hrow-mid">
+                    <div className="hrow-pick">{p.pick}</div>
+                    <div className="hrow-matchup">{p.matchup}{p.lock && <span className="lockmini">★ LOCK</span>}</div>
+                  </div>
+                  <div className="hrow-right">
+                    <span className="hodds">{p.odds}</span>
+                    <GradePill grade={p.grade} />
+                    <ResultChip r={p.result} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+
+      <footer className="foot">
+        <p className="foot-disc">Results are tracked at the posted line to 1 unit flat. Past performance doesn't predict the future — it just keeps us honest. 21+. 1-800-GAMBLER.</p>
+      </footer>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

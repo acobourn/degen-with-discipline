@@ -1,0 +1,87 @@
+{
+  "lastUpdated": "4:04 PM ET",
+  "edgesScanned": 4,
+  "lock": {
+    "id": "baseball_mlb-game1-0",
+    "sport": "MLB",
+    "sportLabel": "Baseball",
+    "league": "MLB",
+    "context": "Detroit Tigers @ Chicago White Sox",
+    "matchup": "Detroit Tigers vs Chicago White Sox",
+    "pick": "Detroit Tigers ML",
+    "betType": "Moneyline",
+    "odds": "+110",
+    "openOdds": "+110",
+    "payoutNote": "$100 → $210",
+    "confidence": 76,
+    "grade": "B+",
+    "takeShort": "The market blinked on Detroit Tigers ML. We didn't.",
+    "takeLong": "Our de-vigged consensus puts the true number at 50%, but DraftKings is pricing it like 48% — a +5.3% edge. Pitcher form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+    "dataPoints": 10,
+    "factors": [
+      {
+        "label": "Pitcher form",
+        "weight": 50,
+        "note": "demo mode — no live data"
+      },
+      {
+        "label": "Weather / air",
+        "weight": 50,
+        "note": "demo mode"
+      }
+    ],
+    "evPct": 0.05279481570457212,
+    "fairProb": 0.5013308646212248,
+    "impliedProb": 0.47619047619047616,
+    "bestBook": "DraftKings",
+    "kellyStake": 1.2,
+    "isLock": true
+  },
+  "picks": [
+    {
+      "id": "baseball_mlb-game2-0",
+      "sport": "MLB",
+      "sportLabel": "Baseball",
+      "league": "MLB",
+      "context": "New York Yankees @ Boston Red Sox",
+      "matchup": "New York Yankees vs Boston Red Sox",
+      "pick": "New York Yankees ML",
+      "betType": "Moneyline",
+      "odds": "+102",
+      "openOdds": "+102",
+      "payoutNote": "$100 → $202",
+      "confidence": 65,
+      "grade": "B-",
+      "takeShort": "Pitcher form says go; the price says value. Rare combo.",
+      "takeLong": "Our de-vigged consensus puts the true number at 51%, but BetMGM is pricing it like 50% — a +2.9% edge. Pitcher form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+      "dataPoints": 10,
+      "factors": [
+        {
+          "label": "Pitcher form",
+          "weight": 50,
+          "note": "demo mode — no live data"
+        },
+        {
+          "label": "Weather / air",
+          "weight": 50,
+          "note": "demo mode"
+        }
+      ],
+      "evPct": 0.028827344808032285,
+      "fairProb": 0.5093204677267487,
+      "impliedProb": 0.49504950495049505,
+      "bestBook": "BetMGM",
+      "kellyStake": 0.71
+    }
+  ],
+  "special": null,
+  "record": {
+    "lockStreak": 0,
+    "last10": "0-0"
+  },
+  "deskNotes": [
+    "Bet the math, not the mascot.",
+    "Discipline is just degeneracy with a spreadsheet.",
+    "Some days the sharp play is no play. Today we hunt."
+  ]
+}
