@@ -105,6 +105,17 @@ export function settleFinished({ history, bankroll, finals, nowIso }) {
   };
 }
 
+// Refresh the closing-line snapshot for EVERY still-open pick we re-priced this run (not
+// just those still on the board), so CLV is measured against the latest sharp line. The
+// last snapshot before a game starts is our "close". Mutates + returns `open`.
+export function refreshClosing(open, fairById, nowMs) {
+  for (const op of open || []) {
+    if (op.commenceTime && Date.parse(op.commenceTime) <= nowMs) continue; // game already started
+    if (fairById.has(op.id)) op.closingFairProb = fairById.get(op.id);
+  }
+  return open;
+}
+
 // Log today's recommended picks as open (dedupe by id); refresh closing fair prob. Pure.
 export function logRecommended(history, recommended, nowIso) {
   const open = [...(history.open || [])];

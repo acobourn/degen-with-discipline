@@ -16,7 +16,7 @@ import { confirmPick } from "./confirm.js";
 import { takeShort, takeLong } from "./copy.js";
 import { buildPicksJson } from "./buildPicksJson.js";
 import { loadStore, saveHistory, saveBankroll, summary, calibration, attribution, pausedSegments } from "./store.js";
-import { settleFinished, logRecommended } from "./settle.js";
+import { settleFinished, logRecommended, refreshClosing } from "./settle.js";
 import { composeAlert, notify, anyChannelConfigured } from "../io/notify.js";
 
 const OUT = new URL("../../../web/picks.json", import.meta.url);
@@ -71,6 +71,7 @@ export async function run() {
   if (!CONFIG.demoMode) console.error(`[run] scanning: ${plan.map((p) => p.league).join(", ")}`);
 
   const candidates = [];
+  const fairById = new Map(); // sharp fair prob for EVERY outcome we price (for CLV closing snapshots)
   let edgesScanned = 0;
   for (const sp of plan) {
     if (paused.has(sp.league)) continue; // circuit-breaker
@@ -87,6 +88,8 @@ export async function run() {
         const isTotals = market === "totals";
 
         for (const o of evaluateGameMarket(g, { targetBooks: CONFIG.targetBooks, sharpBooks: CONFIG.sharpBooks })) {
+          const id = `${sp.key}-${g.id}-${market}-${o.side}`;
+          fairById.set(id, o.fairProb); // snapshot the sharp line for EVERY outcome (+EV or not)
           const ev = evPct(o.fairProb, o.bestDecimal);
           edgesScanned++;
           const americanOdds = decimalToAmerican(o.bestDecimal);
@@ -105,7 +108,7 @@ export async function run() {
             : (/^draw$/i.test(o.outcomeName) ? "Draw" : `${o.outcomeName} ML`);
           const topFactor = signal.factors[0]?.label || "Market value";
           candidates.push({
-            id: `${sp.key}-${g.id}-${market}-${o.side}`,
+            id,
             gameId: `${sp.key}-${g.id}-${market}`,
             oddsSportKey: sp.key,
             sport: sp.sport, sportLabel: sp.label, league: sp.league,
@@ -147,6 +150,8 @@ export async function run() {
 
   // --- log today's recommended picks so we can track CLV + settle them later ---
   const recommended = [lock, ...board].filter(Boolean).map((c) => ({ ...c, isLock: c === lock, stake: c.kellyStake }));
+  // refresh the closing-line snapshot for ALL still-open picks we re-priced (not just on-board ones)
+  refreshClosing(history.open, fairById, nowMs);
   history = logRecommended(history, recommended, nowIso);
 
   // --- alerts: notify configured channels about FRESH edges only (no spam) ---

@@ -1,7 +1,18 @@
 // engine/test/settle.test.js
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { teamMatches, gradeMoneyline, gradeTotal, profitFor, clvFor, settleFinished, logRecommended } from "../src/pipeline/settle.js";
+import { teamMatches, gradeMoneyline, gradeTotal, profitFor, clvFor, settleFinished, logRecommended, refreshClosing } from "../src/pipeline/settle.js";
+
+test("refreshClosing updates the closing snapshot for open picks not yet started", () => {
+  const now = Date.parse("2026-05-30T22:00:00Z");
+  const open = [
+    { id: "a", closingFairProb: 0.50, commenceTime: "2026-05-30T23:00:00Z" }, // upcoming -> refresh
+    { id: "b", closingFairProb: 0.50, commenceTime: "2026-05-30T20:00:00Z" }  // started -> keep
+  ];
+  refreshClosing(open, new Map([["a", 0.57], ["b", 0.61]]), now);
+  assert.equal(open[0].closingFairProb, 0.57); // refreshed to latest sharp line
+  assert.equal(open[1].closingFairProb, 0.50); // game started -> frozen at last pre-game value
+});
 
 test("gradeTotal grades over/under against the final combined score", () => {
   const score = { final: true, homeScore: 5, awayScore: 4 }; // total 9
