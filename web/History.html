@@ -154,7 +154,7 @@ function App() {
     <div className="app">
       <header className="topbar">
         <div className="brand-name">DEGEN <span className="brand-amp">with</span> DISCIPLINE</div>
-        <a className="back" href="Degen with Discipline.html">← Today's picks</a>
+        <a className="back" href="index.html">← Today's picks</a>
       </header>
 
       <div className="hero">
@@ -166,13 +166,15 @@ function App() {
         <div className="scard"><div className="scard-num">{sum.w}-{sum.l}</div><div className="scard-lab">Record</div><div className="scard-sub">{sport === "ALL" ? "all sports" : sport}</div></div>
         <div className="scard"><div className="scard-num green">{sum.winPct}%</div><div className="scard-lab">Win rate</div><div className="scard-sub">{sum.settled} settled</div></div>
         <div className="scard"><div className={"scard-num " + (sum.roi >= 0 ? "green" : "red")}>{(sum.roi >= 0 ? "+" : "") + sum.roi.toFixed(1)}u</div><div className="scard-lab">Profit</div><div className="scard-sub">1u flat bets</div></div>
-        <div className="scard"><div className="scard-num">{sum.units}</div><div className="scard-lab">Picks</div><div className="scard-sub">tracked</div></div>
+        {HIST_SUMMARY && HIST_SUMMARY.avgClvPct != null
+          ? <div className="scard"><div className={"scard-num " + (HIST_SUMMARY.avgClvPct >= 0 ? "green" : "red")}>{(HIST_SUMMARY.avgClvPct >= 0 ? "+" : "") + HIST_SUMMARY.avgClvPct}%</div><div className="scard-lab">Avg CLV</div><div className="scard-sub">beat the close</div></div>
+          : <div className="scard"><div className="scard-num">{sum.units}</div><div className="scard-lab">Picks</div><div className="scard-sub">tracked</div></div>}
       </div>
 
       <div className="gradetbl">
         <div className="gradetbl-head">
           <span className="gradetbl-title">GRADE RELIABILITY — DOES THE GRADE MEAN ANYTHING?</span>
-          <span className="gradetbl-note">hit rate by grade · last 90 days</span>
+          <span className="gradetbl-note">{grades.length ? "hit rate by grade · settled results" : "building — no settled picks yet"}</span>
         </div>
         <div className="gradetbl-rows">
           {grades.map(g => (
@@ -222,6 +224,13 @@ function App() {
         );
       })}
 
+      {filtered.length === 0 && (
+        <div style={{ textAlign: "center", color: "var(--ink-dim)", padding: "44px 20px", border: "1px dashed var(--line-2)", borderRadius: "14px", lineHeight: 1.8, fontSize: "13px" }}>
+          No settled bets yet — the track record builds as today's picks finish.<br />
+          Every pick is logging its <b style={{ color: "var(--green)" }}>CLV</b> (did we beat the closing line) right now. Check back after games settle.
+        </div>
+      )}
+
       <footer className="foot">
         <p className="foot-disc">Results are tracked at the posted line to 1 unit flat. Past performance doesn't predict the future — it just keeps us honest. 21+. 1-800-GAMBLER.</p>
       </footer>
@@ -229,7 +238,13 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+window.loadHistory().then(() => {
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+}).catch((e) => {
+  document.getElementById("root").innerHTML =
+    '<p style="color:#97a39c;font-family:monospace;padding:40px;text-align:center">Could not load history.json. Serve over http and run the engine.</p>';
+  console.error(e);
+});
 </script>
 </body>
 </html>

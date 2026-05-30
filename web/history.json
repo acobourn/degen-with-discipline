@@ -1,0 +1,17 @@
+{
+  "settled": [],
+  "gradeReliability": [],
+  "attribution": [],
+  "summary": {
+    "lockStreak": 0,
+    "last10": "0-0",
+    "record": "0-0",
+    "settledCount": 0,
+    "profit": 0,
+    "avgClvPct": null
+  },
+  "bankroll": 100,
+  "sports": [
+    "ALL"
+  ]
+}

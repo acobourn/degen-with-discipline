@@ -161,6 +161,22 @@ export async function run() {
   const out = buildPicksJson({ lock, picks: board, record, lastUpdated, edgesScanned,
     gradeRecords, summary: sum, attribution: attr, bankroll });
   writeFileSync(OUT, JSON.stringify(out, null, 2));
+
+  // --- served history.json for the track-record page (real settled results + CLV) ---
+  const histRows = history.settled.map((x) => {
+    const dt = x.commenceTime || x.settledAt;
+    const date = dt ? new Date(dt).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "America/New_York" }) : "—";
+    return { date, sport: x.sport, league: x.league, matchup: x.matchup, pick: x.pick,
+      odds: (x.americanOdds > 0 ? "+" : "") + x.americanOdds, grade: x.grade, result: x.result,
+      lock: !!x.isLock, clvPct: typeof x.clvEdge === "number" ? Math.round(x.clvEdge * 1000) / 10 : null };
+  });
+  const order = ["A+", "A", "A-", "B+", "B", "B-"];
+  const gradeReliability = order.filter((gr) => gradeRecords[gr])
+    .map((gr) => ({ grade: gr, pct: gradeRecords[gr].win, rec: "of " + gradeRecords[gr].sample.slice(1) + " picks" }));
+  const histSports = ["ALL", ...new Set(histRows.map((r) => r.sport).filter(Boolean))];
+  writeFileSync(new URL("../../../web/history.json", import.meta.url), JSON.stringify(
+    { settled: histRows, gradeReliability, attribution: attr, summary: sum, bankroll, sports: histSports }, null, 2));
+
   console.error(`[run] picks.json — lock=${lock ? lock.pick : "none"}, board=${board.length}, scanned=${edgesScanned}, open=${history.open.length}, settled=${history.settled.length}`);
   return out;
 }
