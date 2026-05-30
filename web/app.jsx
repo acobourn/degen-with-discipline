@@ -33,6 +33,26 @@ function applyAccent(name) {
   r.setProperty("--glow", a.glow);
 }
 
+// Shown when no edge clears the guardrails — sitting out IS the disciplined play.
+function NoLock() {
+  return (
+    <section className="lock" data-screen-label="No Lock">
+      <div className="lock-inner" style={{ textAlign: "center" }}>
+        <div className="lock-tag" style={{ margin: "0 auto 18px" }}>
+          <span className="lock-tag-dot"></span><span className="mono">NO LOCK TODAY</span>
+        </div>
+        <p className="lock-take" style={{ margin: "0 auto 14px" }}>
+          No edge cleared our guardrails right now. The disciplined play is to <b>sit this slate
+          out</b> — forcing a bet is how bankrolls die. Check back before the next games.
+        </p>
+        <div className="mono dim" style={{ fontSize: "11px" }}>
+          The model scanned the board and found nothing worth your money. That's a feature, not a bug.
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function App() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
   const [run, setRun] = useStateA(false);
@@ -75,7 +95,9 @@ function App() {
       </div>
 
       <main className="main">
-        <LockCard lock={DWD_LOCK} whyStyle={t.whyStyle} lockStyle={t.lockStyle} run={animate} slip={slip} />
+        {DWD_LOCK
+          ? <LockCard lock={DWD_LOCK} whyStyle={t.whyStyle} lockStyle={t.lockStyle} run={animate} slip={slip} />
+          : <NoLock />}
 
         {t.showRecord && <RecordStrip record={DWD_RECORD} />}
 
