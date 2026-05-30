@@ -6,8 +6,9 @@ on:
   push:
     branches: [master]
   schedule:
-    - cron: "0 14 * * *"   # ~10:00 AM ET — morning slate
-    - cron: "0 22 * * *"   # ~06:00 PM ET — evening slate
+    - cron: "0 14 * * *"   # ~10:00 AM ET — morning lines
+    - cron: "0 19 * * *"   # ~03:00 PM ET — afternoon, ahead of evening games
+    - cron: "0 23 * * *"   # ~07:00 PM ET — prime time, sharp closing snapshots
   workflow_dispatch: {}
 
 permissions:
