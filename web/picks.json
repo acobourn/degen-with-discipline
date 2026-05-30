@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "3:59 PM ET",
+  "lastUpdated": "4:04 PM ET",
   "edgesScanned": 4,
   "lock": {
     "id": "baseball_mlb-game1-0",
@@ -17,7 +17,7 @@
     "grade": "B+",
     "takeShort": "The market blinked on Detroit Tigers ML. We didn't.",
     "takeLong": "Our de-vigged consensus puts the true number at 50%, but DraftKings is pricing it like 48% — a +5.3% edge. Pitcher form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
-    "dataPoints": 0,
+    "dataPoints": 10,
     "factors": [
       {
         "label": "Pitcher form",
@@ -54,7 +54,7 @@
       "grade": "B-",
       "takeShort": "Pitcher form says go; the price says value. Rare combo.",
       "takeLong": "Our de-vigged consensus puts the true number at 51%, but BetMGM is pricing it like 50% — a +2.9% edge. Pitcher form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
-      "dataPoints": 0,
+      "dataPoints": 10,
       "factors": [
         {
           "label": "Pitcher form",

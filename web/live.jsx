@@ -17,10 +17,12 @@ function LineMovement({ open, now }) {
   );
 }
 
-/* ---------- value meter: model conf vs market implied ---------- */
-function ValueMeter({ conf, odds }) {
+/* ---------- value meter: de-vigged fair value vs the price you're offered ---------- */
+// Honest edge = consensus FAIR probability minus what THIS price implies. Small and real.
+function ValueMeter({ fairProb, odds }) {
   const market = Math.round(impliedProb(odds) * 100);
-  const edge = conf - market;
+  const model = fairProb != null ? Math.round(fairProb * 100) : market;
+  const edge = Math.max(0, model - market);
   const [grow, setGrow] = useStateL(false);
   useEffectL(() => { const id = setTimeout(() => setGrow(true), 120); return () => clearTimeout(id); }, []);
   return (
@@ -31,14 +33,14 @@ function ValueMeter({ conf, odds }) {
       </div>
       <div className="vmeter-track">
         <div className="vmeter-market" style={{ width: (grow ? market : 0) + "%" }}>
-          <span className="vmeter-cap mono">MARKET {market}%</span>
+          <span className="vmeter-cap mono">PRICE IMPLIES {market}%</span>
         </div>
         <div className="vmeter-edgefill" style={{ width: (grow ? edge : 0) + "%" }}></div>
-        <div className="vmeter-tick" style={{ left: (grow ? conf : 0) + "%" }}>
-          <span className="vmeter-cap mono green">MODEL {conf}%</span>
+        <div className="vmeter-tick" style={{ left: (grow ? model : 0) + "%" }}>
+          <span className="vmeter-cap mono green">FAIR {model}%</span>
         </div>
       </div>
-      <p className="vmeter-note mono">Market prices this at {market}%. We make it {conf}%. That gap is the bet.</p>
+      <p className="vmeter-note mono">This price implies {market}%; the de-vigged market consensus says {model}%. That ~{edge}-pt gap is the edge — small and real, not magic.</p>
     </div>
   );
 }

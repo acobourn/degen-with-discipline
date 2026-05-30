@@ -66,8 +66,8 @@ function LockCard({ lock, whyStyle, lockStyle, run, slip }) {
             </button>
           </div>
           <div className="lock-hit">
-            <span className="lock-hit-num mono green">{gradeRecord(lock.confidence).win}%</span>
-            <span className="mono dim">{gradeFor(lock.confidence)} hit rate · L90</span>
+            <span className="lock-hit-num mono green">+{(lock.evPct * 100).toFixed(1)}%</span>
+            <span className="mono dim">model edge · +EV</span>
           </div>
           <div className="lock-payout">
             <span className="lock-payout-num mono">{lock.payoutNote.split("→")[1].trim()}</span>
@@ -93,7 +93,7 @@ function LockCard({ lock, whyStyle, lockStyle, run, slip }) {
 
         {open && (
           <div className="lock-why">
-            <ValueMeter conf={lock.confidence} odds={lock.odds} />
+            <ValueMeter fairProb={lock.fairProb} odds={lock.odds} />
             <WhyBlock pick={lock} whyStyle={whyStyle === "minimal" ? "bars" : whyStyle} run={run} />
           </div>
         )}
@@ -150,7 +150,7 @@ function PickCard({ pick, whyStyle, run, slip }) {
 
       {open && (
         <div className="pcard-why">
-          <ValueMeter conf={pick.confidence} odds={pick.odds} />
+          <ValueMeter fairProb={pick.fairProb} odds={pick.odds} />
           <GradeExplainer pick={pick} />
           <ConfidenceMeter conf={pick.confidence} run={run} />
           <WhyBlock pick={pick} whyStyle={whyStyle} run={run} />

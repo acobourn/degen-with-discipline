@@ -95,7 +95,7 @@ function App() {
           )}
         </div>
 
-        <DegenSpecial special={DWD_SPECIAL} slip={slip} />
+        {DWD_SPECIAL && <DegenSpecial special={DWD_SPECIAL} slip={slip} />}
 
         <footer className="foot">
           <div className="foot-line mono">DEGEN <span className="brand-amp">with</span> DISCIPLINE</div>
@@ -131,4 +131,11 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+// Load the engine's picks.json, then mount. (Serve over http — fetch needs it.)
+window.loadDwdData().then(() => {
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+}).catch((e) => {
+  document.getElementById("root").innerHTML =
+    '<p style="color:#97a39c;font-family:monospace;padding:40px;max-width:680px;margin:40px auto;line-height:1.7">Could not load <b>picks.json</b>.<br/>Run the engine (<code>cd engine &amp;&amp; npm run run:engine</code>) and serve over http (<code>npx serve web</code>) — not <code>file://</code>.</p>';
+  console.error(e);
+});

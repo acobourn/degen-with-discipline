@@ -67,7 +67,9 @@ export async function run() {
           americanOdds, openAmerican: americanOdds,
           evPct: ev, fairProb, impliedProb: 1 / dec, bestBook: best.title,
           confidence: conf.confidence, grade: conf.grade,
-          kellyStake: stake, dataPoints: signal.dataPoints || 0,
+          kellyStake: stake,
+          // real "data points crunched": book quotes in the consensus + any enrichment data
+          dataPoints: (signal.dataPoints || 0) + g.books.length * g.outcomes.length,
           factors: signal.factors,
           takeShort: takeShort({ pick: pickName, evPct: ev, topFactor }),
           takeLong: takeLong({ pick: pickName, evPct: ev, fairProb, impliedProb: 1 / dec,

@@ -109,7 +109,7 @@ function TerminalReadout({ pick, run }) {
       <div className="term-line"><span className="term-key">grade</span> {gradeFor(pick.confidence)} · conf {pick.confidence}%</div>
       <div className="term-line"><span className="term-key">read</span> <span className="term-read">{pick.takeLong}</span></div>
       <FactorBars factors={pick.factors} dense />
-      <div className="term-line term-out"><span className="term-key">output</span> <span className="term-fire">FIRE — {pick.units}u</span></div>
+      <div className="term-line term-out"><span className="term-key">output</span> <span className="term-fire">FIRE — {pick.kellyStake != null ? "$" + pick.kellyStake : "tracked"}</span></div>
     </div>
   );
 }
@@ -150,15 +150,17 @@ function PickLine({ pick, big }) {
 /* ---------- grade explainer: why it graded what it did ---------- */
 function GradeExplainer({ pick }) {
   const market = Math.round(impliedProb(pick.odds) * 100);
-  const edge = pick.confidence - market;
-  const g = gradeFor(pick.confidence);
+  const model = pick.fairProb != null ? Math.round(pick.fairProb * 100) : market;
+  const edge = Math.max(0, model - market);
+  const g = pick.grade || gradeFor(pick.confidence);
   const rec = gradeRecord(pick.confidence);
+  const evTxt = pick.evPct != null ? " (+" + (pick.evPct * 100).toFixed(1) + "% EV)" : "";
   const steam = impliedProb(pick.odds) >= impliedProb(pick.openOdds);
   const rows = [
-    { k: "Value edge", v: "Model " + pick.confidence + "% vs market " + market + "% — a +" + edge + " pt gap" },
-    { k: "Data depth", v: pick.dataPoints.toLocaleString() + " points across " + pick.factors.length + " weighted factors" },
+    { k: "Value edge", v: "De-vigged fair " + model + "% vs this price's " + market + "% — a +" + edge + " pt gap" + evTxt },
+    { k: "Data depth", v: pick.dataPoints.toLocaleString() + " data points across " + pick.factors.length + " weighted factors" },
     { k: "Market read", v: steam ? "Line is steaming our way (sharp money agrees)" : "Value still sitting on the board" },
-    { k: "Track record", v: g + " grades win " + rec.win + "% (" + rec.sample + ", " + rec.roi + ")" },
+    { k: "Track record", v: rec ? (g + " grades win " + rec.win + "% (" + rec.sample + ", " + rec.roi + ")") : "Building track record — real hit-rate shows once enough picks settle." },
   ];
   return (
     <div className="gradex">
