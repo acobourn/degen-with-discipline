@@ -31,6 +31,17 @@ export function normalizeOddsResponse(raw, marketKey) {
   return games;
 }
 
+// I/O: the set of currently-active sport keys (FREE — /sports costs no credits). null on error/demo.
+export async function fetchActiveSports() {
+  if (CONFIG.demoMode) return null;
+  try {
+    const res = await fetch(`${BASE}/sports/?apiKey=${CONFIG.oddsApiKey}`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    return new Set(data.filter((s) => s.active).map((s) => s.key));
+  } catch (e) { console.error(`[odds] active sports: ${e.message}`); return null; }
+}
+
 // I/O: fetch one sport+market (1 region). Returns normalized games. Budgeted by caller.
 export async function fetchOdds(sportKey, marketKey, { region = "us" } = {}) {
   if (CONFIG.demoMode) {

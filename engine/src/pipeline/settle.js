@@ -29,9 +29,13 @@ export function pairMatches(pick, f) {
 }
 
 // Decide W / L / P for a moneyline pick given a FINAL score. null if not final.
+// Draw-aware: soccer is 3-way (Home/Away/Draw); a team bet LOSES on a draw, a Draw bet wins.
 export function gradeMoneyline(pick, score) {
   if (!score || !score.final) return null;
-  if (score.homeScore === score.awayScore) return "P";
+  const draw = score.homeScore === score.awayScore;
+  const isDrawBet = /^draw$/i.test((pick.outcomeName || "").trim());
+  if (isDrawBet) return draw ? "W" : "L";
+  if (draw) return "L"; // 2-way sports (baseball/basketball/hockey) never tie, so this is soccer
   const winner = score.homeScore > score.awayScore ? score.homeTeam : score.awayTeam;
   return teamMatches(pick.outcomeName, winner) ? "W" : "L";
 }
@@ -72,9 +76,14 @@ export function settleFinished({ history, bankroll, finals, nowIso }) {
   const stillOpen = [];
   const newlySettled = [];
   let bank = bankroll.bankroll;
+  const STALE_MS = 48 * 3600 * 1000; // drop picks whose game is 2+ days past with no final found
   for (const o of history.open || []) {
     const result = gradePick(o, matchFinal(o, finals));
-    if (result == null) { stillOpen.push(o); continue; }
+    if (result == null) {
+      const started = o.commenceTime ? Date.parse(o.commenceTime) : 0;
+      if (started && Date.parse(nowIso) - started > STALE_MS) continue; // un-settleable feed gap
+      stillOpen.push(o); continue;
+    }
     const profit = profitFor(result, o.stake || 0, o.decimalOdds);
     const rec = { ...o, result, profit, clvEdge: clvFor(o), settledAt: nowIso };
     settled.unshift(rec);

@@ -3,8 +3,20 @@
 const ESPN_PATH = {
   baseball_mlb: "baseball/mlb",
   baseball_ncaa: "baseball/college-baseball",
+  basketball_wnba: "basketball/wnba",
   soccer_usa_mls: "soccer/usa.1",
-  soccer_epl: "soccer/eng.1"
+  soccer_epl: "soccer/eng.1",
+  soccer_brazil_campeonato: "soccer/bra.1",
+  soccer_brazil_serie_b: "soccer/bra.2",
+  soccer_japan_j_league: "soccer/jpn.1",
+  soccer_conmebol_copa_libertadores: "soccer/conmebol.libertadores",
+  soccer_conmebol_copa_sudamericana: "soccer/conmebol.sudamericana",
+  soccer_norway_eliteserien: "soccer/nor.1",
+  soccer_sweden_allsvenskan: "soccer/swe.1",
+  soccer_belgium_first_div: "soccer/bel.1",
+  soccer_spain_segunda_division: "soccer/esp.2",
+  soccer_finland_veikkausliiga: "soccer/fin.1",
+  soccer_chile_campeonato: "soccer/chi.1"
 };
 
 // Pure: reshape an ESPN scoreboard payload into [{homeTeam,awayTeam,homeScore,awayScore,final}].

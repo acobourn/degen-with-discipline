@@ -1,7 +1,9 @@
 import { writeFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import { CONFIG } from "../config.js";
-import { fetchOdds } from "../io/oddsClient.js";
+import { fetchOdds, fetchActiveSports } from "../io/oddsClient.js";
 import { fetchFinals } from "../io/scores.js";
+import { buildScanPlan } from "./planner.js";
 import { enrich as enrichMlb } from "../io/enrichMlb.js";
 import { enrich as enrichSoccer } from "../io/enrichSoccer.js";
 import { passesGuards, filterCoherent } from "../math/guardrails.js";
@@ -58,12 +60,21 @@ export async function run() {
   const paused = pausedSegments(history.settled);
   if (paused.size) console.error(`[run] paused (negative CLV): ${[...paused].join(", ")}`);
 
+  // scan plan: anchor(s) every run + a rotating slice of ACTIVE international leagues,
+  // budgeted to the free tier. Only active leagues are scanned (off-season costs nothing).
+  const activeKeys = await fetchActiveSports();
+  const { plan, nextIndex } = CONFIG.demoMode
+    ? { plan: [CONFIG.scanPlan.anchors[0]], nextIndex: 0 }
+    : buildScanPlan(CONFIG.scanPlan.anchors, CONFIG.scanPlan.rotation,
+        { activeKeys, rotationIndex: store.bankroll.rotationIndex || 0, creditTarget: CONFIG.scanPlan.creditTarget });
+  bankrollObj.rotationIndex = nextIndex;
+  if (!CONFIG.demoMode) console.error(`[run] scanning: ${plan.map((p) => p.league).join(", ")}`);
+
   const candidates = [];
   let edgesScanned = 0;
-  const sportsToScan = CONFIG.demoMode ? CONFIG.sports.slice(0, 1) : CONFIG.sports;
-  for (const sp of sportsToScan) {
+  for (const sp of plan) {
     if (paused.has(sp.league)) continue; // circuit-breaker
-    for (const market of CONFIG.markets) {
+    for (const market of sp.markets) {
       let games;
       try { games = await fetchOdds(sp.key, market); }
       catch (e) { console.error(`[run] ${sp.key}/${market}: ${e.message}`); continue; }
@@ -89,7 +100,8 @@ export async function run() {
 
           const stake = kellyStake({ fairProb: o.fairProb, offeredDecimal: o.bestDecimal, bankroll,
             fraction: CONFIG.kelly.fraction, maxPct: CONFIG.kelly.maxPct, uncertainty: 1 });
-          const pickName = isTotals ? o.outcomeName : `${o.outcomeName} ML`;
+          const pickName = isTotals ? o.outcomeName
+            : (/^draw$/i.test(o.outcomeName) ? "Draw" : `${o.outcomeName} ML`);
           const topFactor = signal.factors[0]?.label || "Market value";
           candidates.push({
             id: `${sp.key}-${g.id}-${market}-${o.side}`,
@@ -183,7 +195,8 @@ export async function run() {
   return out;
 }
 
-// Allow `node src/pipeline/run.js`
-if (import.meta.url === `file://${process.argv[1]}`) {
+// Allow `node src/pipeline/run.js` (cross-platform main-module check; the old
+// `file://${argv[1]}` form silently failed on Windows paths).
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   run().catch((e) => { console.error(e); process.exit(1); });
 }

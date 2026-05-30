@@ -24,6 +24,15 @@ test("gradeMoneyline returns W/L/null", () => {
   assert.equal(gradeMoneyline(pick, { final: false }), null); // not final yet
 });
 
+test("gradeMoneyline is draw-aware for 3-way soccer", () => {
+  const drawScore = { final: true, homeTeam: "Flamengo", awayTeam: "Palmeiras", homeScore: 1, awayScore: 1 };
+  const winScore = { final: true, homeTeam: "Flamengo", awayTeam: "Palmeiras", homeScore: 2, awayScore: 1 };
+  assert.equal(gradeMoneyline({ outcomeName: "Flamengo", homeTeam: "Flamengo", awayTeam: "Palmeiras" }, drawScore), "L"); // team loses on a draw
+  assert.equal(gradeMoneyline({ outcomeName: "Draw" }, drawScore), "W"); // draw bet wins
+  assert.equal(gradeMoneyline({ outcomeName: "Draw" }, winScore), "L");
+  assert.equal(gradeMoneyline({ outcomeName: "Flamengo", homeTeam: "Flamengo", awayTeam: "Palmeiras" }, winScore), "W");
+});
+
 test("profitFor pays out wins, loses stake, pushes to zero", () => {
   assert.ok(Math.abs(profitFor("W", 2, 2.1) - 2.2) < 1e-9); // 2 * 1.1
   assert.equal(profitFor("L", 2, 2.1), -2);

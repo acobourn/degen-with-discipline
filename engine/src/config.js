@@ -17,12 +17,28 @@ export const CONFIG = {
   lockBand: { minAmerican: -125, maxAmerican: 125 }, // Lock odds band
   targetBooks: ["draftkings", "betmgm", "fanduel", "bet365"], // books we'd bet (best-price among those present)
   kelly: { fraction: 0.25, maxPct: 0.03 }, // 1/4 Kelly capped at 3% bankroll
-  sports: [
-    // The Odds API sport keys; engine works whichever have games + pass gates
-    { key: "baseball_mlb", label: "Baseball", sport: "MLB", league: "MLB", tier: "anchor" },
-    { key: "baseball_ncaa", label: "College Baseball", sport: "NCAAB", league: "NCAA", tier: "soft" },
-    { key: "soccer_usa_mls", label: "Soccer", sport: "SOC", league: "MLS", tier: "soft" },
-    { key: "soccer_epl", label: "Soccer", sport: "SOC", league: "EPL", tier: "mid" }
-  ],
-  markets: ["h2h", "totals"]
+  // Scan plan: anchors scan every run (richest edge); the international pool rotates so we
+  // cover it across runs while staying inside the free-tier credit budget. Only ACTIVE
+  // leagues are scanned (checked free via /sports), so off-season keys cost nothing.
+  scanPlan: {
+    creditTarget: 5, // ~credits/run -> ~450/mo at 3 scans/day, inside the free 500
+    anchors: [
+      { key: "baseball_mlb", sport: "MLB", label: "Baseball", league: "MLB", markets: ["h2h", "totals"] }
+    ],
+    rotation: [
+      { key: "baseball_ncaa", sport: "MLB", label: "College Baseball", league: "NCAA Baseball", markets: ["h2h"] },
+      { key: "basketball_wnba", sport: "NBA", label: "Basketball", league: "WNBA", markets: ["h2h"] },
+      { key: "soccer_brazil_campeonato", sport: "SOC", label: "Soccer", league: "Brazil Série A", markets: ["h2h"] },
+      { key: "soccer_brazil_serie_b", sport: "SOC", label: "Soccer", league: "Brazil Série B", markets: ["h2h"] },
+      { key: "soccer_japan_j_league", sport: "SOC", label: "Soccer", league: "J-League", markets: ["h2h"] },
+      { key: "soccer_conmebol_copa_libertadores", sport: "SOC", label: "Soccer", league: "Copa Libertadores", markets: ["h2h"] },
+      { key: "soccer_conmebol_copa_sudamericana", sport: "SOC", label: "Soccer", league: "Copa Sudamericana", markets: ["h2h"] },
+      { key: "soccer_norway_eliteserien", sport: "SOC", label: "Soccer", league: "Eliteserien", markets: ["h2h"] },
+      { key: "soccer_sweden_allsvenskan", sport: "SOC", label: "Soccer", league: "Allsvenskan", markets: ["h2h"] },
+      { key: "soccer_belgium_first_div", sport: "SOC", label: "Soccer", league: "Belgium First Div", markets: ["h2h"] },
+      { key: "soccer_spain_segunda_division", sport: "SOC", label: "Soccer", league: "La Liga 2", markets: ["h2h"] },
+      { key: "soccer_finland_veikkausliiga", sport: "SOC", label: "Soccer", league: "Veikkausliiga", markets: ["h2h"] },
+      { key: "soccer_chile_campeonato", sport: "SOC", label: "Soccer", league: "Primera Chile", markets: ["h2h"] }
+    ]
+  }
 };
