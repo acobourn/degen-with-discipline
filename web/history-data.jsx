@@ -1,6 +1,7 @@
 // history-data.jsx — loads the REAL track record (settled picks + CLV) from history.json,
 // written by the engine. Empty until picks settle — we show an honest "building" state.
 let HIST = [];
+let HIST_OPEN = [];
 let HIST_SPORTS = ["ALL"];
 let GRADE_RELIABILITY = [];
 let HIST_ATTRIBUTION = [];
@@ -24,13 +25,14 @@ async function loadHistory() {
     const res = await fetch("history.json?ts=" + Date.now());
     const d = await res.json();
     HIST = d.settled || [];
+    HIST_OPEN = d.open || [];
     HIST_SPORTS = (d.sports && d.sports.length) ? d.sports : ["ALL"];
     GRADE_RELIABILITY = d.gradeReliability || [];
     HIST_ATTRIBUTION = d.attribution || [];
     HIST_SUMMARY = d.summary || null;
   } catch (e) { console.error("history.json load failed", e); }
-  Object.assign(window, { HIST, HIST_SPORTS, GRADE_RELIABILITY, HIST_ATTRIBUTION, HIST_SUMMARY });
+  Object.assign(window, { HIST, HIST_OPEN, HIST_SPORTS, GRADE_RELIABILITY, HIST_ATTRIBUTION, HIST_SUMMARY });
   return true;
 }
 
-Object.assign(window, { summarize, amDec, loadHistory, HIST, HIST_SPORTS, GRADE_RELIABILITY });
+Object.assign(window, { summarize, amDec, loadHistory, HIST, HIST_OPEN, HIST_SPORTS, GRADE_RELIABILITY });

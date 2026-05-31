@@ -171,6 +171,35 @@ function App() {
           : <div className="scard"><div className="scard-num">{sum.units}</div><div className="scard-lab">Picks</div><div className="scard-sub">tracked</div></div>}
       </div>
 
+      {HIST_OPEN && HIST_OPEN.length > 0 && (
+        <div className="daygroup">
+          <div className="dayhead">
+            <span className="dayhead-date">PENDING / IN PROGRESS</span>
+            <span className="dayhead-line"></span>
+            <span className="dayhead-rec">{HIST_OPEN.length} tracked</span>
+          </div>
+          <div className="rows">
+            {HIST_OPEN.map((p, i) => {
+              const live = p.commenceTime && Date.parse(p.commenceTime) <= Date.now();
+              return (
+                <div className="hrow" key={i} style={{ borderLeft: "2px solid " + (live ? "var(--gold)" : "var(--line-2)") }}>
+                  <SportBadge sport={p.sport} />
+                  <div className="hrow-mid">
+                    <div className="hrow-pick">{p.pick}</div>
+                    <div className="hrow-matchup">{p.matchup}{p.isLock && <span className="lockmini">★ TOP PICK</span>}</div>
+                  </div>
+                  <div className="hrow-right">
+                    <span className="hodds">{p.odds}</span>
+                    {p.grade && <GradePill grade={p.grade} />}
+                    <span className="rchip" style={{ background: live ? "color-mix(in oklab,var(--gold),transparent 86%)" : "var(--bg-3)", color: live ? "var(--gold)" : "var(--ink-dim)" }}>{live ? "LIVE" : "UPCOMING"}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       <div className="gradetbl">
         <div className="gradetbl-head">
           <span className="gradetbl-title">GRADE RELIABILITY — DOES THE GRADE MEAN ANYTHING?</span>

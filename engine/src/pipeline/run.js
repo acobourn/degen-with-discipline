@@ -198,8 +198,14 @@ export async function run() {
   const gradeReliability = order.filter((gr) => gradeRecords[gr])
     .map((gr) => ({ grade: gr, pct: gradeRecords[gr].win, rec: "of " + gradeRecords[gr].sample.slice(1) + " picks" }));
   const histSports = ["ALL", ...new Set(histRows.map((r) => r.sport).filter(Boolean))];
+  // open picks (flagged but not settled) — shown as PENDING / IN PROGRESS on the history page
+  const openRows = (history.open || []).map((o) => ({
+    matchup: o.matchup, sport: o.sport, league: o.league, pick: o.pick,
+    odds: (o.americanOdds > 0 ? "+" : "") + o.americanOdds, grade: o.grade,
+    stake: o.stake, commenceTime: o.commenceTime, isLock: !!o.isLock
+  }));
   writeFileSync(new URL("../../../web/history.json", import.meta.url), JSON.stringify(
-    { settled: histRows, gradeReliability, attribution: attr, summary: sum, bankroll, sports: histSports }, null, 2));
+    { settled: histRows, open: openRows, gradeReliability, attribution: attr, summary: sum, bankroll, sports: histSports }, null, 2));
 
   console.error(`[run] picks.json — lock=${lock ? lock.pick : "none"}, board=${board.length}, scanned=${edgesScanned}, open=${history.open.length}, settled=${history.settled.length}`);
   return out;
