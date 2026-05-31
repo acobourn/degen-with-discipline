@@ -1,5 +1,30 @@
 {
-  "open": [],
+  "open": [
+    {
+      "id": "baseball_ncaa-b4b7b16f5d905db1d75f00f873cba772-h2h-Oklahoma St Cowboys",
+      "gameId": "baseball_ncaa-b4b7b16f5d905db1d75f00f873cba772-h2h",
+      "oddsSportKey": "baseball_ncaa",
+      "sport": "MLB",
+      "league": "NCAA Baseball",
+      "market": "h2h",
+      "matchup": "Oklahoma St Cowboys vs South Carolina Upstate Spartans",
+      "homeTeam": "South Carolina Upstate Spartans",
+      "awayTeam": "Oklahoma St Cowboys",
+      "pick": "Oklahoma St Cowboys ML",
+      "outcomeName": "Oklahoma St Cowboys",
+      "point": null,
+      "americanOdds": -200,
+      "decimalOdds": 1.5,
+      "evPct": 0.03484172364357763,
+      "fairProb": 0.6898944824290518,
+      "closingFairProb": 0.6898944824290518,
+      "grade": "B",
+      "isLock": false,
+      "stake": 0.61,
+      "flaggedAt": "2026-05-31T15:21:09.545Z",
+      "commenceTime": "2026-05-31T19:00:00Z"
+    }
+  ],
   "settled": [],
   "record": {
     "lockStreak": 0,
