@@ -48,6 +48,16 @@ function ValueMeter({ fairProb, odds }) {
 
 /* ---------- countdown to the Lock's actual game start (your real betting deadline) ---------- */
 function pad(n) { return String(n).padStart(2, "0"); }
+// The fixed cron fires at 14/19/23 UTC; render those in Central time, DST-aware.
+function scanCadenceLabel() {
+  const d = new Date();
+  const fmt = (h) => {
+    const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), h, 0, 0));
+    return t.toLocaleTimeString("en-US", { hour: "numeric", timeZone: "America/Chicago" })
+      .replace(/\s?AM/i, "a").replace(/\s?PM/i, "p");
+  };
+  return "rescans " + [14, 19, 23].map(fmt).join(" · ") + " CT";
+}
 function Countdown() {
   const [now, setNow] = useStateL(Date.now());
   useEffectL(() => { const id = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(id); }, []);
@@ -58,7 +68,7 @@ function Countdown() {
       <div className="countdown">
         <span className="cd-dot" style={{ background: "var(--ink-dimmer)", boxShadow: "none", animation: "none" }}></span>
         <span className="mono cd-label">NO LOCK RIGHT NOW</span>
-        <span className="mono cd-time" style={{ fontSize: "11px", color: "var(--ink-dim)" }}>rescans 10a · 3p · 7p ET</span>
+        <span className="mono cd-time" style={{ fontSize: "11px", color: "var(--ink-dim)" }}>{scanCadenceLabel()}</span>
       </div>
     );
   }
@@ -79,7 +89,7 @@ function Countdown() {
 function NextScan() {
   const [now, setNow] = useStateL(Date.now());
   useEffectL(() => { const id = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(id); }, []);
-  const SCAN_UTC_HOURS = [14, 19, 23]; // 10a / 3p / 7p ET
+  const SCAN_UTC_HOURS = [14, 19, 23]; // 9a / 2p / 6p CT
   const d = new Date(now);
   let next = null;
   for (const h of SCAN_UTC_HOURS) {
@@ -90,12 +100,12 @@ function NextScan() {
   const left = next - now;
   const s = Math.max(0, Math.floor(left / 1000));
   const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60);
-  const etTime = new Date(next).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York" });
+  const ctTime = new Date(next).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" });
   const soon = left <= 90 * 1000;
   return (
     <div className="countdown">
       <span className="cd-dot" style={{ background: "var(--green-2)", boxShadow: "none", animation: "none" }}></span>
-      <span className="mono cd-label">{soon ? "SCANNING ~NOW" : "NEXT SCAN ~" + etTime + " ET"}</span>
+      <span className="mono cd-label">{soon ? "SCANNING ~NOW" : "NEXT SCAN ~" + ctTime + " CT"}</span>
       {!soon && <span className="mono cd-time" style={{ fontSize: "12px" }}>{h}h {pad(m)}m</span>}
     </div>
   );

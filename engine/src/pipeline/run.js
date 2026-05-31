@@ -112,7 +112,7 @@ export async function run() {
             gameId: `${sp.key}-${g.id}-${market}`,
             oddsSportKey: sp.key,
             sport: sp.sport, sportLabel: sp.label, league: sp.league,
-            context: `${g.away} @ ${g.home}${g.commence ? " · " + new Date(g.commence).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York" }) + " ET" : ""}`,
+            context: `${g.away} @ ${g.home}${g.commence ? " · " + new Date(g.commence).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" }) + " CT" : ""}`,
             matchup: `${g.away} vs ${g.home}`,
             homeTeam: g.home, awayTeam: g.away,
             pick: pickName, outcomeName: o.outcomeName, side: o.side, point: o.point,
@@ -177,7 +177,7 @@ export async function run() {
   const attr = attribution(history.settled);
   const record = { lockStreak: sum.lockStreak, last10: sum.last10 };
   const lastUpdated = new Date().toLocaleTimeString("en-US",
-    { hour: "numeric", minute: "2-digit", timeZone: "America/New_York" }) + " ET";
+    { hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" }) + " CT";
 
   const out = buildPicksJson({ lock, picks: board, record, lastUpdated, edgesScanned,
     gradeRecords, summary: sum, attribution: attr, bankroll });
@@ -186,7 +186,7 @@ export async function run() {
   // --- served history.json for the track-record page (real settled results + CLV) ---
   const histRows = history.settled.map((x) => {
     const dt = x.commenceTime || x.settledAt;
-    const date = dt ? new Date(dt).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "America/New_York" }) : "—";
+    const date = dt ? new Date(dt).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "America/Chicago" }) : "—";
     return { date, sport: x.sport, league: x.league, matchup: x.matchup, pick: x.pick,
       odds: (x.americanOdds > 0 ? "+" : "") + x.americanOdds, grade: x.grade, result: x.result,
       lock: !!x.isLock, clvPct: typeof x.clvEdge === "number" ? Math.round(x.clvEdge * 1000) / 10 : null };
