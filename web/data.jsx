@@ -46,7 +46,9 @@ async function loadDwdData() {
   const res = await fetch("picks.json?ts=" + Date.now());
   if (!res.ok) throw new Error("picks.json " + res.status);
   const d = await res.json();
-  const lock = d.lock || (d.picks && d.picks[0]) || null;
+  // The hero is ONLY a genuine in-band (-125/+125) pick. No falling back to a board pick
+  // (e.g. a -200 favorite) — that violated the "top pick stays in the fair-odds band" rule.
+  const lock = d.lock || null;
   const picks = lock
     ? [lock, ...(d.picks || []).filter((p) => p.id !== lock.id)]
     : (d.picks || []);

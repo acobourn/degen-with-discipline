@@ -9,10 +9,10 @@ export const CONFIG = {
   alertEmail: process.env.ALERT_EMAIL || null,
   alertFrom: process.env.ALERT_FROM || "Degen with Discipline <onboarding@resend.dev>",
   siteUrl: "https://acobourn.github.io/degen-with-discipline/",
-  evThreshold: 0.02,            // 2% minimum edge to surface
+  evThreshold: 0.03,            // 3% minimum edge — skip the marginal 2% grinders (small bankroll)
   maxEvPct: 0.08,               // EV above this = almost certainly bad data, not a real edge
   maxDispersion: 0.08,          // max book disagreement (de-vigged prob range) we'll trust
-  saneOdds: { min: -250, max: 250 }, // no absurd -800 "value" favorites on the board
+  saneOdds: { min: -150, max: 250 }, // no heavy chalk: risking >1.5x to win 1x is bad R/R on $100
   minBooks: 4,                  // book-count gate: need >=4 books for consensus
   lockBand: { minAmerican: -125, maxAmerican: 125 }, // Lock odds band
   targetBooks: ["draftkings", "betmgm", "fanduel", "bet365"], // soft books we'd actually bet (best price among present)
