@@ -48,30 +48,12 @@ function ValueMeter({ fairProb, odds }) {
 
 /* ---------- countdown to the Lock's actual game start (your real betting deadline) ---------- */
 function pad(n) { return String(n).padStart(2, "0"); }
-// The fixed cron fires at 14/19/23 UTC; render those in Central time, DST-aware.
-function scanCadenceLabel() {
-  const d = new Date();
-  const fmt = (h) => {
-    const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), h, 0, 0));
-    return t.toLocaleTimeString("en-US", { hour: "numeric", timeZone: "America/Chicago" })
-      .replace(/\s?AM/i, "a").replace(/\s?PM/i, "p");
-  };
-  return "rescans " + [14, 19, 23].map(fmt).join(" · ") + " CT";
-}
 function Countdown() {
   const [now, setNow] = useStateL(Date.now());
   useEffectL(() => { const id = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(id); }, []);
   const lock = window.DWD_LOCK;
   const target = lock && lock.commenceTime ? new Date(lock.commenceTime).getTime() : null;
-  if (!target) {
-    return (
-      <div className="countdown">
-        <span className="cd-dot" style={{ background: "var(--ink-dimmer)", boxShadow: "none", animation: "none" }}></span>
-        <span className="mono cd-label">NO LOCK RIGHT NOW</span>
-        <span className="mono cd-time" style={{ fontSize: "11px", color: "var(--ink-dim)" }}>{scanCadenceLabel()}</span>
-      </div>
-    );
-  }
+  if (!target) return null; // no lock -> show nothing here; the Next Scan timer + the big card cover it
   const left = target - now;
   const started = left <= 0;
   const s = Math.max(0, Math.floor(left / 1000));

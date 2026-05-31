@@ -89,9 +89,11 @@ function App() {
         </div>
       </header>
 
-      <div className="statusline">
-        <Countdown />
-        <NextScan />
+      <div className="statusline" style={{ flexDirection: "column", alignItems: "stretch", gap: "10px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "18px", flexWrap: "wrap" }}>
+          <Countdown />
+          <NextScan />
+        </div>
         <DeskNote />
       </div>
 
