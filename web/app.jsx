@@ -83,17 +83,17 @@ function App() {
     <div className="app">
       <header className="topbar">
         <Brand />
-        <div className="topbar-right">
-          <span className="live-dot"></span>
-          <span className="mono dim">UPDATED {DWD_LAST_UPDATED}</span>
+        <div className="topbar-right" style={{ flexDirection: "column", alignItems: "flex-end", gap: "5px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <span className="live-dot"></span>
+            <span className="mono dim">UPDATED {DWD_LAST_UPDATED}</span>
+          </div>
+          <NextScan />
         </div>
       </header>
 
       <div className="statusline" style={{ flexDirection: "column", alignItems: "stretch", gap: "10px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "18px", flexWrap: "wrap" }}>
-          <Countdown />
-          <NextScan />
-        </div>
+        <Countdown />
         <DeskNote />
       </div>
 
