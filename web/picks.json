@@ -1,45 +1,8 @@
 {
-  "lastUpdated": "2:31 PM CT",
-  "edgesScanned": 4,
+  "lastUpdated": "3:18 PM CT",
+  "edgesScanned": 36,
   "bankroll": 100,
-  "lock": {
-    "id": "baseball_mlb-game1-h2h-Detroit Tigers",
-    "sport": "MLB",
-    "sportLabel": "Baseball",
-    "league": "MLB",
-    "context": "Detroit Tigers @ Chicago White Sox · 5:10 PM CT",
-    "matchup": "Detroit Tigers vs Chicago White Sox",
-    "pick": "Detroit Tigers ML",
-    "betType": "Moneyline",
-    "odds": "+110",
-    "openOdds": "+110",
-    "payoutNote": "$100 → $210",
-    "confidence": 76,
-    "grade": "B+",
-    "takeShort": "The market blinked on Detroit Tigers ML. We didn't.",
-    "takeLong": "The sharp market gives this a real 50% shot to win, but DraftKings is only paying like 48% — a +5.3% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
-    "dataPoints": 10,
-    "factors": [
-      {
-        "label": "Recent form (L10)",
-        "weight": 50,
-        "note": "demo mode — no live data"
-      },
-      {
-        "label": "Probable pitcher (ERA)",
-        "weight": 50,
-        "note": "demo mode"
-      }
-    ],
-    "evPct": 0.05279448491445482,
-    "fairProb": 0.5013307071021214,
-    "impliedProb": 0.47619047619047616,
-    "bestBook": "DraftKings",
-    "kellyStake": 0.48,
-    "sharp": false,
-    "commenceTime": "2026-05-30T22:10:00Z",
-    "isLock": true
-  },
+  "lock": null,
   "picks": [],
   "special": null,
   "record": {
