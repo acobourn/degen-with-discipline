@@ -3,6 +3,7 @@ const { useState: useStateL, useEffect: useEffectL, useRef: useRefL } = React;
 
 /* ---------- line movement: open -> now ---------- */
 function LineMovement({ open, now }) {
+  if (!open || !now || open === now) return null; // no real movement tracked yet -> don't show noise
   const io = impliedProb(open), inw = impliedProb(now);
   const steam = inw >= io; // price got more expensive => market agrees with us
   const movedPts = Math.abs(Math.round((inw - io) * 1000) / 10);
@@ -45,28 +46,31 @@ function ValueMeter({ fairProb, odds }) {
   );
 }
 
-/* ---------- countdown to first lock ---------- */
+/* ---------- countdown to the Lock's actual game start (your real betting deadline) ---------- */
 function pad(n) { return String(n).padStart(2, "0"); }
 function Countdown() {
-  const targetRef = useRefL(null);
-  if (targetRef.current === null) {
-    let saved = Number(localStorage.getItem("dwd_target") || 0);
-    if (!saved || saved < Date.now()) { saved = Date.now() + (3 * 3600 + 47 * 60 + 12) * 1000; localStorage.setItem("dwd_target", String(saved)); }
-    targetRef.current = saved;
+  const [now, setNow] = useStateL(Date.now());
+  useEffectL(() => { const id = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(id); }, []);
+  const lock = window.DWD_LOCK;
+  const target = lock && lock.commenceTime ? new Date(lock.commenceTime).getTime() : null;
+  if (!target) {
+    return (
+      <div className="countdown">
+        <span className="cd-dot" style={{ background: "var(--ink-dimmer)", boxShadow: "none", animation: "none" }}></span>
+        <span className="mono cd-label">NO LOCK RIGHT NOW</span>
+        <span className="mono cd-time" style={{ fontSize: "11px", color: "var(--ink-dim)" }}>rescans 10a · 3p · 7p ET</span>
+      </div>
+    );
   }
-  const [left, setLeft] = useStateL(targetRef.current - Date.now());
-  useEffectL(() => {
-    const id = setInterval(() => setLeft(targetRef.current - Date.now()), 1000);
-    return () => clearInterval(id);
-  }, []);
-  const live = left <= 0;
+  const left = target - now;
+  const started = left <= 0;
   const s = Math.max(0, Math.floor(left / 1000));
   const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
   return (
     <div className="countdown">
       <span className="cd-dot"></span>
-      <span className="mono cd-label">{live ? "FIRST LOCK IS" : "FIRST LOCK LOCKS IN"}</span>
-      <span className="mono cd-time">{live ? "LIVE NOW" : pad(h) + ":" + pad(m) + ":" + pad(sec)}</span>
+      <span className="mono cd-label">{started ? "GAME STARTED —" : "BET BEFORE START · GAME IN"}</span>
+      <span className="mono cd-time">{started ? "line's gone" : pad(h) + ":" + pad(m) + ":" + pad(sec)}</span>
     </div>
   );
 }

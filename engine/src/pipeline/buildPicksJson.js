@@ -30,7 +30,9 @@ function toPick(c) {
     fairProb: c.fairProb,
     impliedProb: c.impliedProb,
     bestBook: c.bestBook,
-    kellyStake: c.kellyStake
+    kellyStake: c.kellyStake,
+    sharp: c.sharp,                 // true = Pinnacle-anchored (high confidence)
+    commenceTime: c.commenceTime    // real game start — powers the "game starts in" countdown
   };
 }
 
