@@ -39,7 +39,7 @@ function NoLock() {
     <section className="lock" data-screen-label="No Lock">
       <div className="lock-inner" style={{ textAlign: "center" }}>
         <div className="lock-tag" style={{ margin: "0 auto 18px" }}>
-          <span className="lock-tag-dot"></span><span className="mono">NO LOCK TODAY</span>
+          <span className="lock-tag-dot"></span><span className="mono">NO TOP PICK RIGHT NOW</span>
         </div>
         <p className="lock-take" style={{ margin: "0 auto 14px" }}>
           No edge cleared our guardrails right now. The disciplined play is to <b>sit this slate

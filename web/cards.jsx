@@ -25,7 +25,7 @@ function LockCard({ lock, whyStyle, lockStyle, run, slip }) {
         <div className="lock-head">
           <div className="lock-tag">
             <span className="lock-tag-dot"></span>
-            <span className="mono">LOCK OF THE DAY</span>
+            <span className="mono">DEGEN'S TOP PICK</span>
           </div>
           <div className="rank mono">#1 <span className="rank-sub">/ {DWD_EDGES_SCANNED} EDGES</span></div>
         </div>
@@ -122,7 +122,7 @@ function PickCard({ pick, whyStyle, run, slip }) {
 
       <div className="pcard-pick">
         <div className="pcard-pickmain">
-          {pick.isLock && <span className="lockmini mono">★ LOCK OF THE DAY</span>}
+          {pick.isLock && <span className="lockmini mono">★ DEGEN'S TOP PICK</span>}
           <span className="pick-text">{pick.pick}</span>
         </div>
         <div className="pcard-pickmeta">
