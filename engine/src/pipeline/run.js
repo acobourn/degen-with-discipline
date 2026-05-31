@@ -145,7 +145,10 @@ export async function run() {
   const unique = [...seen.values()];
 
   unique.sort((a, b) => b.evPct - a.evPct);
-  const lock = pickLock(unique, CONFIG.lockBand);
+  // Prefer a pick in the ideal -125/+125 band; if there isn't one, show the single best
+  // available edge anyway (something real beats nothing). Kelly still sizes chalk tiny.
+  let lock = pickLock(unique, CONFIG.lockBand);
+  if (!lock && unique.length) lock = unique[0];
   const board = unique.filter((c) => c !== lock).slice(0, 6);
 
   // --- log today's recommended picks so we can track CLV + settle them later ---
