@@ -40,6 +40,11 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          # Alerts fire only on real scheduled scans (or manual dispatch) — never on deploy/push
+          # runs — so code deploys don't spam the channel.
+          DISCORD_WEBHOOK: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && secrets.DISCORD_WEBHOOK || '' }}
+          RESEND_API_KEY: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && secrets.RESEND_API_KEY || '' }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
         run: cd engine && node src/pipeline/run.js
 
       - name: Persist refreshed picks + data (scheduled runs only)
