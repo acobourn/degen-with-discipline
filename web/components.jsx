@@ -157,7 +157,7 @@ function GradeExplainer({ pick }) {
   const evTxt = pick.evPct != null ? " (+" + (pick.evPct * 100).toFixed(1) + "% EV)" : "";
   const steam = impliedProb(pick.odds) >= impliedProb(pick.openOdds);
   const rows = [
-    { k: "Value edge", v: "De-vigged fair " + model + "% vs this price's " + market + "% — a +" + edge + " pt gap" + evTxt },
+    { k: "Value edge", v: "Real shot to win: " + model + "% — but this price only pays like " + market + "%. That " + edge + "-pt gap in your favor is your edge" + evTxt },
     { k: "Data depth", v: pick.dataPoints.toLocaleString() + " data points across " + pick.factors.length + " weighted factors" },
     { k: "Market read", v: steam ? "Line is steaming our way (sharp money agrees)" : "Value still sitting on the board" },
     { k: "Track record", v: rec ? (g + " grades win " + rec.win + "% (" + rec.sample + ", " + rec.roi + ")") : "Building track record — real hit-rate shows once enough picks settle." },

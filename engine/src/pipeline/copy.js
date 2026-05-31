@@ -14,8 +14,8 @@ export function takeLong(p) {
   const ev = (p.evPct * 100).toFixed(1);
   const fair = Math.round(p.fairProb * 100);
   const impl = Math.round(p.impliedProb * 100);
-  return `Our de-vigged consensus puts the true number at ${fair}%, but ${p.bestBook} `
-    + `is pricing it like ${impl}% — a +${ev}% edge. ${p.topFactor} backs the lean, and the `
+  return `The sharp market gives this a real ${fair}% shot to win, but ${p.bestBook} `
+    + `is only paying like ${impl}% — a +${ev}% edge in your favor. ${p.topFactor} backs the lean, and the `
     + `sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.`;
 }
 

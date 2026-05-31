@@ -41,7 +41,7 @@ function ValueMeter({ fairProb, odds }) {
           <span className="vmeter-cap mono green">FAIR {model}%</span>
         </div>
       </div>
-      <p className="vmeter-note mono">This price implies {market}%; the de-vigged market consensus says {model}%. That ~{edge}-pt gap is the edge — small and real, not magic.</p>
+      <p className="vmeter-note mono">Real shot to win: {model}% — but this price only pays like {market}%. That ~{edge}-pt gap in your favor is the edge — small and real, not magic.</p>
     </div>
   );
 }
