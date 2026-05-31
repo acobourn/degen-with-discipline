@@ -165,7 +165,7 @@ function Brand() {
   return (
     <div className="brand">
       <div className="brand-mark">
-        <span className="brand-d">D</span><span className="brand-w">w</span><span className="brand-d2">D</span>
+        <img src="assets/logo-mark.png" alt="Degen with Discipline" className="brand-img" />
       </div>
       <div className="brand-words">
         <div className="brand-name">DEGEN <span className="brand-amp">with</span> DISCIPLINE</div>

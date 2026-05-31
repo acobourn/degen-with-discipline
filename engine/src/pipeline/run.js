@@ -112,7 +112,7 @@ export async function run() {
             gameId: `${sp.key}-${g.id}-${market}`,
             oddsSportKey: sp.key,
             sport: sp.sport, sportLabel: sp.label, league: sp.league,
-            context: `${g.away} @ ${g.home}`,
+            context: `${g.away} @ ${g.home}${g.commence ? " · " + new Date(g.commence).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York" }) + " ET" : ""}`,
             matchup: `${g.away} vs ${g.home}`,
             homeTeam: g.home, awayTeam: g.away,
             pick: pickName, outcomeName: o.outcomeName, side: o.side, point: o.point,

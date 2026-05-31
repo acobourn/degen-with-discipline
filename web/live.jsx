@@ -75,6 +75,32 @@ function Countdown() {
   );
 }
 
+/* ---------- next scan countdown (when fresh picks could appear) ---------- */
+function NextScan() {
+  const [now, setNow] = useStateL(Date.now());
+  useEffectL(() => { const id = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(id); }, []);
+  const SCAN_UTC_HOURS = [14, 19, 23]; // 10a / 3p / 7p ET
+  const d = new Date(now);
+  let next = null;
+  for (const h of SCAN_UTC_HOURS) {
+    const t = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), h, 0, 0);
+    if (t > now) { next = t; break; }
+  }
+  if (!next) next = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + 1, SCAN_UTC_HOURS[0], 0, 0);
+  const left = next - now;
+  const s = Math.max(0, Math.floor(left / 1000));
+  const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60);
+  const etTime = new Date(next).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York" });
+  const soon = left <= 90 * 1000;
+  return (
+    <div className="countdown">
+      <span className="cd-dot" style={{ background: "var(--green-2)", boxShadow: "none", animation: "none" }}></span>
+      <span className="mono cd-label">{soon ? "SCANNING ~NOW" : "NEXT SCAN ~" + etTime + " ET"}</span>
+      {!soon && <span className="mono cd-time" style={{ fontSize: "12px" }}>{h}h {pad(m)}m</span>}
+    </div>
+  );
+}
+
 /* ---------- house voice ---------- */
 function DeskNote() {
   const [i, setI] = useStateL(() => Math.floor(Math.random() * DWD_DESK_NOTES.length));
@@ -94,4 +120,4 @@ function DeskNote() {
   );
 }
 
-Object.assign(window, { LineMovement, ValueMeter, Countdown, DeskNote });
+Object.assign(window, { LineMovement, ValueMeter, Countdown, NextScan, DeskNote });

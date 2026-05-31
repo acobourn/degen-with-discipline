@@ -85,12 +85,13 @@ function App() {
         <Brand />
         <div className="topbar-right">
           <span className="live-dot"></span>
-          <span className="mono dim">UPDATED {DWD_LAST_UPDATED} · rescans 10a · 3p · 7p ET</span>
+          <span className="mono dim">UPDATED {DWD_LAST_UPDATED}</span>
         </div>
       </header>
 
       <div className="statusline">
         <Countdown />
+        <NextScan />
         <DeskNote />
       </div>
 
