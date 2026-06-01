@@ -177,16 +177,17 @@ function Brand() {
 
 /* ============ RECORD / DISCIPLINE STRIP (compact) ============ */
 function RecordStrip({ record }) {
+  const clv = record.avgClvPct;
   return (
     <div className="record">
       <div className="rec-stat">
-        <span className="rec-num mono green">{record.lockStreak}</span>
-        <span className="rec-lab mono">lock streak</span>
+        <span className="rec-num mono green">{record.record || "0-0"}</span>
+        <span className="rec-lab mono">record (settled)</span>
       </div>
       <span className="rec-dot"></span>
       <div className="rec-stat">
-        <span className="rec-num mono">{record.last10}</span>
-        <span className="rec-lab mono">last 10 locks</span>
+        <span className={"rec-num mono " + (clv != null && clv >= 0 ? "green" : "")}>{clv != null ? (clv >= 0 ? "+" : "") + clv + "%" : "—"}</span>
+        <span className="rec-lab mono">avg CLV · beat the close</span>
       </div>
       <a className="rec-history mono" href="History.html">Full history →</a>
     </div>

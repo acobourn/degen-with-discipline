@@ -178,7 +178,7 @@ export async function run() {
   const sum = summary(history.settled);
   const gradeRecords = calibration(history.settled);
   const attr = attribution(history.settled);
-  const record = { lockStreak: sum.lockStreak, last10: sum.last10 };
+  const record = sum; // full summary: record (W-L), avgClvPct, lockStreak, last10, profit
   const lastUpdated = new Date().toLocaleTimeString("en-US",
     { hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" }) + " CT";
 
