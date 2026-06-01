@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "7:10 PM CT",
-  "edgesScanned": 45,
-  "bankroll": 100,
+  "lastUpdated": "8:41 PM CT",
+  "edgesScanned": 36,
+  "bankroll": 100.31,
   "lock": null,
   "picks": [],
   "special": null,
@@ -9,16 +9,29 @@
     "lockStreak": 0,
     "last10": "0-0"
   },
-  "gradeRecords": {},
+  "gradeRecords": {
+    "B": {
+      "win": 100,
+      "sample": "L1",
+      "roi": "+0.3u"
+    }
+  },
   "clvSummary": {
     "lockStreak": 0,
     "last10": "0-0",
-    "record": "0-0",
-    "settledCount": 0,
-    "profit": 0,
-    "avgClvPct": null
+    "record": "1-0",
+    "settledCount": 1,
+    "profit": 0.31,
+    "avgClvPct": 2.3
   },
-  "attribution": [],
+  "attribution": [
+    {
+      "seg": "NCAA Baseball",
+      "record": "1-0",
+      "avgClvPct": 2.3,
+      "profit": 0.31
+    }
+  ],
   "deskNotes": [
     "Bet the math, not the mascot.",
     "Discipline is just degeneracy with a spreadsheet.",
