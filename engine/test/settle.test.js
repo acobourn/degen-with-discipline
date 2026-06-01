@@ -28,6 +28,8 @@ test("teamMatches: subset OK, shared-suffix collision rejected (the critical fix
   assert.equal(teamMatches("Detroit Tigers", "Chicago White Sox"), false);
   assert.equal(teamMatches("Manchester United", "Newcastle United"), false);  // NOT a shared-suffix match
   assert.equal(teamMatches("Chicago White Sox", "Chicago Cubs"), false);      // same city, different team
+  assert.equal(teamMatches("Oklahoma St Cowboys", "Oklahoma State Cowboys"), true); // St == State
+  assert.equal(teamMatches("St. Louis Cardinals", "Saint Louis Cardinals"), true);  // St == Saint
 });
 
 test("gradeMoneyline returns W/L/null", () => {

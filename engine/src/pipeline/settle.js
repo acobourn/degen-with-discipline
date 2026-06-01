@@ -7,6 +7,8 @@ export function normTeam(s) {
   return String(s || "")
     .toLowerCase()
     .replace(/[^a-z0-9 ]/g, " ")
+    .replace(/\bstate\b/g, "st")   // "Oklahoma State" == "Oklahoma St" (Odds API abbreviates)
+    .replace(/\bsaint\b/g, "st")   // "Saint Louis" == "St. Louis" (period already stripped above)
     .replace(/\b(the|fc|sc|cf|club)\b/g, " ")
     .replace(/\s+/g, " ")
     .trim();
