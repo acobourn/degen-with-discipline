@@ -1,13 +1,17 @@
 {
-  "lastUpdated": "8:41 PM CT",
-  "edgesScanned": 36,
+  "lastUpdated": "2:23 PM CT",
+  "edgesScanned": 74,
   "bankroll": 100.31,
   "lock": null,
   "picks": [],
   "special": null,
   "record": {
     "lockStreak": 0,
-    "last10": "0-0"
+    "last10": "0-0",
+    "record": "1-0",
+    "settledCount": 1,
+    "profit": 0.31,
+    "avgClvPct": 2.3
   },
   "gradeRecords": {
     "B": {
