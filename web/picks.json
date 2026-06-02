@@ -1,8 +1,45 @@
 {
-  "lastUpdated": "1:09 PM CT",
-  "edgesScanned": 60,
+  "lastUpdated": "4:55 PM CT",
+  "edgesScanned": 130,
   "bankroll": 100.31,
-  "lock": null,
+  "lock": {
+    "id": "baseball_mlb-31eba8fe40243a3e0e029a8b9949d756-totals-Over",
+    "sport": "MLB",
+    "sportLabel": "Baseball",
+    "league": "MLB",
+    "context": "San Diego Padres @ Philadelphia Phillies · 5:41 PM CT",
+    "matchup": "San Diego Padres vs Philadelphia Phillies",
+    "pick": "Over 7.5",
+    "betType": "Total",
+    "odds": "+103",
+    "openOdds": "+103",
+    "payoutNote": "$100 → $203",
+    "confidence": 69,
+    "grade": "B-",
+    "takeShort": "Recent form (L10) says go; the price says value. Rare combo.",
+    "takeLong": "The sharp market gives this a real 51% shot to win, but DraftKings is only paying like 49% — a +3.2% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+    "dataPoints": 52,
+    "factors": [
+      {
+        "label": "Recent form (L10)",
+        "weight": 50,
+        "note": "San Diego Padres 3-7 · Philadelphia Phillies 5-5"
+      },
+      {
+        "label": "Probable pitcher (ERA)",
+        "weight": 70,
+        "note": "Philadelphia Phillies 5.72 · San Diego Padres 3.28 ERA"
+      }
+    ],
+    "evPct": 0.03232146138695002,
+    "fairProb": 0.5085327395994829,
+    "impliedProb": 0.4926108374384237,
+    "bestBook": "DraftKings",
+    "kellyStake": 0.39,
+    "sharp": false,
+    "commenceTime": "2026-06-03T22:41:00Z",
+    "isLock": true
+  },
   "picks": [],
   "special": null,
   "record": {

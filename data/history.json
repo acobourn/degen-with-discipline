@@ -1,5 +1,30 @@
 {
-  "open": [],
+  "open": [
+    {
+      "id": "baseball_mlb-31eba8fe40243a3e0e029a8b9949d756-totals-Over",
+      "gameId": "baseball_mlb-31eba8fe40243a3e0e029a8b9949d756-totals",
+      "oddsSportKey": "baseball_mlb",
+      "sport": "MLB",
+      "league": "MLB",
+      "market": "totals",
+      "matchup": "San Diego Padres vs Philadelphia Phillies",
+      "homeTeam": "Philadelphia Phillies",
+      "awayTeam": "San Diego Padres",
+      "pick": "Over 7.5",
+      "outcomeName": "Over 7.5",
+      "point": 7.5,
+      "americanOdds": 103,
+      "decimalOdds": 2.03,
+      "evPct": 0.03232146138695002,
+      "fairProb": 0.5085327395994829,
+      "closingFairProb": 0.5085327395994829,
+      "grade": "B-",
+      "isLock": true,
+      "stake": 0.39,
+      "flaggedAt": "2026-06-02T21:55:23.746Z",
+      "commenceTime": "2026-06-03T22:41:00Z"
+    }
+  ],
   "settled": [
     {
       "id": "baseball_ncaa-b4b7b16f5d905db1d75f00f873cba772-h2h-Oklahoma St Cowboys",
@@ -33,5 +58,8 @@
   "record": {
     "lockStreak": 0,
     "last10": "0-0"
-  }
+  },
+  "notified": [
+    "baseball_mlb-31eba8fe40243a3e0e029a8b9949d756-totals-Over"
+  ]
 }
