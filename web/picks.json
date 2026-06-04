@@ -1,19 +1,24 @@
 {
-  "lastUpdated": "4:56 PM CT",
-  "edgesScanned": 92,
-  "bankroll": 100.31,
+  "lastUpdated": "8:44 PM CT",
+  "edgesScanned": 32,
+  "bankroll": 99.92,
   "lock": null,
   "picks": [],
   "special": null,
   "record": {
     "lockStreak": 0,
-    "last10": "0-0",
-    "record": "1-0",
-    "settledCount": 1,
-    "profit": 0.31,
-    "avgClvPct": 2.3
+    "last10": "0-1",
+    "record": "1-1",
+    "settledCount": 2,
+    "profit": -0.08,
+    "avgClvPct": 2.6
   },
   "gradeRecords": {
+    "B-": {
+      "win": 0,
+      "sample": "L1",
+      "roi": "-0.4u"
+    },
     "B": {
       "win": 100,
       "sample": "L1",
@@ -22,13 +27,19 @@
   },
   "clvSummary": {
     "lockStreak": 0,
-    "last10": "0-0",
-    "record": "1-0",
-    "settledCount": 1,
-    "profit": 0.31,
-    "avgClvPct": 2.3
+    "last10": "0-1",
+    "record": "1-1",
+    "settledCount": 2,
+    "profit": -0.08,
+    "avgClvPct": 2.6
   },
   "attribution": [
+    {
+      "seg": "MLB",
+      "record": "0-1",
+      "avgClvPct": 2.9,
+      "profit": -0.39
+    },
     {
       "seg": "NCAA Baseball",
       "record": "1-0",

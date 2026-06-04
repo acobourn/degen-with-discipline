@@ -1,5 +1,6 @@
 {
-  "open": [
+  "open": [],
+  "settled": [
     {
       "id": "baseball_mlb-31eba8fe40243a3e0e029a8b9949d756-totals-Over",
       "gameId": "baseball_mlb-31eba8fe40243a3e0e029a8b9949d756-totals",
@@ -22,10 +23,12 @@
       "isLock": true,
       "stake": 0.39,
       "flaggedAt": "2026-06-02T21:55:23.746Z",
-      "commenceTime": "2026-06-03T22:41:00Z"
-    }
-  ],
-  "settled": [
+      "commenceTime": "2026-06-03T22:41:00Z",
+      "result": "L",
+      "profit": -0.39,
+      "clvEdge": 0.028968945978014915,
+      "settledAt": "2026-06-04T01:44:46.641Z"
+    },
     {
       "id": "baseball_ncaa-b4b7b16f5d905db1d75f00f873cba772-h2h-Oklahoma St Cowboys",
       "gameId": "baseball_ncaa-b4b7b16f5d905db1d75f00f873cba772-h2h",
