@@ -1,5 +1,30 @@
 {
-  "open": [],
+  "open": [
+    {
+      "id": "soccer_spain_segunda_division-ed16ec7a06898877478abf59c3a74736-h2h-Draw",
+      "gameId": "soccer_spain_segunda_division-ed16ec7a06898877478abf59c3a74736-h2h",
+      "oddsSportKey": "soccer_spain_segunda_division",
+      "sport": "SOC",
+      "league": "La Liga 2",
+      "market": "h2h",
+      "matchup": "Almería vs Málaga",
+      "homeTeam": "Málaga",
+      "awayTeam": "Almería",
+      "pick": "Draw",
+      "outcomeName": "Draw",
+      "point": null,
+      "americanOdds": 230,
+      "decimalOdds": 3.3,
+      "evPct": 0.03963545063834273,
+      "fairProb": 0.3150410456479827,
+      "closingFairProb": 0.3150410456479827,
+      "grade": "B",
+      "isLock": true,
+      "stake": 0.16,
+      "flaggedAt": "2026-06-12T16:51:18.570Z",
+      "commenceTime": "2026-06-14T19:00:00Z"
+    }
+  ],
   "settled": [
     {
       "id": "baseball_mlb-31eba8fe40243a3e0e029a8b9949d756-totals-Over",
@@ -63,6 +88,7 @@
     "last10": "0-0"
   },
   "notified": [
-    "baseball_mlb-31eba8fe40243a3e0e029a8b9949d756-totals-Over"
+    "baseball_mlb-31eba8fe40243a3e0e029a8b9949d756-totals-Over",
+    "soccer_spain_segunda_division-ed16ec7a06898877478abf59c3a74736-h2h-Draw"
   ]
 }
