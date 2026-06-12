@@ -1,40 +1,8 @@
 {
-  "lastUpdated": "11:51 AM CT",
-  "edgesScanned": 61,
+  "lastUpdated": "4:04 PM CT",
+  "edgesScanned": 128,
   "bankroll": 99.92,
-  "lock": {
-    "id": "soccer_spain_segunda_division-ed16ec7a06898877478abf59c3a74736-h2h-Draw",
-    "sport": "SOC",
-    "sportLabel": "Soccer",
-    "league": "La Liga 2",
-    "context": "Almería @ Málaga · 2:00 PM CT",
-    "matchup": "Almería vs Málaga",
-    "pick": "Draw",
-    "betType": "Moneyline",
-    "odds": "+230",
-    "openOdds": "+230",
-    "payoutNote": "$100 → $330",
-    "confidence": 72,
-    "grade": "B",
-    "takeShort": "Small edge, real edge. Draw is priced wrong and we noticed.",
-    "takeLong": "The sharp market gives this a real 32% shot to win, but FanDuel is only paying like 30% — a +4.0% edge in your favor. Team form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
-    "dataPoints": 18,
-    "factors": [
-      {
-        "label": "Team form",
-        "weight": 50,
-        "note": "api-football"
-      }
-    ],
-    "evPct": 0.03963545063834273,
-    "fairProb": 0.3150410456479827,
-    "impliedProb": 0.30303030303030304,
-    "bestBook": "FanDuel",
-    "kellyStake": 0.16,
-    "sharp": false,
-    "commenceTime": "2026-06-14T19:00:00Z",
-    "isLock": true
-  },
+  "lock": null,
   "picks": [],
   "special": null,
   "record": {
