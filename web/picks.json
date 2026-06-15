@@ -1,39 +1,45 @@
 {
-  "lastUpdated": "3:22 PM CT",
-  "edgesScanned": 30,
-  "bankroll": 99.92,
+  "lastUpdated": "7:17 PM CT",
+  "edgesScanned": 32,
+  "bankroll": 100.29,
   "lock": null,
   "picks": [],
   "special": null,
   "record": {
-    "lockStreak": 0,
-    "last10": "0-1",
-    "record": "1-1",
-    "settledCount": 2,
-    "profit": -0.08,
-    "avgClvPct": 2.6
+    "lockStreak": 1,
+    "last10": "1-1",
+    "record": "2-1",
+    "settledCount": 3,
+    "profit": 0.29,
+    "avgClvPct": 2.1
   },
   "gradeRecords": {
+    "B": {
+      "win": 100,
+      "sample": "L2",
+      "roi": "+0.7u"
+    },
     "B-": {
       "win": 0,
       "sample": "L1",
       "roi": "-0.4u"
-    },
-    "B": {
-      "win": 100,
-      "sample": "L1",
-      "roi": "+0.3u"
     }
   },
   "clvSummary": {
-    "lockStreak": 0,
-    "last10": "0-1",
-    "record": "1-1",
-    "settledCount": 2,
-    "profit": -0.08,
-    "avgClvPct": 2.6
+    "lockStreak": 1,
+    "last10": "1-1",
+    "record": "2-1",
+    "settledCount": 3,
+    "profit": 0.29,
+    "avgClvPct": 2.1
   },
   "attribution": [
+    {
+      "seg": "La Liga 2",
+      "record": "1-0",
+      "avgClvPct": 1.2,
+      "profit": 0.37
+    },
     {
       "seg": "MLB",
       "record": "0-1",
