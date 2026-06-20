@@ -1,8 +1,45 @@
 {
-  "lastUpdated": "10:48 AM CT",
-  "edgesScanned": 80,
+  "lastUpdated": "3:21 PM CT",
+  "edgesScanned": 72,
   "bankroll": 100.29,
-  "lock": null,
+  "lock": {
+    "id": "baseball_mlb-c489d951af8ab8f1fd4ae78c8d3ecfd0-h2h-New York Yankees",
+    "sport": "MLB",
+    "sportLabel": "Baseball",
+    "league": "MLB",
+    "context": "Cincinnati Reds @ New York Yankees · 12:36 PM CT",
+    "matchup": "Cincinnati Reds vs New York Yankees",
+    "pick": "New York Yankees ML",
+    "betType": "Moneyline",
+    "odds": "-132",
+    "openOdds": "-132",
+    "payoutNote": "$100 → $176",
+    "confidence": 77,
+    "grade": "B+",
+    "takeShort": "Recent form (L10) says go; the price says value. Rare combo.",
+    "takeLong": "The sharp market gives this a real 59% shot to win, but FanDuel is only paying like 57% — a +3.3% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+    "dataPoints": 68,
+    "factors": [
+      {
+        "label": "Recent form (L10)",
+        "weight": 86,
+        "note": "Cincinnati Reds 4-6 · New York Yankees 8-2"
+      },
+      {
+        "label": "Probable pitcher (ERA)",
+        "weight": 53,
+        "note": "New York Yankees 3.45 · Cincinnati Reds 3.83 ERA"
+      }
+    ],
+    "evPct": 0.03269232695755808,
+    "fairProb": 0.586757003953158,
+    "impliedProb": 0.5681818181818182,
+    "bestBook": "FanDuel",
+    "kellyStake": 1.08,
+    "sharp": true,
+    "commenceTime": "2026-06-21T17:36:00Z",
+    "isLock": true
+  },
   "picks": [],
   "special": null,
   "record": {

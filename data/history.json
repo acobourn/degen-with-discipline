@@ -23,6 +23,30 @@
       "stake": 1.68,
       "flaggedAt": "2026-06-20T00:14:23.429Z",
       "commenceTime": "2026-06-20T02:11:00Z"
+    },
+    {
+      "id": "baseball_mlb-c489d951af8ab8f1fd4ae78c8d3ecfd0-h2h-New York Yankees",
+      "gameId": "baseball_mlb-c489d951af8ab8f1fd4ae78c8d3ecfd0-h2h",
+      "oddsSportKey": "baseball_mlb",
+      "sport": "MLB",
+      "league": "MLB",
+      "market": "h2h",
+      "matchup": "Cincinnati Reds vs New York Yankees",
+      "homeTeam": "New York Yankees",
+      "awayTeam": "Cincinnati Reds",
+      "pick": "New York Yankees ML",
+      "outcomeName": "New York Yankees",
+      "point": null,
+      "americanOdds": -132,
+      "decimalOdds": 1.76,
+      "evPct": 0.03269232695755808,
+      "fairProb": 0.586757003953158,
+      "closingFairProb": 0.586757003953158,
+      "grade": "B+",
+      "isLock": true,
+      "stake": 1.08,
+      "flaggedAt": "2026-06-20T20:21:04.356Z",
+      "commenceTime": "2026-06-21T17:36:00Z"
     }
   ],
   "settled": [
@@ -118,6 +142,7 @@
   "notified": [
     "baseball_mlb-31eba8fe40243a3e0e029a8b9949d756-totals-Over",
     "soccer_spain_segunda_division-ed16ec7a06898877478abf59c3a74736-h2h-Draw",
-    "baseball_mlb-150da5f2fa6db9e963e0b56fc2863769-h2h-Los Angeles Dodgers"
+    "baseball_mlb-150da5f2fa6db9e963e0b56fc2863769-h2h-Los Angeles Dodgers",
+    "baseball_mlb-c489d951af8ab8f1fd4ae78c8d3ecfd0-h2h-New York Yankees"
   ]
 }
