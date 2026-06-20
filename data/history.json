@@ -1,5 +1,30 @@
 {
-  "open": [],
+  "open": [
+    {
+      "id": "baseball_mlb-150da5f2fa6db9e963e0b56fc2863769-h2h-Los Angeles Dodgers",
+      "gameId": "baseball_mlb-150da5f2fa6db9e963e0b56fc2863769-h2h",
+      "oddsSportKey": "baseball_mlb",
+      "sport": "MLB",
+      "league": "MLB",
+      "market": "h2h",
+      "matchup": "Baltimore Orioles vs Los Angeles Dodgers",
+      "homeTeam": "Los Angeles Dodgers",
+      "awayTeam": "Baltimore Orioles",
+      "pick": "Los Angeles Dodgers ML",
+      "outcomeName": "Los Angeles Dodgers",
+      "point": null,
+      "americanOdds": -179,
+      "decimalOdds": 1.56,
+      "evPct": 0.04105272364147705,
+      "fairProb": 0.6673414895137674,
+      "closingFairProb": 0.6673414895137674,
+      "grade": "A-",
+      "isLock": true,
+      "stake": 1.68,
+      "flaggedAt": "2026-06-20T00:14:23.429Z",
+      "commenceTime": "2026-06-20T02:11:00Z"
+    }
+  ],
   "settled": [
     {
       "id": "soccer_spain_segunda_division-ed16ec7a06898877478abf59c3a74736-h2h-Draw",
@@ -92,6 +117,7 @@
   },
   "notified": [
     "baseball_mlb-31eba8fe40243a3e0e029a8b9949d756-totals-Over",
-    "soccer_spain_segunda_division-ed16ec7a06898877478abf59c3a74736-h2h-Draw"
+    "soccer_spain_segunda_division-ed16ec7a06898877478abf59c3a74736-h2h-Draw",
+    "baseball_mlb-150da5f2fa6db9e963e0b56fc2863769-h2h-Los Angeles Dodgers"
   ]
 }

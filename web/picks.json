@@ -1,8 +1,45 @@
 {
-  "lastUpdated": "3:40 PM CT",
-  "edgesScanned": 98,
+  "lastUpdated": "7:14 PM CT",
+  "edgesScanned": 76,
   "bankroll": 100.29,
-  "lock": null,
+  "lock": {
+    "id": "baseball_mlb-150da5f2fa6db9e963e0b56fc2863769-h2h-Los Angeles Dodgers",
+    "sport": "MLB",
+    "sportLabel": "Baseball",
+    "league": "MLB",
+    "context": "Baltimore Orioles @ Los Angeles Dodgers · 9:11 PM CT",
+    "matchup": "Baltimore Orioles vs Los Angeles Dodgers",
+    "pick": "Los Angeles Dodgers ML",
+    "betType": "Moneyline",
+    "odds": "-179",
+    "openOdds": "-179",
+    "payoutNote": "$100 → $156",
+    "confidence": 81,
+    "grade": "A-",
+    "takeShort": "Small edge, real edge. Los Angeles Dodgers ML is priced wrong and we noticed.",
+    "takeLong": "The sharp market gives this a real 67% shot to win, but FanDuel is only paying like 64% — a +4.1% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+    "dataPoints": 90,
+    "factors": [
+      {
+        "label": "Recent form (L10)",
+        "weight": 62,
+        "note": "Baltimore Orioles 4-6 · Los Angeles Dodgers 6-4"
+      },
+      {
+        "label": "Probable pitcher (ERA)",
+        "weight": 77,
+        "note": "Los Angeles Dodgers 2.52 · Baltimore Orioles 5.86 ERA"
+      }
+    ],
+    "evPct": 0.04105272364147705,
+    "fairProb": 0.6673414895137674,
+    "impliedProb": 0.641025641025641,
+    "bestBook": "FanDuel",
+    "kellyStake": 1.68,
+    "sharp": true,
+    "commenceTime": "2026-06-20T02:11:00Z",
+    "isLock": true
+  },
   "picks": [],
   "special": null,
   "record": {
