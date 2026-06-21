@@ -23,7 +23,9 @@
       "stake": 1.68,
       "flaggedAt": "2026-06-20T00:14:23.429Z",
       "commenceTime": "2026-06-20T02:11:00Z"
-    },
+    }
+  ],
+  "settled": [
     {
       "id": "baseball_mlb-c489d951af8ab8f1fd4ae78c8d3ecfd0-h2h-New York Yankees",
       "gameId": "baseball_mlb-c489d951af8ab8f1fd4ae78c8d3ecfd0-h2h",
@@ -46,10 +48,12 @@
       "isLock": true,
       "stake": 1.08,
       "flaggedAt": "2026-06-20T20:21:04.356Z",
-      "commenceTime": "2026-06-21T17:36:00Z"
-    }
-  ],
-  "settled": [
+      "commenceTime": "2026-06-21T17:36:00Z",
+      "result": "L",
+      "profit": -1.08,
+      "clvEdge": 0.018575185771339764,
+      "settledAt": "2026-06-21T00:13:17.210Z"
+    },
     {
       "id": "soccer_spain_segunda_division-ed16ec7a06898877478abf59c3a74736-h2h-Draw",
       "gameId": "soccer_spain_segunda_division-ed16ec7a06898877478abf59c3a74736-h2h",
