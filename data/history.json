@@ -1,5 +1,6 @@
 {
-  "open": [
+  "open": [],
+  "settled": [
     {
       "id": "baseball_mlb-150da5f2fa6db9e963e0b56fc2863769-h2h-Los Angeles Dodgers",
       "gameId": "baseball_mlb-150da5f2fa6db9e963e0b56fc2863769-h2h",
@@ -22,10 +23,12 @@
       "isLock": true,
       "stake": 1.68,
       "flaggedAt": "2026-06-20T00:14:23.429Z",
-      "commenceTime": "2026-06-20T02:11:00Z"
-    }
-  ],
-  "settled": [
+      "commenceTime": "2026-06-20T02:11:00Z",
+      "result": "L",
+      "profit": -1.68,
+      "clvEdge": 0.026315848488126403,
+      "settledAt": "2026-06-21T16:01:07.903Z"
+    },
     {
       "id": "baseball_mlb-c489d951af8ab8f1fd4ae78c8d3ecfd0-h2h-New York Yankees",
       "gameId": "baseball_mlb-c489d951af8ab8f1fd4ae78c8d3ecfd0-h2h",
