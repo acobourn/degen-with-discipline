@@ -1,5 +1,30 @@
 {
-  "open": [],
+  "open": [
+    {
+      "id": "basketball_wnba-4a45198a6486871817a5400b03e2c7a9-h2h-Dallas Wings",
+      "gameId": "basketball_wnba-4a45198a6486871817a5400b03e2c7a9-h2h",
+      "oddsSportKey": "basketball_wnba",
+      "sport": "NBA",
+      "league": "WNBA",
+      "market": "h2h",
+      "matchup": "Dallas Wings vs Las Vegas Aces",
+      "homeTeam": "Las Vegas Aces",
+      "awayTeam": "Dallas Wings",
+      "pick": "Dallas Wings ML",
+      "outcomeName": "Dallas Wings",
+      "point": null,
+      "americanOdds": 180,
+      "decimalOdds": 2.8,
+      "evPct": 0.034527216690192875,
+      "fairProb": 0.3694740059607832,
+      "closingFairProb": 0.3694740059607832,
+      "grade": "B-",
+      "isLock": true,
+      "stake": 0.16,
+      "flaggedAt": "2026-06-25T00:17:28.469Z",
+      "commenceTime": "2026-06-26T02:10:00Z"
+    }
+  ],
   "settled": [
     {
       "id": "baseball_mlb-150da5f2fa6db9e963e0b56fc2863769-h2h-Los Angeles Dodgers",
@@ -150,6 +175,7 @@
     "baseball_mlb-31eba8fe40243a3e0e029a8b9949d756-totals-Over",
     "soccer_spain_segunda_division-ed16ec7a06898877478abf59c3a74736-h2h-Draw",
     "baseball_mlb-150da5f2fa6db9e963e0b56fc2863769-h2h-Los Angeles Dodgers",
-    "baseball_mlb-c489d951af8ab8f1fd4ae78c8d3ecfd0-h2h-New York Yankees"
+    "baseball_mlb-c489d951af8ab8f1fd4ae78c8d3ecfd0-h2h-New York Yankees",
+    "basketball_wnba-4a45198a6486871817a5400b03e2c7a9-h2h-Dallas Wings"
   ]
 }
