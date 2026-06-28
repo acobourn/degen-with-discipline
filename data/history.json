@@ -1,5 +1,6 @@
 {
-  "open": [
+  "open": [],
+  "settled": [
     {
       "id": "basketball_wnba-4a45198a6486871817a5400b03e2c7a9-h2h-Dallas Wings",
       "gameId": "basketball_wnba-4a45198a6486871817a5400b03e2c7a9-h2h",
@@ -22,10 +23,12 @@
       "isLock": true,
       "stake": 0.16,
       "flaggedAt": "2026-06-25T00:17:28.469Z",
-      "commenceTime": "2026-06-26T02:10:00Z"
-    }
-  ],
-  "settled": [
+      "commenceTime": "2026-06-26T02:10:00Z",
+      "result": "V",
+      "profit": 0,
+      "clvEdge": 0.012331148817926074,
+      "settledAt": "2026-06-28T15:21:59.351Z"
+    },
     {
       "id": "baseball_mlb-150da5f2fa6db9e963e0b56fc2863769-h2h-Los Angeles Dodgers",
       "gameId": "baseball_mlb-150da5f2fa6db9e963e0b56fc2863769-h2h",
