@@ -1,40 +1,8 @@
 {
-  "lastUpdated": "7:11 PM CT",
-  "edgesScanned": 102,
+  "lastUpdated": "11:32 AM CT",
+  "edgesScanned": 56,
   "bankroll": 97.53,
-  "lock": {
-    "id": "soccer_brazil_serie_b-28f6a4c3fd83f7d018bb912b92f3da0a-h2h-Draw",
-    "sport": "SOC",
-    "sportLabel": "Soccer",
-    "league": "Brazil Série B",
-    "context": "Clube de Regatas Brasil @ Londrina · 2:00 PM CT",
-    "matchup": "Clube de Regatas Brasil vs Londrina",
-    "pick": "Draw",
-    "betType": "Moneyline",
-    "odds": "+230",
-    "openOdds": "+230",
-    "payoutNote": "$100 → $330",
-    "confidence": 66,
-    "grade": "B-",
-    "takeShort": "Small edge, real edge. Draw is priced wrong and we noticed.",
-    "takeLong": "The sharp market gives this a real 31% shot to win, but FanDuel is only paying like 30% — a +3.1% edge in your favor. Team form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
-    "dataPoints": 12,
-    "factors": [
-      {
-        "label": "Team form",
-        "weight": 50,
-        "note": "api-football"
-      }
-    ],
-    "evPct": 0.03124184600371649,
-    "fairProb": 0.3124975290920353,
-    "impliedProb": 0.30303030303030304,
-    "bestBook": "FanDuel",
-    "kellyStake": 0.12,
-    "sharp": false,
-    "commenceTime": "2026-07-04T19:00:00Z",
-    "isLock": true
-  },
+  "lock": null,
   "picks": [],
   "special": null,
   "record": {
