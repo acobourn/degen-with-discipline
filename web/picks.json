@@ -1,49 +1,17 @@
 {
-  "lastUpdated": "11:56 AM CT",
-  "edgesScanned": 50,
+  "lastUpdated": "3:55 PM CT",
+  "edgesScanned": 54,
   "bankroll": 97.53,
-  "lock": {
-    "id": "soccer_brazil_serie_b-d3526c65cd251f82bc5d99cfe4db26b1-h2h-Draw",
-    "sport": "SOC",
-    "sportLabel": "Soccer",
-    "league": "Brazil Série B",
-    "context": "Fortaleza @ Atletico Goianiense · 4:00 PM CT",
-    "matchup": "Fortaleza vs Atletico Goianiense",
-    "pick": "Draw",
-    "betType": "Moneyline",
-    "odds": "+210",
-    "openOdds": "+210",
-    "payoutNote": "$100 → $310",
-    "confidence": 72,
-    "grade": "B",
-    "takeShort": "Small edge, real edge. Draw is priced wrong and we noticed.",
-    "takeLong": "The sharp market gives this a real 33% shot to win, but FanDuel is only paying like 32% — a +3.8% edge in your favor. Team form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
-    "dataPoints": 21,
-    "factors": [
-      {
-        "label": "Team form",
-        "weight": 50,
-        "note": "api-football"
-      }
-    ],
-    "evPct": 0.037605206640553,
-    "fairProb": 0.33471135698082355,
-    "impliedProb": 0.3225806451612903,
-    "bestBook": "FanDuel",
-    "kellyStake": 0.15,
-    "sharp": false,
-    "commenceTime": "2026-07-12T21:00:00Z",
-    "isLock": true
-  },
+  "lock": null,
   "picks": [],
   "special": null,
   "record": {
     "lockStreak": 0,
-    "last10": "1-4",
+    "last10": "1-5",
     "record": "2-3",
-    "settledCount": 6,
+    "settledCount": 7,
     "profit": -2.47,
-    "avgClvPct": 2
+    "avgClvPct": 1.8
   },
   "gradeRecords": {
     "A-": {
@@ -69,13 +37,19 @@
   },
   "clvSummary": {
     "lockStreak": 0,
-    "last10": "1-4",
+    "last10": "1-5",
     "record": "2-3",
-    "settledCount": 6,
+    "settledCount": 7,
     "profit": -2.47,
-    "avgClvPct": 2
+    "avgClvPct": 1.8
   },
   "attribution": [
+    {
+      "seg": "Brazil Série B",
+      "record": "0-0",
+      "avgClvPct": 0.2,
+      "profit": 0
+    },
     {
       "seg": "WNBA",
       "record": "0-0",
