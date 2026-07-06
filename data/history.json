@@ -23,6 +23,30 @@
       "stake": 0.12,
       "flaggedAt": "2026-07-01T00:11:56.759Z",
       "commenceTime": "2026-07-04T19:00:00Z"
+    },
+    {
+      "id": "soccer_brazil_serie_b-d3526c65cd251f82bc5d99cfe4db26b1-h2h-Draw",
+      "gameId": "soccer_brazil_serie_b-d3526c65cd251f82bc5d99cfe4db26b1-h2h",
+      "oddsSportKey": "soccer_brazil_serie_b",
+      "sport": "SOC",
+      "league": "Brazil Série B",
+      "market": "h2h",
+      "matchup": "Fortaleza vs Atletico Goianiense",
+      "homeTeam": "Atletico Goianiense",
+      "awayTeam": "Fortaleza",
+      "pick": "Draw",
+      "outcomeName": "Draw",
+      "point": null,
+      "americanOdds": 210,
+      "decimalOdds": 3.1,
+      "evPct": 0.037605206640553,
+      "fairProb": 0.33471135698082355,
+      "closingFairProb": 0.33471135698082355,
+      "grade": "B",
+      "isLock": true,
+      "stake": 0.15,
+      "flaggedAt": "2026-07-06T16:56:44.041Z",
+      "commenceTime": "2026-07-12T21:00:00Z"
     }
   ],
   "settled": [
@@ -205,6 +229,7 @@
     "baseball_mlb-150da5f2fa6db9e963e0b56fc2863769-h2h-Los Angeles Dodgers",
     "baseball_mlb-c489d951af8ab8f1fd4ae78c8d3ecfd0-h2h-New York Yankees",
     "basketball_wnba-4a45198a6486871817a5400b03e2c7a9-h2h-Dallas Wings",
-    "soccer_brazil_serie_b-28f6a4c3fd83f7d018bb912b92f3da0a-h2h-Draw"
+    "soccer_brazil_serie_b-28f6a4c3fd83f7d018bb912b92f3da0a-h2h-Draw",
+    "soccer_brazil_serie_b-d3526c65cd251f82bc5d99cfe4db26b1-h2h-Draw"
   ]
 }
