@@ -23,6 +23,30 @@
       "stake": 0.15,
       "flaggedAt": "2026-07-06T16:56:44.041Z",
       "commenceTime": "2026-07-12T21:00:00Z"
+    },
+    {
+      "id": "baseball_mlb-ba8bc57255560c92ff44bf4ac63a4fd9-h2h-Detroit Tigers",
+      "gameId": "baseball_mlb-ba8bc57255560c92ff44bf4ac63a4fd9-h2h",
+      "oddsSportKey": "baseball_mlb",
+      "sport": "MLB",
+      "league": "MLB",
+      "market": "h2h",
+      "matchup": "Philadelphia Phillies vs Detroit Tigers",
+      "homeTeam": "Detroit Tigers",
+      "awayTeam": "Philadelphia Phillies",
+      "pick": "Detroit Tigers ML",
+      "outcomeName": "Detroit Tigers",
+      "point": null,
+      "americanOdds": 124,
+      "decimalOdds": 2.24,
+      "evPct": 0.04070439599260656,
+      "fairProb": 0.46460017678241355,
+      "closingFairProb": 0.46460017678241355,
+      "grade": "A-",
+      "isLock": true,
+      "stake": 0.8,
+      "flaggedAt": "2026-07-11T00:02:55.131Z",
+      "commenceTime": "2026-07-11T22:11:00Z"
     }
   ],
   "settled": [
@@ -234,6 +258,7 @@
     "baseball_mlb-c489d951af8ab8f1fd4ae78c8d3ecfd0-h2h-New York Yankees",
     "basketball_wnba-4a45198a6486871817a5400b03e2c7a9-h2h-Dallas Wings",
     "soccer_brazil_serie_b-28f6a4c3fd83f7d018bb912b92f3da0a-h2h-Draw",
-    "soccer_brazil_serie_b-d3526c65cd251f82bc5d99cfe4db26b1-h2h-Draw"
+    "soccer_brazil_serie_b-d3526c65cd251f82bc5d99cfe4db26b1-h2h-Draw",
+    "baseball_mlb-ba8bc57255560c92ff44bf4ac63a4fd9-h2h-Detroit Tigers"
   ]
 }
