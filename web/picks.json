@@ -1,45 +1,8 @@
 {
-  "lastUpdated": "7:02 PM CT",
-  "edgesScanned": 86,
+  "lastUpdated": "10:02 AM CT",
+  "edgesScanned": 94,
   "bankroll": 97.53,
-  "lock": {
-    "id": "baseball_mlb-ba8bc57255560c92ff44bf4ac63a4fd9-h2h-Detroit Tigers",
-    "sport": "MLB",
-    "sportLabel": "Baseball",
-    "league": "MLB",
-    "context": "Philadelphia Phillies @ Detroit Tigers · 5:11 PM CT",
-    "matchup": "Philadelphia Phillies vs Detroit Tigers",
-    "pick": "Detroit Tigers ML",
-    "betType": "Moneyline",
-    "odds": "+124",
-    "openOdds": "+124",
-    "payoutNote": "$100 → $224",
-    "confidence": 81,
-    "grade": "A-",
-    "takeShort": "The market blinked on Detroit Tigers ML. We didn't.",
-    "takeLong": "The sharp market gives this a real 46% shot to win, but FanDuel is only paying like 45% — a +4.1% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
-    "dataPoints": 66,
-    "factors": [
-      {
-        "label": "Recent form (L10)",
-        "weight": 86,
-        "note": "Philadelphia Phillies 5-5 · Detroit Tigers 8-2"
-      },
-      {
-        "label": "Probable pitcher (ERA)",
-        "weight": 50,
-        "note": "Detroit Tigers 2.64 · Philadelphia Phillies 2.62 ERA"
-      }
-    ],
-    "evPct": 0.04070439599260656,
-    "fairProb": 0.46460017678241355,
-    "impliedProb": 0.4464285714285714,
-    "bestBook": "FanDuel",
-    "kellyStake": 0.8,
-    "sharp": true,
-    "commenceTime": "2026-07-11T22:11:00Z",
-    "isLock": true
-  },
+  "lock": null,
   "picks": [],
   "special": null,
   "record": {
