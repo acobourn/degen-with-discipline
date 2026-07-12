@@ -23,7 +23,9 @@
       "stake": 0.15,
       "flaggedAt": "2026-07-06T16:56:44.041Z",
       "commenceTime": "2026-07-12T21:00:00Z"
-    },
+    }
+  ],
+  "settled": [
     {
       "id": "baseball_mlb-ba8bc57255560c92ff44bf4ac63a4fd9-h2h-Detroit Tigers",
       "gameId": "baseball_mlb-ba8bc57255560c92ff44bf4ac63a4fd9-h2h",
@@ -46,10 +48,12 @@
       "isLock": true,
       "stake": 0.8,
       "flaggedAt": "2026-07-11T00:02:55.131Z",
-      "commenceTime": "2026-07-11T22:11:00Z"
-    }
-  ],
-  "settled": [
+      "commenceTime": "2026-07-11T22:11:00Z",
+      "result": "L",
+      "profit": -0.8,
+      "clvEdge": -0.0007557848899973907,
+      "settledAt": "2026-07-12T15:05:08.426Z"
+    },
     {
       "id": "soccer_brazil_serie_b-28f6a4c3fd83f7d018bb912b92f3da0a-h2h-Draw",
       "gameId": "soccer_brazil_serie_b-28f6a4c3fd83f7d018bb912b92f3da0a-h2h",

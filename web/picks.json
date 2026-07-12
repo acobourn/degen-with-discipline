@@ -1,23 +1,23 @@
 {
-  "lastUpdated": "7:00 PM CT",
+  "lastUpdated": "10:05 AM CT",
   "edgesScanned": 60,
-  "bankroll": 97.53,
+  "bankroll": 96.73,
   "lock": null,
   "picks": [],
   "special": null,
   "record": {
     "lockStreak": 0,
-    "last10": "1-5",
-    "record": "2-3",
-    "settledCount": 7,
-    "profit": -2.47,
-    "avgClvPct": 1.8
+    "last10": "1-6",
+    "record": "2-4",
+    "settledCount": 8,
+    "profit": -3.27,
+    "avgClvPct": 1.5
   },
   "gradeRecords": {
     "A-": {
       "win": 0,
-      "sample": "L1",
-      "roi": "-1.7u"
+      "sample": "L2",
+      "roi": "-2.5u"
     },
     "B+": {
       "win": 0,
@@ -37,13 +37,19 @@
   },
   "clvSummary": {
     "lockStreak": 0,
-    "last10": "1-5",
-    "record": "2-3",
-    "settledCount": 7,
-    "profit": -2.47,
-    "avgClvPct": 1.8
+    "last10": "1-6",
+    "record": "2-4",
+    "settledCount": 8,
+    "profit": -3.27,
+    "avgClvPct": 1.5
   },
   "attribution": [
+    {
+      "seg": "MLB",
+      "record": "0-4",
+      "avgClvPct": 1.8,
+      "profit": -3.95
+    },
     {
       "seg": "Brazil Série B",
       "record": "0-0",
@@ -55,12 +61,6 @@
       "record": "0-0",
       "avgClvPct": 1.2,
       "profit": 0
-    },
-    {
-      "seg": "MLB",
-      "record": "0-3",
-      "avgClvPct": 2.5,
-      "profit": -3.15
     },
     {
       "seg": "La Liga 2",
