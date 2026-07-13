@@ -1,40 +1,8 @@
 {
-  "lastUpdated": "3:19 PM CT",
+  "lastUpdated": "6:57 PM CT",
   "edgesScanned": 28,
   "bankroll": 96.73,
-  "lock": {
-    "id": "soccer_norway_eliteserien-eb376f64e72f199c1c5c695ddaddb645-h2h-Draw",
-    "sport": "SOC",
-    "sportLabel": "Soccer",
-    "league": "Eliteserien",
-    "context": "Tromso @ HamKam · 7:00 AM CT",
-    "matchup": "Tromso vs HamKam",
-    "pick": "Draw",
-    "betType": "Moneyline",
-    "odds": "+240",
-    "openOdds": "+240",
-    "payoutNote": "$100 → $340",
-    "confidence": 73,
-    "grade": "B",
-    "takeShort": "Small edge, real edge. Draw is priced wrong and we noticed.",
-    "takeLong": "The sharp market gives this a real 31% shot to win, but FanDuel is only paying like 29% — a +4.1% edge in your favor. Team form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
-    "dataPoints": 18,
-    "factors": [
-      {
-        "label": "Team form",
-        "weight": 50,
-        "note": "api-football"
-      }
-    ],
-    "evPct": 0.0410627447131231,
-    "fairProb": 0.30619492491562444,
-    "impliedProb": 0.29411764705882354,
-    "bestBook": "FanDuel",
-    "kellyStake": 0.14,
-    "sharp": false,
-    "commenceTime": "2026-07-18T12:00:00Z",
-    "isLock": true
-  },
+  "lock": null,
   "picks": [],
   "special": null,
   "record": {
