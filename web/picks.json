@@ -1,84 +1,9 @@
 {
-  "lastUpdated": "3:06 PM CT",
-  "edgesScanned": 106,
+  "lastUpdated": "6:58 PM CT",
+  "edgesScanned": 118,
   "bankroll": 96.73,
-  "lock": {
-    "id": "baseball_mlb-8a4b2213ce7fa7861c687739dfcc3495-totals-Over",
-    "sport": "MLB",
-    "sportLabel": "Baseball",
-    "league": "MLB",
-    "context": "New York Mets @ Philadelphia Phillies · 12:36 PM CT",
-    "matchup": "New York Mets vs Philadelphia Phillies",
-    "pick": "Over 8.5",
-    "betType": "Total",
-    "odds": "-122",
-    "openOdds": "-122",
-    "payoutNote": "$100 → $182",
-    "confidence": 74,
-    "grade": "B",
-    "takeShort": "Small edge, real edge. Over 8.5 is priced wrong and we noticed.",
-    "takeLong": "The sharp market gives this a real 57% shot to win, but FanDuel is only paying like 55% — a +3.9% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
-    "dataPoints": 54,
-    "factors": [
-      {
-        "label": "Recent form (L10)",
-        "weight": 50,
-        "note": "New York Mets 5-5 · Philadelphia Phillies 5-5"
-      },
-      {
-        "label": "Probable pitcher (ERA)",
-        "weight": 59,
-        "note": "Philadelphia Phillies 3.47 · New York Mets 4.62 ERA"
-      }
-    ],
-    "evPct": 0.03878726546986577,
-    "fairProb": 0.5707622337746515,
-    "impliedProb": 0.5494505494505494,
-    "bestBook": "FanDuel",
-    "kellyStake": 1.14,
-    "sharp": true,
-    "commenceTime": "2026-07-19T17:36:00Z",
-    "isLock": true
-  },
-  "picks": [
-    {
-      "id": "baseball_mlb-e7ba65ff4e90d9960a0619d266c10ff5-totals-Under",
-      "sport": "MLB",
-      "sportLabel": "Baseball",
-      "league": "MLB",
-      "context": "Los Angeles Dodgers @ New York Yankees · 6:21 PM CT",
-      "matchup": "Los Angeles Dodgers vs New York Yankees",
-      "pick": "Under 7.5",
-      "betType": "Total",
-      "odds": "+102",
-      "openOdds": "+102",
-      "payoutNote": "$100 → $202",
-      "confidence": 70,
-      "grade": "B",
-      "takeShort": "Small edge, real edge. Under 7.5 is priced wrong and we noticed.",
-      "takeLong": "The sharp market gives this a real 51% shot to win, but FanDuel is only paying like 50% — a +3.3% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
-      "dataPoints": 48,
-      "factors": [
-        {
-          "label": "Recent form (L10)",
-          "weight": 50,
-          "note": "Los Angeles Dodgers 5-5 · New York Yankees 5-5"
-        },
-        {
-          "label": "Probable pitcher (ERA)",
-          "weight": 55,
-          "note": "New York Yankees 4.15 · Los Angeles Dodgers 4.81 ERA"
-        }
-      ],
-      "evPct": 0.032672297333308675,
-      "fairProb": 0.5112239095709449,
-      "impliedProb": 0.49504950495049505,
-      "bestBook": "FanDuel",
-      "kellyStake": 0.4,
-      "sharp": false,
-      "commenceTime": "2026-07-19T23:21:00Z"
-    }
-  ],
+  "lock": null,
+  "picks": [],
   "special": null,
   "record": {
     "lockStreak": 0,
