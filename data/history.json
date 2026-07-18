@@ -23,6 +23,54 @@
       "stake": 0.14,
       "flaggedAt": "2026-07-13T20:19:55.905Z",
       "commenceTime": "2026-07-18T12:00:00Z"
+    },
+    {
+      "id": "baseball_mlb-8a4b2213ce7fa7861c687739dfcc3495-totals-Over",
+      "gameId": "baseball_mlb-8a4b2213ce7fa7861c687739dfcc3495-totals",
+      "oddsSportKey": "baseball_mlb",
+      "sport": "MLB",
+      "league": "MLB",
+      "market": "totals",
+      "matchup": "New York Mets vs Philadelphia Phillies",
+      "homeTeam": "Philadelphia Phillies",
+      "awayTeam": "New York Mets",
+      "pick": "Over 8.5",
+      "outcomeName": "Over 8.5",
+      "point": 8.5,
+      "americanOdds": -122,
+      "decimalOdds": 1.82,
+      "evPct": 0.03878726546986577,
+      "fairProb": 0.5707622337746515,
+      "closingFairProb": 0.5707622337746515,
+      "grade": "B",
+      "isLock": true,
+      "stake": 1.14,
+      "flaggedAt": "2026-07-18T20:06:00.414Z",
+      "commenceTime": "2026-07-19T17:36:00Z"
+    },
+    {
+      "id": "baseball_mlb-e7ba65ff4e90d9960a0619d266c10ff5-totals-Under",
+      "gameId": "baseball_mlb-e7ba65ff4e90d9960a0619d266c10ff5-totals",
+      "oddsSportKey": "baseball_mlb",
+      "sport": "MLB",
+      "league": "MLB",
+      "market": "totals",
+      "matchup": "Los Angeles Dodgers vs New York Yankees",
+      "homeTeam": "New York Yankees",
+      "awayTeam": "Los Angeles Dodgers",
+      "pick": "Under 7.5",
+      "outcomeName": "Under 7.5",
+      "point": 7.5,
+      "americanOdds": 102,
+      "decimalOdds": 2.02,
+      "evPct": 0.032672297333308675,
+      "fairProb": 0.5112239095709449,
+      "closingFairProb": 0.5112239095709449,
+      "grade": "B",
+      "isLock": false,
+      "stake": 0.4,
+      "flaggedAt": "2026-07-18T20:06:00.414Z",
+      "commenceTime": "2026-07-19T23:21:00Z"
     }
   ],
   "settled": [
@@ -292,6 +340,8 @@
     "soccer_brazil_serie_b-28f6a4c3fd83f7d018bb912b92f3da0a-h2h-Draw",
     "soccer_brazil_serie_b-d3526c65cd251f82bc5d99cfe4db26b1-h2h-Draw",
     "baseball_mlb-ba8bc57255560c92ff44bf4ac63a4fd9-h2h-Detroit Tigers",
-    "soccer_norway_eliteserien-eb376f64e72f199c1c5c695ddaddb645-h2h-Draw"
+    "soccer_norway_eliteserien-eb376f64e72f199c1c5c695ddaddb645-h2h-Draw",
+    "baseball_mlb-8a4b2213ce7fa7861c687739dfcc3495-totals-Over",
+    "baseball_mlb-e7ba65ff4e90d9960a0619d266c10ff5-totals-Under"
   ]
 }
