@@ -47,7 +47,9 @@
       "stake": 1.14,
       "flaggedAt": "2026-07-18T20:06:00.414Z",
       "commenceTime": "2026-07-19T17:36:00Z"
-    },
+    }
+  ],
+  "settled": [
     {
       "id": "baseball_mlb-e7ba65ff4e90d9960a0619d266c10ff5-totals-Under",
       "gameId": "baseball_mlb-e7ba65ff4e90d9960a0619d266c10ff5-totals",
@@ -70,10 +72,12 @@
       "isLock": false,
       "stake": 0.4,
       "flaggedAt": "2026-07-18T20:06:00.414Z",
-      "commenceTime": "2026-07-19T23:21:00Z"
-    }
-  ],
-  "settled": [
+      "commenceTime": "2026-07-19T23:21:00Z",
+      "result": "L",
+      "profit": -0.4,
+      "clvEdge": 0.028081518711225106,
+      "settledAt": "2026-07-19T20:09:37.047Z"
+    },
     {
       "id": "soccer_brazil_serie_b-d3526c65cd251f82bc5d99cfe4db26b1-h2h-Draw",
       "gameId": "soccer_brazil_serie_b-d3526c65cd251f82bc5d99cfe4db26b1-h2h",
