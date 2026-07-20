@@ -23,7 +23,9 @@
       "stake": 0.14,
       "flaggedAt": "2026-07-13T20:19:55.905Z",
       "commenceTime": "2026-07-18T12:00:00Z"
-    },
+    }
+  ],
+  "settled": [
     {
       "id": "baseball_mlb-8a4b2213ce7fa7861c687739dfcc3495-totals-Over",
       "gameId": "baseball_mlb-8a4b2213ce7fa7861c687739dfcc3495-totals",
@@ -46,10 +48,12 @@
       "isLock": true,
       "stake": 1.14,
       "flaggedAt": "2026-07-18T20:06:00.414Z",
-      "commenceTime": "2026-07-19T17:36:00Z"
-    }
-  ],
-  "settled": [
+      "commenceTime": "2026-07-19T17:36:00Z",
+      "result": "L",
+      "profit": -1.14,
+      "clvEdge": -0.02229743115319105,
+      "settledAt": "2026-07-20T00:00:58.377Z"
+    },
     {
       "id": "baseball_mlb-e7ba65ff4e90d9960a0619d266c10ff5-totals-Under",
       "gameId": "baseball_mlb-e7ba65ff4e90d9960a0619d266c10ff5-totals",
