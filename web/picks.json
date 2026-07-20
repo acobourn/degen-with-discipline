@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "7:00 PM CT",
-  "edgesScanned": 60,
+  "lastUpdated": "10:56 AM CT",
+  "edgesScanned": 75,
   "bankroll": 95.19,
   "lock": null,
   "picks": [],
   "special": null,
   "record": {
     "lockStreak": 0,
-    "last10": "1-8",
+    "last10": "1-9",
     "record": "2-6",
-    "settledCount": 11,
+    "settledCount": 12,
     "profit": -4.81,
     "avgClvPct": 1.1
   },
@@ -37,13 +37,19 @@
   },
   "clvSummary": {
     "lockStreak": 0,
-    "last10": "1-8",
+    "last10": "1-9",
     "record": "2-6",
-    "settledCount": 11,
+    "settledCount": 12,
     "profit": -4.81,
     "avgClvPct": 1.1
   },
   "attribution": [
+    {
+      "seg": "Eliteserien",
+      "record": "0-0",
+      "avgClvPct": 0.5,
+      "profit": 0
+    },
     {
       "seg": "MLB",
       "record": "0-6",

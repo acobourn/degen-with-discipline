@@ -1,5 +1,6 @@
 {
-  "open": [
+  "open": [],
+  "settled": [
     {
       "id": "soccer_norway_eliteserien-eb376f64e72f199c1c5c695ddaddb645-h2h-Draw",
       "gameId": "soccer_norway_eliteserien-eb376f64e72f199c1c5c695ddaddb645-h2h",
@@ -22,10 +23,12 @@
       "isLock": true,
       "stake": 0.14,
       "flaggedAt": "2026-07-13T20:19:55.905Z",
-      "commenceTime": "2026-07-18T12:00:00Z"
-    }
-  ],
-  "settled": [
+      "commenceTime": "2026-07-18T12:00:00Z",
+      "result": "V",
+      "profit": 0,
+      "clvEdge": 0.004661979908459346,
+      "settledAt": "2026-07-20T15:56:11.376Z"
+    },
     {
       "id": "baseball_mlb-8a4b2213ce7fa7861c687739dfcc3495-totals-Over",
       "gameId": "baseball_mlb-8a4b2213ce7fa7861c687739dfcc3495-totals",
