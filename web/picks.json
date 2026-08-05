@@ -1,45 +1,8 @@
 {
-  "lastUpdated": "3:37 PM CT",
-  "edgesScanned": 126,
+  "lastUpdated": "7:08 PM CT",
+  "edgesScanned": 94,
   "bankroll": 95.19,
-  "lock": {
-    "id": "baseball_mlb-62d92e8ecf4bb3be97f03a09925eaec3-h2h-Houston Astros",
-    "sport": "MLB",
-    "sportLabel": "Baseball",
-    "league": "MLB",
-    "context": "Toronto Blue Jays @ Houston Astros · 1:11 PM CT",
-    "matchup": "Toronto Blue Jays vs Houston Astros",
-    "pick": "Houston Astros ML",
-    "betType": "Moneyline",
-    "odds": "-104",
-    "openOdds": "-104",
-    "payoutNote": "$100 → $196",
-    "confidence": 71,
-    "grade": "B",
-    "takeShort": "The market blinked on Houston Astros ML. We didn't.",
-    "takeLong": "The sharp market gives this a real 53% shot to win, but FanDuel is only paying like 51% — a +3.3% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
-    "dataPoints": 64,
-    "factors": [
-      {
-        "label": "Recent form (L10)",
-        "weight": 86,
-        "note": "Toronto Blue Jays 6-4 · Houston Astros 8-2"
-      },
-      {
-        "label": "Probable pitcher (ERA)",
-        "weight": 58,
-        "note": "Houston Astros 4.76 · Toronto Blue Jays 3.73 ERA"
-      }
-    ],
-    "evPct": 0.03313575482288034,
-    "fairProb": 0.5271100789912655,
-    "impliedProb": 0.5102040816326531,
-    "bestBook": "FanDuel",
-    "kellyStake": 0.82,
-    "sharp": true,
-    "commenceTime": "2026-08-05T18:11:00Z",
-    "isLock": true
-  },
+  "lock": null,
   "picks": [],
   "special": null,
   "record": {
