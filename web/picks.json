@@ -1,45 +1,8 @@
 {
-  "lastUpdated": "7:02 PM CT",
-  "edgesScanned": 86,
+  "lastUpdated": "7:43 PM CT",
+  "edgesScanned": 71,
   "bankroll": 94.37,
-  "lock": {
-    "id": "baseball_mlb-4f9df9d570d705ced380cfa799b0b640-totals-Over",
-    "sport": "MLB",
-    "sportLabel": "Baseball",
-    "league": "MLB",
-    "context": "Miami Marlins @ Atlanta Braves · 6:16 PM CT",
-    "matchup": "Miami Marlins vs Atlanta Braves",
-    "pick": "Over 9",
-    "betType": "Total",
-    "odds": "+105",
-    "openOdds": "+105",
-    "payoutNote": "$100 → $205",
-    "confidence": 70,
-    "grade": "B",
-    "takeShort": "Recent form (L10) says go; the price says value. Rare combo.",
-    "takeLong": "The sharp market gives this a real 50% shot to win, but BetMGM is only paying like 49% — a +3.3% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
-    "dataPoints": 60,
-    "factors": [
-      {
-        "label": "Recent form (L10)",
-        "weight": 74,
-        "note": "Miami Marlins 6-4 · Atlanta Braves 7-3"
-      },
-      {
-        "label": "Probable pitcher (ERA)",
-        "weight": 61,
-        "note": "Atlanta Braves 3.24 · Miami Marlins 4.58 ERA"
-      }
-    ],
-    "evPct": 0.03334419988325732,
-    "fairProb": 0.504070341406467,
-    "impliedProb": 0.48780487804878053,
-    "bestBook": "BetMGM",
-    "kellyStake": 0.66,
-    "sharp": true,
-    "commenceTime": "2026-08-06T23:16:00Z",
-    "isLock": true
-  },
+  "lock": null,
   "picks": [],
   "special": null,
   "record": {
