@@ -1,5 +1,6 @@
 {
-  "open": [
+  "open": [],
+  "settled": [
     {
       "id": "baseball_mlb-4f9df9d570d705ced380cfa799b0b640-totals-Over",
       "gameId": "baseball_mlb-4f9df9d570d705ced380cfa799b0b640-totals",
@@ -22,10 +23,12 @@
       "isLock": true,
       "stake": 0.66,
       "flaggedAt": "2026-08-06T00:02:40.766Z",
-      "commenceTime": "2026-08-06T23:16:00Z"
-    }
-  ],
-  "settled": [
+      "commenceTime": "2026-08-06T23:16:00Z",
+      "result": "W",
+      "profit": 0.69,
+      "clvEdge": 0.01626546335768647,
+      "settledAt": "2026-08-07T15:00:58.298Z"
+    },
     {
       "id": "baseball_mlb-62d92e8ecf4bb3be97f03a09925eaec3-h2h-Houston Astros",
       "gameId": "baseball_mlb-62d92e8ecf4bb3be97f03a09925eaec3-h2h",

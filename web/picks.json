@@ -1,23 +1,23 @@
 {
-  "lastUpdated": "8:42 PM CT",
-  "edgesScanned": 42,
-  "bankroll": 94.37,
+  "lastUpdated": "10:00 AM CT",
+  "edgesScanned": 60,
+  "bankroll": 95.06,
   "lock": null,
   "picks": [],
   "special": null,
   "record": {
-    "lockStreak": 0,
+    "lockStreak": 1,
     "last10": "1-9",
-    "record": "2-7",
-    "settledCount": 13,
-    "profit": -5.63,
+    "record": "3-7",
+    "settledCount": 14,
+    "profit": -4.94,
     "avgClvPct": 2.2
   },
   "gradeRecords": {
     "B": {
-      "win": 40,
-      "sample": "L5",
-      "roi": "-1.7u"
+      "win": 50,
+      "sample": "L6",
+      "roi": "-1.0u"
     },
     "A-": {
       "win": 0,
@@ -36,19 +36,19 @@
     }
   },
   "clvSummary": {
-    "lockStreak": 0,
+    "lockStreak": 1,
     "last10": "1-9",
-    "record": "2-7",
-    "settledCount": 13,
-    "profit": -5.63,
+    "record": "3-7",
+    "settledCount": 14,
+    "profit": -4.94,
     "avgClvPct": 2.2
   },
   "attribution": [
     {
       "seg": "MLB",
-      "record": "0-7",
-      "avgClvPct": 3.5,
-      "profit": -6.31
+      "record": "1-7",
+      "avgClvPct": 3.2,
+      "profit": -5.62
     },
     {
       "seg": "Eliteserien",
