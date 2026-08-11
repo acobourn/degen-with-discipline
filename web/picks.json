@@ -1,8 +1,45 @@
 {
-  "lastUpdated": "3:01 PM CT",
-  "edgesScanned": 121,
+  "lastUpdated": "6:47 PM CT",
+  "edgesScanned": 86,
   "bankroll": 95.06,
-  "lock": null,
+  "lock": {
+    "id": "baseball_mlb-08b25f6a0f8cef91660f3825d3a5a34e-h2h-Milwaukee Brewers",
+    "sport": "MLB",
+    "sportLabel": "Baseball",
+    "league": "MLB",
+    "context": "Milwaukee Brewers @ San Diego Padres · 3:10 PM CT",
+    "matchup": "Milwaukee Brewers vs San Diego Padres",
+    "pick": "Milwaukee Brewers ML",
+    "betType": "Moneyline",
+    "odds": "-118",
+    "openOdds": "-118",
+    "payoutNote": "$100 → $185",
+    "confidence": 82,
+    "grade": "A-",
+    "takeShort": "The market blinked on Milwaukee Brewers ML. We didn't.",
+    "takeLong": "The sharp market gives this a real 56% shot to win, but FanDuel is only paying like 54% — a +4.4% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+    "dataPoints": 64,
+    "factors": [
+      {
+        "label": "Recent form (L10)",
+        "weight": 74,
+        "note": "Milwaukee Brewers 6-4 · San Diego Padres 7-3"
+      },
+      {
+        "label": "Probable pitcher (ERA)",
+        "weight": 68,
+        "note": "San Diego Padres 5.07 · Milwaukee Brewers 2.84 ERA"
+      }
+    ],
+    "evPct": 0.044251872428004324,
+    "fairProb": 0.5644604715827051,
+    "impliedProb": 0.5405405405405405,
+    "bestBook": "FanDuel",
+    "kellyStake": 1.24,
+    "sharp": true,
+    "commenceTime": "2026-08-12T20:10:00Z",
+    "isLock": true
+  },
   "picks": [],
   "special": null,
   "record": {

@@ -1,5 +1,30 @@
 {
-  "open": [],
+  "open": [
+    {
+      "id": "baseball_mlb-08b25f6a0f8cef91660f3825d3a5a34e-h2h-Milwaukee Brewers",
+      "gameId": "baseball_mlb-08b25f6a0f8cef91660f3825d3a5a34e-h2h",
+      "oddsSportKey": "baseball_mlb",
+      "sport": "MLB",
+      "league": "MLB",
+      "market": "h2h",
+      "matchup": "Milwaukee Brewers vs San Diego Padres",
+      "homeTeam": "San Diego Padres",
+      "awayTeam": "Milwaukee Brewers",
+      "pick": "Milwaukee Brewers ML",
+      "outcomeName": "Milwaukee Brewers",
+      "point": null,
+      "americanOdds": -118,
+      "decimalOdds": 1.85,
+      "evPct": 0.044251872428004324,
+      "fairProb": 0.5644604715827051,
+      "closingFairProb": 0.5644604715827051,
+      "grade": "A-",
+      "isLock": true,
+      "stake": 1.24,
+      "flaggedAt": "2026-08-11T23:47:06.596Z",
+      "commenceTime": "2026-08-12T20:10:00Z"
+    }
+  ],
   "settled": [
     {
       "id": "baseball_mlb-4f9df9d570d705ced380cfa799b0b640-totals-Over",
@@ -411,6 +436,7 @@
     "baseball_mlb-8a4b2213ce7fa7861c687739dfcc3495-totals-Over",
     "baseball_mlb-e7ba65ff4e90d9960a0619d266c10ff5-totals-Under",
     "baseball_mlb-62d92e8ecf4bb3be97f03a09925eaec3-h2h-Houston Astros",
-    "baseball_mlb-4f9df9d570d705ced380cfa799b0b640-totals-Over"
+    "baseball_mlb-4f9df9d570d705ced380cfa799b0b640-totals-Over",
+    "baseball_mlb-08b25f6a0f8cef91660f3825d3a5a34e-h2h-Milwaukee Brewers"
   ]
 }
