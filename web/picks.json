@@ -1,8 +1,45 @@
 {
-  "lastUpdated": "10:04 AM CT",
-  "edgesScanned": 85,
+  "lastUpdated": "3:02 PM CT",
+  "edgesScanned": 100,
   "bankroll": 95.06,
-  "lock": null,
+  "lock": {
+    "id": "baseball_mlb-3e1c279359817c97e285db96732ef225-h2h-Seattle Mariners",
+    "sport": "MLB",
+    "sportLabel": "Baseball",
+    "league": "MLB",
+    "context": "Seattle Mariners @ New York Yankees · 12:36 PM CT",
+    "matchup": "Seattle Mariners vs New York Yankees",
+    "pick": "Seattle Mariners ML",
+    "betType": "Moneyline",
+    "odds": "+125",
+    "openOdds": "+125",
+    "payoutNote": "$100 → $225",
+    "confidence": 70,
+    "grade": "B",
+    "takeShort": "Recent form (L10) says go; the price says value. Rare combo.",
+    "takeLong": "The sharp market gives this a real 46% shot to win, but BetMGM is only paying like 44% — a +3.1% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+    "dataPoints": 60,
+    "factors": [
+      {
+        "label": "Recent form (L10)",
+        "weight": 62,
+        "note": "Seattle Mariners 3-7 · New York Yankees 6-4"
+      },
+      {
+        "label": "Probable pitcher (ERA)",
+        "weight": 59,
+        "note": "New York Yankees 4.18 · Seattle Mariners 3.08 ERA"
+      }
+    ],
+    "evPct": 0.03114678298007112,
+    "fairProb": 0.4582874591022538,
+    "impliedProb": 0.4444444444444444,
+    "bestBook": "BetMGM",
+    "kellyStake": 0.59,
+    "sharp": true,
+    "commenceTime": "2026-08-13T17:36:00Z",
+    "isLock": true
+  },
   "picks": [],
   "special": null,
   "record": {
