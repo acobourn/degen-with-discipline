@@ -1,28 +1,28 @@
 {
-  "lastUpdated": "6:47 PM CT",
-  "edgesScanned": 62,
-  "bankroll": 95.06,
+  "lastUpdated": "10:04 AM CT",
+  "edgesScanned": 57,
+  "bankroll": 93.23,
   "lock": null,
   "picks": [],
   "special": null,
   "record": {
-    "lockStreak": 1,
+    "lockStreak": 0,
     "last10": "1-9",
-    "record": "3-7",
-    "settledCount": 14,
-    "profit": -4.94,
-    "avgClvPct": 2.2
+    "record": "3-9",
+    "settledCount": 16,
+    "profit": -6.77,
+    "avgClvPct": 1.8
   },
   "gradeRecords": {
     "B": {
-      "win": 50,
-      "sample": "L6",
-      "roi": "-1.0u"
+      "win": 43,
+      "sample": "L7",
+      "roi": "-1.6u"
     },
     "A-": {
       "win": 0,
-      "sample": "L2",
-      "roi": "-2.5u"
+      "sample": "L3",
+      "roi": "-3.7u"
     },
     "B+": {
       "win": 0,
@@ -36,19 +36,19 @@
     }
   },
   "clvSummary": {
-    "lockStreak": 1,
+    "lockStreak": 0,
     "last10": "1-9",
-    "record": "3-7",
-    "settledCount": 14,
-    "profit": -4.94,
-    "avgClvPct": 2.2
+    "record": "3-9",
+    "settledCount": 16,
+    "profit": -6.77,
+    "avgClvPct": 1.8
   },
   "attribution": [
     {
       "seg": "MLB",
-      "record": "1-7",
-      "avgClvPct": 3.2,
-      "profit": -5.62
+      "record": "1-9",
+      "avgClvPct": 2.3,
+      "profit": -7.45
     },
     {
       "seg": "Eliteserien",
