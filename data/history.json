@@ -17,12 +17,36 @@
       "decimalOdds": 1.95,
       "evPct": 0.04244314349412037,
       "fairProb": 0.5345862274328822,
-      "closingFairProb": 0.5345862274328822,
+      "closingFairProb": 0.4678814316556824,
       "grade": "B",
       "isLock": true,
       "stake": 0.36,
       "flaggedAt": "2026-09-01T01:43:49.168Z",
       "commenceTime": "2026-09-01T22:46:00Z"
+    },
+    {
+      "id": "baseball_mlb-fbeefe8aa3a2d5aefc1dccf34b4f3a13-totals-Over",
+      "gameId": "baseball_mlb-fbeefe8aa3a2d5aefc1dccf34b4f3a13-totals",
+      "oddsSportKey": "baseball_mlb",
+      "sport": "MLB",
+      "league": "MLB",
+      "market": "totals",
+      "matchup": "San Diego Padres vs Cincinnati Reds",
+      "homeTeam": "Cincinnati Reds",
+      "awayTeam": "San Diego Padres",
+      "pick": "Over 9.5",
+      "outcomeName": "Over 9.5",
+      "point": 9.5,
+      "americanOdds": 102,
+      "decimalOdds": 2.02,
+      "evPct": 0.044037437064025076,
+      "fairProb": 0.5168502163683293,
+      "closingFairProb": 0.5168502163683293,
+      "grade": "B",
+      "isLock": true,
+      "stake": 0.35,
+      "flaggedAt": "2026-09-01T17:46:16.420Z",
+      "commenceTime": "2026-09-02T16:41:00Z"
     }
   ],
   "settled": [
@@ -495,6 +519,7 @@
     "baseball_mlb-4f9df9d570d705ced380cfa799b0b640-totals-Over",
     "baseball_mlb-08b25f6a0f8cef91660f3825d3a5a34e-h2h-Milwaukee Brewers",
     "baseball_mlb-3e1c279359817c97e285db96732ef225-h2h-Seattle Mariners",
-    "baseball_mlb-16c1ff66c09048a0d06a0b9a90a78d7d-totals-Under"
+    "baseball_mlb-16c1ff66c09048a0d06a0b9a90a78d7d-totals-Under",
+    "baseball_mlb-fbeefe8aa3a2d5aefc1dccf34b4f3a13-totals-Over"
   ]
 }
