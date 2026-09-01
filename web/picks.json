@@ -1,8 +1,40 @@
 {
-  "lastUpdated": "6:10 PM CT",
-  "edgesScanned": 103,
+  "lastUpdated": "8:43 PM CT",
+  "edgesScanned": 74,
   "bankroll": 93.23,
-  "lock": null,
+  "lock": {
+    "id": "baseball_mlb-16c1ff66c09048a0d06a0b9a90a78d7d-totals-Under",
+    "sport": "MLB",
+    "sportLabel": "Baseball",
+    "league": "MLB",
+    "context": "Seattle Mariners @ Boston Red Sox · 5:46 PM CT",
+    "matchup": "Seattle Mariners vs Boston Red Sox",
+    "pick": "Under 8",
+    "betType": "Total",
+    "odds": "-105",
+    "openOdds": "-105",
+    "payoutNote": "$100 → $195",
+    "confidence": 71,
+    "grade": "B",
+    "takeShort": "Recent form (L10) says go; the price says value. Rare combo.",
+    "takeLong": "The sharp market gives this a real 53% shot to win, but BetMGM is only paying like 51% — a +4.2% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+    "dataPoints": 42,
+    "factors": [
+      {
+        "label": "Recent form (L10)",
+        "weight": 62,
+        "note": "Seattle Mariners 4-6 · Boston Red Sox 6-4"
+      }
+    ],
+    "evPct": 0.04244314349412037,
+    "fairProb": 0.5345862274328822,
+    "impliedProb": 0.5128205128205129,
+    "bestBook": "BetMGM",
+    "kellyStake": 0.36,
+    "sharp": false,
+    "commenceTime": "2026-09-01T22:46:00Z",
+    "isLock": true
+  },
   "picks": [],
   "special": null,
   "record": {

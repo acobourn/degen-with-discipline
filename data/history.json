@@ -1,5 +1,30 @@
 {
-  "open": [],
+  "open": [
+    {
+      "id": "baseball_mlb-16c1ff66c09048a0d06a0b9a90a78d7d-totals-Under",
+      "gameId": "baseball_mlb-16c1ff66c09048a0d06a0b9a90a78d7d-totals",
+      "oddsSportKey": "baseball_mlb",
+      "sport": "MLB",
+      "league": "MLB",
+      "market": "totals",
+      "matchup": "Seattle Mariners vs Boston Red Sox",
+      "homeTeam": "Boston Red Sox",
+      "awayTeam": "Seattle Mariners",
+      "pick": "Under 8",
+      "outcomeName": "Under 8",
+      "point": 8,
+      "americanOdds": -105,
+      "decimalOdds": 1.95,
+      "evPct": 0.04244314349412037,
+      "fairProb": 0.5345862274328822,
+      "closingFairProb": 0.5345862274328822,
+      "grade": "B",
+      "isLock": true,
+      "stake": 0.36,
+      "flaggedAt": "2026-09-01T01:43:49.168Z",
+      "commenceTime": "2026-09-01T22:46:00Z"
+    }
+  ],
   "settled": [
     {
       "id": "baseball_mlb-3e1c279359817c97e285db96732ef225-h2h-Seattle Mariners",
@@ -469,6 +494,7 @@
     "baseball_mlb-62d92e8ecf4bb3be97f03a09925eaec3-h2h-Houston Astros",
     "baseball_mlb-4f9df9d570d705ced380cfa799b0b640-totals-Over",
     "baseball_mlb-08b25f6a0f8cef91660f3825d3a5a34e-h2h-Milwaukee Brewers",
-    "baseball_mlb-3e1c279359817c97e285db96732ef225-h2h-Seattle Mariners"
+    "baseball_mlb-3e1c279359817c97e285db96732ef225-h2h-Seattle Mariners",
+    "baseball_mlb-16c1ff66c09048a0d06a0b9a90a78d7d-totals-Under"
   ]
 }
