@@ -1,45 +1,8 @@
 {
-  "lastUpdated": "12:46 PM CT",
-  "edgesScanned": 109,
+  "lastUpdated": "4:41 PM CT",
+  "edgesScanned": 137,
   "bankroll": 93.23,
-  "lock": {
-    "id": "baseball_mlb-fbeefe8aa3a2d5aefc1dccf34b4f3a13-totals-Over",
-    "sport": "MLB",
-    "sportLabel": "Baseball",
-    "league": "MLB",
-    "context": "San Diego Padres @ Cincinnati Reds · 11:41 AM CT",
-    "matchup": "San Diego Padres vs Cincinnati Reds",
-    "pick": "Over 9.5",
-    "betType": "Total",
-    "odds": "+102",
-    "openOdds": "+102",
-    "payoutNote": "$100 → $202",
-    "confidence": 72,
-    "grade": "B",
-    "takeShort": "The market blinked on Over 9.5. We didn't.",
-    "takeLong": "The sharp market gives this a real 52% shot to win, but FanDuel is only paying like 50% — a +4.4% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
-    "dataPoints": 42,
-    "factors": [
-      {
-        "label": "Recent form (L10)",
-        "weight": 50,
-        "note": "San Diego Padres 5-5 · Cincinnati Reds 4-6"
-      },
-      {
-        "label": "Probable pitcher (ERA)",
-        "weight": 60,
-        "note": "Cincinnati Reds 5.24 · San Diego Padres 4.02 ERA"
-      }
-    ],
-    "evPct": 0.044037437064025076,
-    "fairProb": 0.5168502163683293,
-    "impliedProb": 0.49504950495049505,
-    "bestBook": "FanDuel",
-    "kellyStake": 0.35,
-    "sharp": false,
-    "commenceTime": "2026-09-02T16:41:00Z",
-    "isLock": true
-  },
+  "lock": null,
   "picks": [],
   "special": null,
   "record": {
