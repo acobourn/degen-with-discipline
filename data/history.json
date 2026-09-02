@@ -41,7 +41,7 @@
       "decimalOdds": 2.02,
       "evPct": 0.044037437064025076,
       "fairProb": 0.5168502163683293,
-      "closingFairProb": 0.48937763112577964,
+      "closingFairProb": 0.5,
       "grade": "B",
       "isLock": true,
       "stake": 0.35,
