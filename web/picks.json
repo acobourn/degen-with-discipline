@@ -1,8 +1,40 @@
 {
-  "lastUpdated": "11:51 AM CT",
-  "edgesScanned": 101,
+  "lastUpdated": "4:11 PM CT",
+  "edgesScanned": 60,
   "bankroll": 92.52,
-  "lock": null,
+  "lock": {
+    "id": "soccer_brazil_serie_b-051e1a11d3682918ca6743bc186f25c2-h2h-Draw",
+    "sport": "SOC",
+    "sportLabel": "Soccer",
+    "league": "Brazil Série B",
+    "context": "Juventude @ Criciuma · 7:30 PM CT",
+    "matchup": "Juventude vs Criciuma",
+    "pick": "Draw",
+    "betType": "Moneyline",
+    "odds": "+195",
+    "openOdds": "+195",
+    "payoutNote": "$100 → $295",
+    "confidence": 72,
+    "grade": "B",
+    "takeShort": "Small edge, real edge. Draw is priced wrong and we noticed.",
+    "takeLong": "The sharp market gives this a real 35% shot to win, but BetMGM is only paying like 34% — a +3.7% edge in your favor. Team form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+    "dataPoints": 24,
+    "factors": [
+      {
+        "label": "Team form",
+        "weight": 50,
+        "note": "api-football"
+      }
+    ],
+    "evPct": 0.03688133512728142,
+    "fairProb": 0.351485198348231,
+    "impliedProb": 0.3389830508474576,
+    "bestBook": "BetMGM",
+    "kellyStake": 0.17,
+    "sharp": false,
+    "commenceTime": "2026-09-09T00:30:00Z",
+    "isLock": true
+  },
   "picks": [],
   "special": null,
   "record": {

@@ -1,5 +1,30 @@
 {
-  "open": [],
+  "open": [
+    {
+      "id": "soccer_brazil_serie_b-051e1a11d3682918ca6743bc186f25c2-h2h-Draw",
+      "gameId": "soccer_brazil_serie_b-051e1a11d3682918ca6743bc186f25c2-h2h",
+      "oddsSportKey": "soccer_brazil_serie_b",
+      "sport": "SOC",
+      "league": "Brazil Série B",
+      "market": "h2h",
+      "matchup": "Juventude vs Criciuma",
+      "homeTeam": "Criciuma",
+      "awayTeam": "Juventude",
+      "pick": "Draw",
+      "outcomeName": "Draw",
+      "point": null,
+      "americanOdds": 195,
+      "decimalOdds": 2.95,
+      "evPct": 0.03688133512728142,
+      "fairProb": 0.351485198348231,
+      "closingFairProb": 0.351485198348231,
+      "grade": "B",
+      "isLock": true,
+      "stake": 0.17,
+      "flaggedAt": "2026-09-06T21:11:16.214Z",
+      "commenceTime": "2026-09-09T00:30:00Z"
+    }
+  ],
   "settled": [
     {
       "id": "baseball_mlb-fbeefe8aa3a2d5aefc1dccf34b4f3a13-totals-Over",
@@ -527,6 +552,7 @@
     "baseball_mlb-08b25f6a0f8cef91660f3825d3a5a34e-h2h-Milwaukee Brewers",
     "baseball_mlb-3e1c279359817c97e285db96732ef225-h2h-Seattle Mariners",
     "baseball_mlb-16c1ff66c09048a0d06a0b9a90a78d7d-totals-Under",
-    "baseball_mlb-fbeefe8aa3a2d5aefc1dccf34b4f3a13-totals-Over"
+    "baseball_mlb-fbeefe8aa3a2d5aefc1dccf34b4f3a13-totals-Over",
+    "soccer_brazil_serie_b-051e1a11d3682918ca6743bc186f25c2-h2h-Draw"
   ]
 }
