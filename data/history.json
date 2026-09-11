@@ -1,5 +1,6 @@
 {
-  "open": [
+  "open": [],
+  "settled": [
     {
       "id": "soccer_brazil_serie_b-051e1a11d3682918ca6743bc186f25c2-h2h-Draw",
       "gameId": "soccer_brazil_serie_b-051e1a11d3682918ca6743bc186f25c2-h2h",
@@ -22,10 +23,12 @@
       "isLock": true,
       "stake": 0.17,
       "flaggedAt": "2026-09-06T21:11:16.214Z",
-      "commenceTime": "2026-09-09T00:30:00Z"
-    }
-  ],
-  "settled": [
+      "commenceTime": "2026-09-09T00:30:00Z",
+      "result": "V",
+      "profit": 0,
+      "clvEdge": 0.012502147500773386,
+      "settledAt": "2026-09-11T00:52:42.461Z"
+    },
     {
       "id": "baseball_mlb-fbeefe8aa3a2d5aefc1dccf34b4f3a13-totals-Over",
       "gameId": "baseball_mlb-fbeefe8aa3a2d5aefc1dccf34b4f3a13-totals",
