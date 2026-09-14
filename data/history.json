@@ -1,5 +1,30 @@
 {
-  "open": [],
+  "open": [
+    {
+      "id": "baseball_mlb-f367b112dcb4fea1a4ff67e49ee1f0cd-totals-Under",
+      "gameId": "baseball_mlb-f367b112dcb4fea1a4ff67e49ee1f0cd-totals",
+      "oddsSportKey": "baseball_mlb",
+      "sport": "MLB",
+      "league": "MLB",
+      "market": "totals",
+      "matchup": "New York Yankees vs Minnesota Twins",
+      "homeTeam": "Minnesota Twins",
+      "awayTeam": "New York Yankees",
+      "pick": "Under 7.5",
+      "outcomeName": "Under 7.5",
+      "point": 7.5,
+      "americanOdds": 106,
+      "decimalOdds": 2.06,
+      "evPct": 0.030000000000000027,
+      "fairProb": 0.5,
+      "closingFairProb": 0.5,
+      "grade": "B-",
+      "isLock": true,
+      "stake": 0.29,
+      "flaggedAt": "2026-09-14T19:13:21.601Z",
+      "commenceTime": "2026-09-15T23:40:00Z"
+    }
+  ],
   "settled": [
     {
       "id": "soccer_brazil_serie_b-051e1a11d3682918ca6743bc186f25c2-h2h-Draw",
@@ -556,6 +581,7 @@
     "baseball_mlb-3e1c279359817c97e285db96732ef225-h2h-Seattle Mariners",
     "baseball_mlb-16c1ff66c09048a0d06a0b9a90a78d7d-totals-Under",
     "baseball_mlb-fbeefe8aa3a2d5aefc1dccf34b4f3a13-totals-Over",
-    "soccer_brazil_serie_b-051e1a11d3682918ca6743bc186f25c2-h2h-Draw"
+    "soccer_brazil_serie_b-051e1a11d3682918ca6743bc186f25c2-h2h-Draw",
+    "baseball_mlb-f367b112dcb4fea1a4ff67e49ee1f0cd-totals-Under"
   ]
 }

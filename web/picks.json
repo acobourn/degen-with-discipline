@@ -1,8 +1,45 @@
 {
-  "lastUpdated": "7:50 PM CT",
-  "edgesScanned": 54,
+  "lastUpdated": "2:13 PM CT",
+  "edgesScanned": 115,
   "bankroll": 92.52,
-  "lock": null,
+  "lock": {
+    "id": "baseball_mlb-f367b112dcb4fea1a4ff67e49ee1f0cd-totals-Under",
+    "sport": "MLB",
+    "sportLabel": "Baseball",
+    "league": "MLB",
+    "context": "New York Yankees @ Minnesota Twins · 6:40 PM CT",
+    "matchup": "New York Yankees vs Minnesota Twins",
+    "pick": "Under 7.5",
+    "betType": "Total",
+    "odds": "+106",
+    "openOdds": "+106",
+    "payoutNote": "$100 → $206",
+    "confidence": 68,
+    "grade": "B-",
+    "takeShort": "Small edge, real edge. Under 7.5 is priced wrong and we noticed.",
+    "takeLong": "The sharp market gives this a real 50% shot to win, but FanDuel is only paying like 49% — a +3.0% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+    "dataPoints": 46,
+    "factors": [
+      {
+        "label": "Recent form (L10)",
+        "weight": 74,
+        "note": "New York Yankees 7-3 · Minnesota Twins 3-7"
+      },
+      {
+        "label": "Probable pitcher (ERA)",
+        "weight": 63,
+        "note": "Minnesota Twins 5.65 · New York Yankees 4.05 ERA"
+      }
+    ],
+    "evPct": 0.030000000000000027,
+    "fairProb": 0.5,
+    "impliedProb": 0.4854368932038835,
+    "bestBook": "FanDuel",
+    "kellyStake": 0.29,
+    "sharp": false,
+    "commenceTime": "2026-09-15T23:40:00Z",
+    "isLock": true
+  },
   "picks": [],
   "special": null,
   "record": {
