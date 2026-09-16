@@ -1,19 +1,24 @@
 {
-  "lastUpdated": "8:10 PM CT",
-  "edgesScanned": 88,
-  "bankroll": 92.52,
+  "lastUpdated": "1:06 PM CT",
+  "edgesScanned": 72,
+  "bankroll": 92.23,
   "lock": null,
   "picks": [],
   "special": null,
   "record": {
     "lockStreak": 0,
     "last10": "1-9",
-    "record": "3-11",
-    "settledCount": 19,
-    "profit": -7.48,
-    "avgClvPct": 1.3
+    "record": "3-12",
+    "settledCount": 20,
+    "profit": -7.77,
+    "avgClvPct": 1.4
   },
   "gradeRecords": {
+    "B-": {
+      "win": 0,
+      "sample": "L2",
+      "roi": "-0.7u"
+    },
     "B": {
       "win": 33,
       "sample": "L9",
@@ -28,33 +33,28 @@
       "win": 0,
       "sample": "L1",
       "roi": "-1.1u"
-    },
-    "B-": {
-      "win": 0,
-      "sample": "L1",
-      "roi": "-0.4u"
     }
   },
   "clvSummary": {
     "lockStreak": 0,
     "last10": "1-9",
-    "record": "3-11",
-    "settledCount": 19,
-    "profit": -7.48,
-    "avgClvPct": 1.3
+    "record": "3-12",
+    "settledCount": 20,
+    "profit": -7.77,
+    "avgClvPct": 1.4
   },
   "attribution": [
+    {
+      "seg": "MLB",
+      "record": "1-12",
+      "avgClvPct": 1.6,
+      "profit": -8.45
+    },
     {
       "seg": "Brazil Série B",
       "record": "0-0",
       "avgClvPct": 0.3,
       "profit": 0
-    },
-    {
-      "seg": "MLB",
-      "record": "1-11",
-      "avgClvPct": 1.6,
-      "profit": -8.16
     },
     {
       "seg": "Eliteserien",
