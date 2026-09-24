@@ -1,40 +1,8 @@
 {
-  "lastUpdated": "1:22 PM CT",
-  "edgesScanned": 54,
+  "lastUpdated": "5:11 PM CT",
+  "edgesScanned": 96,
   "bankroll": 92.23,
-  "lock": {
-    "id": "soccer_brazil_campeonato-61d9f8c88fe17a59b75af74b21f7e8c8-h2h-Draw",
-    "sport": "SOC",
-    "sportLabel": "Soccer",
-    "league": "Brazil Série A",
-    "context": "Atletico Mineiro @ Atletico Paranaense · 6:00 PM CT",
-    "matchup": "Atletico Mineiro vs Atletico Paranaense",
-    "pick": "Draw",
-    "betType": "Moneyline",
-    "odds": "+240",
-    "openOdds": "+240",
-    "payoutNote": "$100 → $340",
-    "confidence": 66,
-    "grade": "B-",
-    "takeShort": "Small edge, real edge. Draw is priced wrong and we noticed.",
-    "takeLong": "The sharp market gives this a real 30% shot to win, but FanDuel is only paying like 29% — a +3.2% edge in your favor. Team form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
-    "dataPoints": 12,
-    "factors": [
-      {
-        "label": "Team form",
-        "weight": 50,
-        "note": "api-football"
-      }
-    ],
-    "evPct": 0.031732224671852105,
-    "fairProb": 0.30345065431525065,
-    "impliedProb": 0.29411764705882354,
-    "bestBook": "FanDuel",
-    "kellyStake": 0.11,
-    "sharp": false,
-    "commenceTime": "2026-10-08T23:00:00Z",
-    "isLock": true
-  },
+  "lock": null,
   "picks": [],
   "special": null,
   "record": {
