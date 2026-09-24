@@ -1,5 +1,30 @@
 {
-  "open": [],
+  "open": [
+    {
+      "id": "soccer_brazil_campeonato-61d9f8c88fe17a59b75af74b21f7e8c8-h2h-Draw",
+      "gameId": "soccer_brazil_campeonato-61d9f8c88fe17a59b75af74b21f7e8c8-h2h",
+      "oddsSportKey": "soccer_brazil_campeonato",
+      "sport": "SOC",
+      "league": "Brazil Série A",
+      "market": "h2h",
+      "matchup": "Atletico Mineiro vs Atletico Paranaense",
+      "homeTeam": "Atletico Paranaense",
+      "awayTeam": "Atletico Mineiro",
+      "pick": "Draw",
+      "outcomeName": "Draw",
+      "point": null,
+      "americanOdds": 240,
+      "decimalOdds": 3.4,
+      "evPct": 0.031732224671852105,
+      "fairProb": 0.30345065431525065,
+      "closingFairProb": 0.30345065431525065,
+      "grade": "B-",
+      "isLock": true,
+      "stake": 0.11,
+      "flaggedAt": "2026-09-24T18:22:13.738Z",
+      "commenceTime": "2026-10-08T23:00:00Z"
+    }
+  ],
   "settled": [
     {
       "id": "baseball_mlb-f367b112dcb4fea1a4ff67e49ee1f0cd-totals-Under",
@@ -585,6 +610,7 @@
     "baseball_mlb-16c1ff66c09048a0d06a0b9a90a78d7d-totals-Under",
     "baseball_mlb-fbeefe8aa3a2d5aefc1dccf34b4f3a13-totals-Over",
     "soccer_brazil_serie_b-051e1a11d3682918ca6743bc186f25c2-h2h-Draw",
-    "baseball_mlb-f367b112dcb4fea1a4ff67e49ee1f0cd-totals-Under"
+    "baseball_mlb-f367b112dcb4fea1a4ff67e49ee1f0cd-totals-Under",
+    "soccer_brazil_campeonato-61d9f8c88fe17a59b75af74b21f7e8c8-h2h-Draw"
   ]
 }
