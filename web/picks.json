@@ -1,8 +1,40 @@
 {
-  "lastUpdated": "8:17 PM CT",
-  "edgesScanned": 60,
+  "lastUpdated": "1:27 PM CT",
+  "edgesScanned": 76,
   "bankroll": 92.23,
-  "lock": null,
+  "lock": {
+    "id": "baseball_mlb-b9398adf1faaf0c53a1212c75565dff6-totals-Over",
+    "sport": "MLB",
+    "sportLabel": "Baseball",
+    "league": "MLB",
+    "context": "New York Mets @ Washington Nationals · 3:06 PM CT",
+    "matchup": "New York Mets vs Washington Nationals",
+    "pick": "Over 8.5",
+    "betType": "Total",
+    "odds": "+100",
+    "openOdds": "+100",
+    "payoutNote": "$100 → $200",
+    "confidence": 75,
+    "grade": "B+",
+    "takeShort": "Small edge, real edge. Over 8.5 is priced wrong and we noticed.",
+    "takeLong": "The sharp market gives this a real 52% shot to win, but FanDuel is only paying like 50% — a +4.9% edge in your favor. Recent form (L10) backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+    "dataPoints": 32,
+    "factors": [
+      {
+        "label": "Recent form (L10)",
+        "weight": 74,
+        "note": "New York Mets 4-6 · Washington Nationals 7-3"
+      }
+    ],
+    "evPct": 0.04946497820170759,
+    "fairProb": 0.5247324891008538,
+    "impliedProb": 0.5,
+    "bestBook": "FanDuel",
+    "kellyStake": 0.4,
+    "sharp": false,
+    "commenceTime": "2026-09-26T20:06:00Z",
+    "isLock": true
+  },
   "picks": [],
   "special": null,
   "record": {

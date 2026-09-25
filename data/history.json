@@ -23,6 +23,30 @@
       "stake": 0.11,
       "flaggedAt": "2026-09-24T18:22:13.738Z",
       "commenceTime": "2026-10-08T23:00:00Z"
+    },
+    {
+      "id": "baseball_mlb-b9398adf1faaf0c53a1212c75565dff6-totals-Over",
+      "gameId": "baseball_mlb-b9398adf1faaf0c53a1212c75565dff6-totals",
+      "oddsSportKey": "baseball_mlb",
+      "sport": "MLB",
+      "league": "MLB",
+      "market": "totals",
+      "matchup": "New York Mets vs Washington Nationals",
+      "homeTeam": "Washington Nationals",
+      "awayTeam": "New York Mets",
+      "pick": "Over 8.5",
+      "outcomeName": "Over 8.5",
+      "point": 8.5,
+      "americanOdds": 100,
+      "decimalOdds": 2,
+      "evPct": 0.04946497820170759,
+      "fairProb": 0.5247324891008538,
+      "closingFairProb": 0.5247324891008538,
+      "grade": "B+",
+      "isLock": true,
+      "stake": 0.4,
+      "flaggedAt": "2026-09-25T18:27:16.709Z",
+      "commenceTime": "2026-09-26T20:06:00Z"
     }
   ],
   "settled": [
@@ -611,6 +635,7 @@
     "baseball_mlb-fbeefe8aa3a2d5aefc1dccf34b4f3a13-totals-Over",
     "soccer_brazil_serie_b-051e1a11d3682918ca6743bc186f25c2-h2h-Draw",
     "baseball_mlb-f367b112dcb4fea1a4ff67e49ee1f0cd-totals-Under",
-    "soccer_brazil_campeonato-61d9f8c88fe17a59b75af74b21f7e8c8-h2h-Draw"
+    "soccer_brazil_campeonato-61d9f8c88fe17a59b75af74b21f7e8c8-h2h-Draw",
+    "baseball_mlb-b9398adf1faaf0c53a1212c75565dff6-totals-Over"
   ]
 }
