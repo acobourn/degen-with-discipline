@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "8:45 PM CT",
-  "edgesScanned": 30,
+  "lastUpdated": "3:26 PM CT",
+  "edgesScanned": 75,
   "bankroll": 91.83,
   "lock": null,
   "picks": [],
@@ -9,7 +9,7 @@
     "lockStreak": 0,
     "last10": "1-9",
     "record": "3-13",
-    "settledCount": 21,
+    "settledCount": 22,
     "profit": -8.17,
     "avgClvPct": 1.2
   },
@@ -39,11 +39,17 @@
     "lockStreak": 0,
     "last10": "1-9",
     "record": "3-13",
-    "settledCount": 21,
+    "settledCount": 22,
     "profit": -8.17,
     "avgClvPct": 1.2
   },
   "attribution": [
+    {
+      "seg": "Brazil Série A",
+      "record": "0-0",
+      "avgClvPct": 0.1,
+      "profit": 0
+    },
     {
       "seg": "MLB",
       "record": "1-13",
