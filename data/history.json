@@ -1,5 +1,30 @@
 {
-  "open": [],
+  "open": [
+    {
+      "id": "soccer_brazil_serie_b-2c110db07c16037230cdbfb1bb6ccf72-h2h-Criciuma",
+      "gameId": "soccer_brazil_serie_b-2c110db07c16037230cdbfb1bb6ccf72-h2h",
+      "oddsSportKey": "soccer_brazil_serie_b",
+      "sport": "SOC",
+      "league": "Brazil Série B",
+      "market": "h2h",
+      "matchup": "Grêmio Novorizontino vs Criciuma",
+      "homeTeam": "Criciuma",
+      "awayTeam": "Grêmio Novorizontino",
+      "pick": "Criciuma ML",
+      "outcomeName": "Criciuma",
+      "point": null,
+      "americanOdds": 150,
+      "decimalOdds": 2.5,
+      "evPct": 0.03911792844636719,
+      "fairProb": 0.41564717137854684,
+      "closingFairProb": 0.41564717137854684,
+      "grade": "B",
+      "isLock": true,
+      "stake": 0.21,
+      "flaggedAt": "2026-11-08T18:44:40.778Z",
+      "commenceTime": "2026-11-14T19:30:00Z"
+    }
+  ],
   "settled": [
     {
       "id": "soccer_brazil_campeonato-61d9f8c88fe17a59b75af74b21f7e8c8-h2h-Draw",
@@ -643,6 +668,7 @@
     "soccer_brazil_serie_b-051e1a11d3682918ca6743bc186f25c2-h2h-Draw",
     "baseball_mlb-f367b112dcb4fea1a4ff67e49ee1f0cd-totals-Under",
     "soccer_brazil_campeonato-61d9f8c88fe17a59b75af74b21f7e8c8-h2h-Draw",
-    "baseball_mlb-b9398adf1faaf0c53a1212c75565dff6-totals-Over"
+    "baseball_mlb-b9398adf1faaf0c53a1212c75565dff6-totals-Over",
+    "soccer_brazil_serie_b-2c110db07c16037230cdbfb1bb6ccf72-h2h-Criciuma"
   ]
 }

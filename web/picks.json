@@ -1,8 +1,40 @@
 {
-  "lastUpdated": "8:10 PM CT",
-  "edgesScanned": 27,
+  "lastUpdated": "12:44 PM CT",
+  "edgesScanned": 51,
   "bankroll": 91.83,
-  "lock": null,
+  "lock": {
+    "id": "soccer_brazil_serie_b-2c110db07c16037230cdbfb1bb6ccf72-h2h-Criciuma",
+    "sport": "SOC",
+    "sportLabel": "Soccer",
+    "league": "Brazil Série B",
+    "context": "Grêmio Novorizontino @ Criciuma · 1:30 PM CT",
+    "matchup": "Grêmio Novorizontino vs Criciuma",
+    "pick": "Criciuma ML",
+    "betType": "Moneyline",
+    "odds": "+150",
+    "openOdds": "+150",
+    "payoutNote": "$100 → $250",
+    "confidence": 72,
+    "grade": "B",
+    "takeShort": "The market blinked on Criciuma ML. We didn't.",
+    "takeLong": "The sharp market gives this a real 42% shot to win, but BetMGM is only paying like 40% — a +3.9% edge in your favor. Team form backs the lean, and the sharper books agree, so this isn't a hunch, it's a mispriced line. Bet the math.",
+    "dataPoints": 18,
+    "factors": [
+      {
+        "label": "Team form",
+        "weight": 50,
+        "note": "api-football"
+      }
+    ],
+    "evPct": 0.03911792844636719,
+    "fairProb": 0.41564717137854684,
+    "impliedProb": 0.4,
+    "bestBook": "BetMGM",
+    "kellyStake": 0.21,
+    "sharp": false,
+    "commenceTime": "2026-11-14T19:30:00Z",
+    "isLock": true
+  },
   "picks": [],
   "special": null,
   "record": {
