@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "8:37 PM CT",
-  "edgesScanned": 90,
+  "lastUpdated": "5:17 PM CT",
+  "edgesScanned": 60,
   "bankroll": 91.83,
   "lock": null,
   "picks": [],
@@ -9,9 +9,9 @@
     "lockStreak": 0,
     "last10": "1-9",
     "record": "3-13",
-    "settledCount": 22,
+    "settledCount": 23,
     "profit": -8.17,
-    "avgClvPct": 1.2
+    "avgClvPct": 0.9
   },
   "gradeRecords": {
     "B+": {
@@ -39,11 +39,17 @@
     "lockStreak": 0,
     "last10": "1-9",
     "record": "3-13",
-    "settledCount": 22,
+    "settledCount": 23,
     "profit": -8.17,
-    "avgClvPct": 1.2
+    "avgClvPct": 0.9
   },
   "attribution": [
+    {
+      "seg": "Brazil Série B",
+      "record": "0-0",
+      "avgClvPct": -1.1,
+      "profit": 0
+    },
     {
       "seg": "Brazil Série A",
       "record": "0-0",
@@ -55,12 +61,6 @@
       "record": "1-13",
       "avgClvPct": 1.4,
       "profit": -8.85
-    },
-    {
-      "seg": "Brazil Série B",
-      "record": "0-0",
-      "avgClvPct": 0.3,
-      "profit": 0
     },
     {
       "seg": "Eliteserien",

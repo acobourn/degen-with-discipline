@@ -1,5 +1,6 @@
 {
-  "open": [
+  "open": [],
+  "settled": [
     {
       "id": "soccer_brazil_serie_b-2c110db07c16037230cdbfb1bb6ccf72-h2h-Criciuma",
       "gameId": "soccer_brazil_serie_b-2c110db07c16037230cdbfb1bb6ccf72-h2h",
@@ -22,10 +23,12 @@
       "isLock": true,
       "stake": 0.21,
       "flaggedAt": "2026-11-08T18:44:40.778Z",
-      "commenceTime": "2026-11-14T19:30:00Z"
-    }
-  ],
-  "settled": [
+      "commenceTime": "2026-11-14T19:30:00Z",
+      "result": "V",
+      "profit": 0,
+      "clvEdge": -0.053202708291917866,
+      "settledAt": "2026-11-16T23:17:23.417Z"
+    },
     {
       "id": "soccer_brazil_campeonato-61d9f8c88fe17a59b75af74b21f7e8c8-h2h-Draw",
       "gameId": "soccer_brazil_campeonato-61d9f8c88fe17a59b75af74b21f7e8c8-h2h",
